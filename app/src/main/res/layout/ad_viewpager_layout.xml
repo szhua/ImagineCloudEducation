@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/ad_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+    </android.support.v4.view.ViewPager>
+
+
+<RelativeLayout
+    android:layout_gravity="bottom"
+    android:background="@color/translucent"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/common30dp">
+
+    <com.runer.liabary.indicator.CircleIndicator
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/common_left_right_margin"
+        app:ci_animator="@animator/indicator_animator"
+        app:ci_drawable="@drawable/indicator_selected_shape"
+        app:ci_drawable_unselected="@drawable/indicator_unselected_shape"
+        app:ci_height="3dp"
+        app:ci_margin="3dp"
+        app:ci_width="14dp">
+    </com.runer.liabary.indicator.CircleIndicator>
+
+
+
+    <TextView
+        android:id="@+id/ad_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common30dp"
+        android:layout_toLeftOf="@id/indicator"
+        android:singleLine="true"
+        android:text="就是这个title特别的好"
+        android:textSize="@dimen/text_size_14sp"
+        android:textColor="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/common_left_right_margin"
+        android:paddingRight="@dimen/common_left_right_margin"
+        />
+
+</RelativeLayout>
+
+</FrameLayout>

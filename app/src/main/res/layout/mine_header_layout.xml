@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View style="@style/Divider" android:layout_marginTop="@dimen/common10dp"></View>
+
+
+    <LinearLayout
+        android:id="@+id/header_container"
+        android:paddingTop="@dimen/common6dp"
+        android:paddingBottom="@dimen/common6dp"
+        android:paddingLeft="@dimen/common_left_right_margin"
+        android:paddingRight="@dimen/common_left_right_margin"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/header"
+            android:layout_width="@dimen/common80dp"
+            android:src="@mipmap/ic_launcher_round"
+            android:scaleType="centerCrop"
+            android:layout_height="@dimen/common80dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common80dp">
+            <TextView
+                android:id="@+id/username"
+                android:layout_marginTop="@dimen/common_left_right_margin"
+                style="@style/normal_text_view_title"
+                android:text="暂无用户名"
+                 android:layout_marginLeft="@dimen/common_left_right_margin"
+                />
+
+            <ImageView
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow_larger"
+                />
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:id="@+id/level"
+               android:layout_marginBottom="@dimen/common_left_right_margin"
+                style="@style/normal_text_view_title"
+                android:text="会员V1"
+                android:paddingLeft="@dimen/common6dp"
+                android:paddingRight="@dimen/common6dp"
+                android:paddingTop="@dimen/common2dp"
+                android:paddingBottom="@dimen/common2dp"
+                android:textSize="@dimen/text_size_12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/level_shape"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View style="@style/Divider" android:layout_marginBottom="@dimen/common10dp"></View>
+
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:paddingTop="@dimen/common6dp"
+        android:paddingBottom="@dimen/common8dp"
+        android:paddingLeft="@dimen/common_left_right_margin"
+        android:paddingRight="@dimen/common_left_right_margin"
+        android:layout_height="@dimen/home_header_height">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_bg"
+            android:drawableLeft="@drawable/search_theme"
+            android:paddingLeft="@dimen/common_left_right_margin"
+            android:paddingRight="@dimen/common_left_right_margin"
+            android:singleLine="true"
+            android:hint="请输入搜索内容"
+            android:textColorHint="@color/text_color_light"
+            android:textSize="@dimen/text_size_14sp"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/common4dp"
+            android:textColor="@color/text_color_normal"
+            android:imeOptions="actionSearch"
+            />
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/fragment_list_layout"></include>
+
+
+
+</LinearLayout>

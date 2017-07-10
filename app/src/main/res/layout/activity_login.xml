@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.LoginActivity">
+
+    <include layout="@layout/header_layout"></include>
+
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <EditText
+                  android:id="@+id/edit_phone_num"
+                  style="@style/normal_edit_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/common46dp"
+                  android:layout_marginTop="@dimen/common30dp"
+                  android:drawableLeft="@drawable/reg_phone"
+                  android:drawablePadding="@dimen/common10dp"
+                  android:hint="请输入手机号"
+                  android:inputType="phone"
+                  android:text="18854171513"
+                  android:maxLength="11"
+                  android:singleLine="true" />
+              <View
+                  style="@style/Divider_1dp"
+                  android:layout_marginLeft="@dimen/common_left_right_margin"
+                  android:layout_marginRight="@dimen/common_left_right_margin"></View>
+
+              <EditText
+                  android:id="@+id/edit_pass"
+                  style="@style/normal_edit_style"
+                  android:layout_width="match_parent"
+                  android:layout_height="@dimen/common46dp"
+                  android:drawableLeft="@drawable/reg_pas"
+                  android:drawablePadding="@dimen/common10dp"
+                  android:hint="请输入您的密码"
+                  android:text="123456"
+                  android:inputType="textPassword"
+                  android:singleLine="true" />
+              <View
+                  style="@style/Divider_1dp"
+                  android:layout_marginLeft="@dimen/common_left_right_margin"
+                  android:layout_marginRight="@dimen/common_left_right_margin"></View>
+
+              <TextView
+
+                  android:id="@+id/login_bt"
+                  style="@style/normal_bt_style"
+                  android:layout_marginTop="@dimen/common30dp"
+                  android:text="登录" />
+
+
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/common_top_bottom_margin"
+                  android:paddingLeft="@dimen/common_left_right_margin"
+                  android:paddingRight="@dimen/common_left_right_margin">
+
+                  <TextView
+                      android:id="@+id/forget_pass_bt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:paddingBottom="@dimen/common_top_bottom_margin"
+                      android:paddingTop="@dimen/common_top_bottom_margin"
+                      android:text="忘记密码？"
+                      android:textColor="@color/text_color_theme"
+                      android:textSize="@dimen/text_size_14sp" />
+
+
+                  <TextView
+                      android:id="@+id/register_bt"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:paddingBottom="@dimen/common_top_bottom_margin"
+                      android:paddingLeft="@dimen/common10dp"
+                      android:paddingRight="@dimen/common10dp"
+                      android:paddingTop="@dimen/common_top_bottom_margin"
+                      android:text="注册"
+                      android:textColor="@color/text_color_theme"
+                      android:textSize="@dimen/text_size_14sp"
+                      android:layout_alignParentTop="true"
+                      android:layout_alignParentRight="true"
+                      android:layout_alignParentEnd="true" />
+              </RelativeLayout>
+
+          </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/common50dp"
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    style="@style/normal_text_view_content"
+                    android:text="使用第三方登录"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginBottom="@dimen/common20dp"
+                    android:textSize="@dimen/text_size_16sp"
+                    />
+
+
+             <LinearLayout
+                 android:paddingLeft="@dimen/common_left_right_margin"
+                 android:paddingRight="@dimen/common_left_right_margin"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content">
+
+
+                 <TextView
+                     android:id="@+id/wechat_login"
+                     style="@style/normal_text_view_content"
+                     android:drawableTop="@drawable/reg_wechat"
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+                     android:text="微信登录"
+                     android:gravity="center"
+                     android:drawablePadding="@dimen/common6dp"
+                     android:layout_height="wrap_content" />
+
+                 <TextView
+                     android:id="@+id/qq_login"
+                     style="@style/normal_text_view_content"
+                     android:drawableTop="@drawable/reg_qq"
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+                     android:text="QQ登录"
+                     android:gravity="center"
+                     android:drawablePadding="@dimen/common6dp"
+                     android:layout_height="wrap_content" />
+
+                 <TextView
+                     android:id="@+id/sina_login"
+                     style="@style/normal_text_view_content"
+                     android:drawableTop="@drawable/reg_sina"
+                     android:layout_width="0dp"
+                     android:layout_weight="1"
+                     android:text="微博登录"
+                     android:gravity="center"
+                     android:drawablePadding="@dimen/common6dp"
+                     android:layout_height="wrap_content" />
+             </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+        </FrameLayout>
+
+
+
+
+
+
+</LinearLayout>

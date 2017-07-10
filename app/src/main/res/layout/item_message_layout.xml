@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/common_top_bottom_margin"
+    android:paddingBottom="@dimen/common_top_bottom_margin"
+    android:paddingLeft="@dimen/common_left_right_margin"
+    android:paddingRight="@dimen/common_left_right_margin"
+    android:background="@drawable/white_press_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/msg_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/msg_icon"
+            android:text="会议提醒"
+            android:drawablePadding="@dimen/common4dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_14sp"
+
+            />
+
+        <TextView
+            android:text="2018-09-09"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/text_color_light"
+            android:textSize="@dimen/text_size_12sp"
+          style="@style/normal_text_view_content" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_marginLeft="@dimen/common20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/normal_text_view_title"
+        android:text="关于人才的一席话是非常总要的"
+        android:layout_marginTop="@dimen/common_top_bottom_margin"
+        />
+
+    <TextView
+        android:id="@+id/theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common20dp"
+        style="@style/normal_text_view_content"
+        android:text="主题：吃饭睡觉打豆豆"
+        android:layout_marginTop="@dimen/common_top_bottom_margin"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.SignUpActivity">
+
+    <include layout="@layout/header_layout"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/common_left_right_margin"
+                android:paddingRight="@dimen/common_left_right_margin">
+
+                <TextView
+                    style="@style/normal_text_view_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/common50dp"
+                    android:layout_marginRight="@dimen/common0dp"
+                    android:gravity="center_vertical"
+                    android:text="会议名称" />
+
+                <TextView
+                    style="@style/normal_text_view_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:singleLine="true"
+                    android:text="真是个好的天气哈" />
+
+            </RelativeLayout>
+
+
+            <View style="@style/Divider"></View>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="姓名"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入姓名"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="电话"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入电话"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="邮箱"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入邮箱"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common46dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/common_left_right_margin"
+                    android:gravity="center"
+                    android:text="性别"
+                    android:textColor="@color/text_color_normal"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/sin_check_selector"
+                        android:drawablePadding="@dimen/common2dp"
+                        android:paddingLeft="@dimen/common_left_right_margin"
+                        android:paddingRight="@dimen/common_left_right_margin"
+                        android:text="男"
+                        android:textColor="@color/text_color_gray"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/sin_check_selector"
+                        android:drawablePadding="@dimen/common2dp"
+                        android:paddingLeft="@dimen/common_left_right_margin"
+                        android:paddingRight="@dimen/common_left_right_margin"
+                        android:text="女"
+                        android:textColor="@color/text_color_gray"
+                        android:textSize="@dimen/text_size_14sp" />
+
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+            <View style="@style/Divider"></View>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="民族"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入民族"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="学校"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入学校"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common46dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/common_left_right_margin"
+                    android:gravity="center"
+                    android:text="住宿"
+                    android:textColor="@color/text_color_normal"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/sin_check_selector"
+                        android:drawablePadding="@dimen/common2dp"
+                        android:paddingLeft="@dimen/common_left_right_margin"
+                        android:paddingRight="@dimen/common_left_right_margin"
+                        android:text="单住"
+                        android:textColor="@color/text_color_gray"
+                        android:textSize="@dimen/text_size_14sp" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/sin_check_selector"
+                        android:drawablePadding="@dimen/common2dp"
+                        android:paddingLeft="@dimen/common_left_right_margin"
+                        android:paddingRight="@dimen/common_left_right_margin"
+                        android:text="合住"
+                        android:textColor="@color/text_color_gray"
+                        android:textSize="@dimen/text_size_14sp" />
+
+
+                </RadioGroup>
+
+
+            </RelativeLayout>
+
+            <View style="@style/Divider"></View>
+
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="@dimen/common_top_bottom_margin"></View>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="发票抬头"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入发票抬头"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="纳税人识别号"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入纳税人识别号"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="地址"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入学校地址"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="开户行"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入开户行"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="开户行账号"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入开户行账号"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <View style="@style/Divider" android:layout_marginTop="@dimen/common_top_bottom_margin"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/common20dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/common_top_bottom_margin"
+                    android:layout_marginLeft="@dimen/common_left_right_margin"
+                    android:layout_marginTop="@dimen/common_top_bottom_margin"
+                    android:text="其他要求"
+                    android:textColor="@color/text_color_normal"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common100dp"
+                    android:layout_marginBottom="@dimen/common20dp"
+                    android:gravity="left|top"
+                    android:textSize="@dimen/text_size_14sp"
+                    android:textColor="@color/text_color_normal"
+                    android:textColorHint="@color/text_color_light"
+                    android:layout_marginLeft="@dimen/common_left_right_margin"
+                    android:layout_marginRight="@dimen/common_left_right_margin"
+                    android:background="@drawable/edit_light_gray" />
+
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/normal_bt_style"
+                android:text="下一步"
+                android:id="@+id/next_bt"
+                android:layout_marginBottom="@dimen/common30dp"
+                ></TextView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

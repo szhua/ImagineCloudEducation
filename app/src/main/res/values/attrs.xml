@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NormalInputEditText">
+
+        <attr name="left_text" format="string"></attr>
+        <attr name="right_hint" format="string"></attr>
+        <attr name="left_text_color" format="color"></attr>
+        <attr name="right_hint_color" format="color"></attr>
+        <attr name="input_type" format="string"></attr>
+        <attr name="editable" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="StateTextView">
+        <attr name="left_selected_icon" format="reference"></attr>
+        <attr name="left_un_selected_icon" format="reference"></attr>
+        <attr name="text_selected_color" format="color"></attr>
+        <attr name="text_un_selected_color" format="color"></attr>
+    </declare-styleable>
+
+</resources>

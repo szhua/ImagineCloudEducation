@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.CompleteUserInfoActivity">
+
+    <include layout="@layout/header_layout"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_marginTop="@dimen/common20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/common_top_bottom_margin"
+                android:paddingLeft="@dimen/common_left_right_margin"
+                android:paddingRight="@dimen/common_left_right_margin"
+                android:paddingTop="@dimen/common_top_bottom_margin">
+
+                <TextView
+                    style="@style/normal_text_view_title"
+                    android:layout_centerVertical="true"
+                    android:text="头像" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/header_bt"
+                    android:layout_width="@dimen/common70dp"
+                    android:layout_height="@dimen/common70dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/test" />
+            </RelativeLayout>
+
+            <View style="@style/Divider"></View>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/email_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="邮箱"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入邮箱"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/school_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="学校"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请输入学校"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/common6dp"
+                android:layout_marginTop="@dimen/common60dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="点击完成，即表示您同意"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:id="@+id/register_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/common4dp"
+                    android:paddingLeft="@dimen/common4dp"
+                    android:paddingRight="@dimen/common4dp"
+                    android:paddingTop="@dimen/common4dp"
+                    android:text="用户协议"
+                    android:textColor="@color/text_color_theme"
+                    android:textSize="@dimen/text_size_14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/finish_bt"
+                style="@style/normal_bt_style"
+                android:text="完成"></TextView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

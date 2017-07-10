@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.FeedBackActivity">
+
+    <include
+        layout="@layout/header_layout"
+        ></include>
+
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_advice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/common250dp"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/common_left_right_margin"
+                android:layout_marginBottom="@dimen/common_left_right_margin"
+                android:gravity="left|top"
+                android:hint="@string/advice_notice"
+                android:textSize="@dimen/text_size_14sp"
+                android:paddingLeft="@dimen/common_left_right_margin"
+                android:paddingRight="@dimen/common_left_right_margin"
+                android:paddingTop="@dimen/common_top_bottom_margin"
+                android:paddingBottom="@dimen/common_top_bottom_margin"
+                android:textColor="@color/text_color_normal"
+                />
+
+
+            <TextView
+                android:layout_marginTop="@dimen/common30dp"
+                android:id="@+id/commit_bt"
+                style="@style/normal_bt_style"
+                android:text="提交"
+                ></TextView>
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

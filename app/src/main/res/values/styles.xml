@@ -1,0 +1,82 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+
+    <style name="TranslucentWindow" parent="AppTheme">
+        <item name="android:windowBackground">@color/translucent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+
+    <style name="Divider">
+        <item name="android:background">@color/divider</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.0px</item>
+    </style>
+
+    <style name="Divider_1dp">
+        <item name="android:background">@color/divider_1dp</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1.2px</item>
+    </style>
+    <style name="VerticalDivider">
+        <item name="android:background">@color/divider</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:layout_width">1.0px</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!--通用edittext-->
+    <style name="normal_edit_style">
+        <item name="android:textColor">@color/text_color_normal</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textColorHint">@color/text_color_light</item>
+        <item name="android:singleLine"> true</item>
+        <item name="android:paddingLeft">@dimen/common_left_right_margin</item>
+        <item name="android:paddingRight">@dimen/common_left_right_margin</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+
+    <style name="normal_text_view_title">
+        <item name="android:textColor">@color/text_color_normal</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/common_left_right_margin</item>
+    </style>
+
+    <style name="normal_text_view_content">
+        <item name="android:textColor">@color/text_color_gray</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:layout_marginRight">@dimen/common_left_right_margin</item>
+    </style>
+
+    <style name="normal_bt_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/nor_bt_shape</item>
+        <item name="android:layout_marginLeft">@dimen/common_left_right_margin</item>
+        <item name="android:layout_marginRight">@dimen/common_left_right_margin</item>
+        <item name="android:layout_height">@dimen/common_bt_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+</resources>

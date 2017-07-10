@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ImagineCloudEducation.iml" filepath="$PROJECT_DIR$/ImagineCloudEducation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liabary/liabary.iml" filepath="$PROJECT_DIR$/liabary/liabary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/runer_net/runer_net.iml" filepath="$PROJECT_DIR$/runer_net/runer_net.iml" />
+      <module fileurl="file://$PROJECT_DIR$/um/um.iml" filepath="$PROJECT_DIR$/um/um.iml" />
+    </modules>
+  </component>
+</project>

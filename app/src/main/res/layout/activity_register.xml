@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.imagine.cloud.ui.activity.RegisterActivity">
+
+    <include layout="@layout/header_layout"></include>
+
+
+    <EditText
+        android:id="@+id/edit_phone_num"
+        style="@style/normal_edit_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common46dp"
+        android:layout_marginTop="@dimen/common30dp"
+        android:drawableLeft="@drawable/reg_phone"
+        android:drawablePadding="@dimen/common10dp"
+        android:hint="请输入手机号"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:singleLine="true" />
+
+    <View
+        style="@style/Divider"
+        android:layout_marginLeft="@dimen/common_left_right_margin"></View>
+
+
+    <EditText
+        android:id="@+id/edit_name"
+        style="@style/normal_edit_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common46dp"
+        android:drawableLeft="@drawable/reg_code"
+        android:drawablePadding="@dimen/common10dp"
+        android:hint="请输入您的姓名"
+        android:maxLength="11"
+        android:singleLine="true" />
+
+    <View
+        style="@style/Divider"
+        android:layout_marginLeft="@dimen/common_left_right_margin"></View>
+
+
+    <EditText
+        android:id="@+id/edit_pass"
+        style="@style/normal_edit_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common46dp"
+        android:drawableLeft="@drawable/reg_pas"
+        android:drawablePadding="@dimen/common10dp"
+        android:hint="请输入您的密码(15个字符以内)"
+        android:maxLength="11"
+        android:inputType="textPassword"
+        android:singleLine="true" />
+
+    <View
+        style="@style/Divider"
+        android:layout_marginLeft="@dimen/common_left_right_margin"></View>
+
+    <EditText
+        android:id="@+id/edit_pass_confirm"
+        style="@style/normal_edit_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common46dp"
+        android:drawableLeft="@drawable/reg_pas"
+        android:drawablePadding="@dimen/common10dp"
+        android:hint="请再次确认您的密码"
+        android:maxLength="11"
+        android:inputType="textPassword"
+        android:singleLine="true" />
+
+    <View
+        style="@style/Divider"
+        android:layout_marginLeft="@dimen/common_left_right_margin"></View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common46dp"
+        android:weightSum="5">
+
+        <EditText
+            android:id="@+id/eidt_code"
+            style="@style/normal_edit_style"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/common46dp"
+            android:layout_weight="3"
+            android:drawableLeft="@drawable/reg_code"
+            android:drawablePadding="@dimen/common10dp"
+            android:hint="请输入您的验证码"
+            android:maxLength="11"
+            android:inputType="number"
+            android:singleLine="true" />
+
+        <View
+            style="@style/VerticalDivider"
+            android:layout_marginBottom="@dimen/common_top_bottom_margin"
+            android:layout_marginTop="@dimen/common_top_bottom_margin"></View>
+
+        <com.imagine.cloud.widget.CodeButton
+            android:id="@+id/get_code_bt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="获取验证码"
+            android:textColor="@color/text_color_orange" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/Divider"
+        android:layout_marginLeft="@dimen/common_left_right_margin"></View>
+
+
+
+    <TextView
+        android:id="@+id/next_bt"
+        style="@style/normal_bt_style"
+        android:text="下一步"
+        android:layout_marginTop="@dimen/common30dp"
+        ></TextView>
+
+</LinearLayout>

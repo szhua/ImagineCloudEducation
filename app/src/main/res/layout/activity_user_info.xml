@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.UserInfoActivity">
+
+    <include layout="@layout/header_layout"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="@dimen/common_top_bottom_margin"></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="@dimen/common_top_bottom_margin"
+                android:paddingTop="@dimen/common_top_bottom_margin">
+
+                <TextView
+                    style="@style/normal_text_view_title"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/common10dp"
+                    android:text="头像" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/common60dp"
+                        android:layout_height="@dimen/common60dp"
+                        android:id="@+id/header_bt"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/common_left_right_margin"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher_round" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/common_left_right_margin"
+                        android:src="@drawable/right_arrow" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <View style="@style/Divider"></View>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="姓名"
+                app:editable="true"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请填写姓名"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="邮箱"
+                app:editable="true"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请填写邮箱"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="手机"
+                app:editable="true"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请填写手机号"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/school"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:input_type="text"
+                app:left_text="学校"
+                app:editable="true"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="请填写学校"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+
+            <com.imagine.cloud.widget.NormalInputEditText
+                android:id="@+id/level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editable="false"
+                app:input_type="text"
+                app:left_text="会员等级"
+                app:left_text_color="@color/text_color_normal"
+                app:right_hint="V1"
+                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+
+            <TextView
+                style="@style/normal_bt_style"
+                android:text="保存"
+                android:id="@+id/save_bt"
+                android:layout_marginTop="@dimen/common30dp"
+                android:layout_marginBottom="@dimen/common20dp"
+                ></TextView>
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

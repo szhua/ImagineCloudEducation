@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.imagine.cloud.ui.activity.SearchActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:paddingTop="@dimen/common6dp"
+        android:paddingBottom="@dimen/common8dp"
+        android:paddingLeft="@dimen/common_left_right_margin"
+        android:paddingRight="@dimen/common_left_right_margin"
+        android:layout_height="@dimen/home_header_height">
+
+        <EditText
+            android:id="@+id/search_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_bg_gray"
+            android:drawableLeft="@drawable/search_normal"
+            android:paddingLeft="@dimen/common_left_right_margin"
+            android:paddingRight="@dimen/common_left_right_margin"
+            android:singleLine="true"
+            android:hint="请输入搜索内容"
+            android:textColorHint="@color/text_color_light"
+            android:textSize="@dimen/text_size_14sp"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/common4dp"
+            android:textColor="@color/text_color_normal"
+            android:imeOptions="actionSearch"
+            />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common50dp"
+                android:paddingBottom="@dimen/common10dp"
+                android:paddingLeft="@dimen/common_left_right_margin"
+                android:paddingRight="@dimen/common_left_right_margin">
+
+                <ImageView
+                    android:id="@+id/clean_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingLeft="@dimen/common_left_right_margin"
+                    android:paddingRight="@dimen/common_left_right_margin"
+                    android:paddingTop="@dimen/common16dp"
+                    android:src="@drawable/delete_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="历史记录"
+                    android:textSize="@dimen/text_size_16sp"
+
+                    />
+            </RelativeLayout>
+
+            <View style="@style/Divider"></View>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <View style="@style/Divider"></View>
+
+
+</LinearLayout>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.imagine.cloud.ui.activity.MeetingDetailActivity">
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="@dimen/normal_header_height">
+        <ImageView
+            android:id="@+id/left_back"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:src="@drawable/reback_left"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:text="title"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/right_text"
+            android:textColor="@color/text_color_normal"
+            android:text="保存"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_16sp"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/right_img"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:background="@color/item_color_bg"
+        android:layout_height="@dimen/common46dp">
+
+        <View style="@style/Divider"></View>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/zan_container"
+                android:layout_width="@dimen/common0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+
+                <com.imagine.cloud.widget.StateTextView
+                    android:id="@+id/zan_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    app:left_un_selected_icon="@drawable/zan_un"
+                    app:left_selected_icon="@drawable/zan"
+                    app:text_selected_color="@color/colorPrimary"
+                    app:text_un_selected_color="@color/text_color_gray"
+                    android:drawablePadding="@dimen/common4dp"
+                    android:padding="@dimen/common10dp"
+                    android:textSize="@dimen/text_size_12sp"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/baoming_container"
+                android:layout_width="@dimen/common0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@drawable/baoming"
+                    android:text="78"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:drawablePadding="@dimen/common4dp"
+                    android:padding="@dimen/common10dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/collect_container"
+                android:layout_width="@dimen/common0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <com.imagine.cloud.widget.StateTextView
+                    android:id="@+id/collect_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:drawablePadding="@dimen/common4dp"
+                    android:padding="@dimen/common10dp"
+                    app:left_un_selected_icon="@drawable/collect_un"
+                    app:left_selected_icon="@drawable/collect"
+                    app:text_selected_color="@color/colorPrimary"
+                    app:text_un_selected_color="@color/text_color_gray"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_above="@id/bottom_container"
+        android:layout_below="@id/header"
+        android:orientation="vertical"
+        android:id="@id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+
+</RelativeLayout>

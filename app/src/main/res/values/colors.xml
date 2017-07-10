@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0f8baf</color>
+    <color name="colorPrimaryDark">#0f8baf</color>
+    <color name="colorAccent">#0f8baf</color>
+
+
+
+    <color name="divider">#dddfdf</color>
+    <color name="divider_1dp">#a1a1a1</color>
+    <color name="background">#ebebeb</color>
+    <color name="white">#ffffff</color>
+    <!-- 半透明颜色 -->
+    <color name="translucent">#66000000</color>
+    <!-- 半透明白色 -->
+    <color name="translucent_white">#66FFFFFF</color>
+    <!--透明色-->
+    <color name="transparent_normal">#00000000</color>
+    <color name="text_color_normal">#303030</color>
+    <color name="text_color_light">#7d7d7d</color>
+    <color name="text_color_gray">#616161</color>
+    <color name="item_color_bg">#fdfbf8</color>
+    <color name="text_color_tab">#989898</color>
+    <color name="tab_color_selected">#0f8baf</color>
+    <color name="text_color_theme">#00a3e8</color>
+
+    <color name="text_color_orange">#ea633d</color>
+</resources>

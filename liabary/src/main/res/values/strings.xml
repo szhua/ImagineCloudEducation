@@ -1,0 +1,5 @@
+<resources tools:ignore="MissingTranslation" xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">liabary</string>
+    <string name="loading">正在加载</string>
+    <string name="no_net">无网络连接</string>
+</resources>

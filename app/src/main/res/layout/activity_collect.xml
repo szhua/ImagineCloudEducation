@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.CollectActivity">
+
+    <include
+        layout="@layout/header_layout"
+        ></include>
+
+    <!--<com.runer.liabary.tab.SlidingTabLayout-->
+        <!--android:id="@+id/tab_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/background"-->
+        <!--android:layout_height="@dimen/common46dp"-->
+        <!--app:tl_iconVisible="false"-->
+        <!--app:tl_tab_space_equal="true"-->
+        <!--app:tl_textBold="BOTH"-->
+        <!--app:tl_indicator_width="70dp"-->
+        <!--app:tl_textsize="14sp"-->
+        <!--app:tl_indicator_corner_radius="@dimen/common2dp"-->
+        <!--app:tl_indicator_color="@color/albumColorPrimary"-->
+        <!--app:tl_textSelectColor="@color/albumColorPrimary"-->
+        <!--app:tl_textUnselectColor="#66000000"-->
+        <!--app:tl_underline_color="@color/divider"-->
+        <!--app:tl_indicator_width_equal_title="true"-->
+        <!--app:tl_underline_height="1px"-->
+        <!--&gt;</com.runer.liabary.tab.SlidingTabLayout>-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+</LinearLayout>

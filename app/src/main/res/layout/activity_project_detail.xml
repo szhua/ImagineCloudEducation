@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.ProjectDetailActivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="@dimen/normal_header_height">
+        <ImageView
+            android:id="@+id/left_back"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:src="@drawable/reback_left"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:text="title"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/right_text"
+            android:textColor="@color/text_color_normal"
+            android:text="保存"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_16sp"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/right_img"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:background="@color/item_color_bg"
+        android:layout_height="56dp">
+
+        <View style="@style/Divider"></View>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/yaoling_bt"
+                android:layout_width="@dimen/common0dp"
+                android:paddingTop="@dimen/common12dp"
+                android:paddingBottom="@dimen/common12dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="申报要领"
+                    android:background="@drawable/normal_tag_shape"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/common_left_right_margin"
+                    android:paddingRight="@dimen/common_left_right_margin"
+                    android:textSize="@dimen/text_size_12sp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/keti_bt"
+                android:layout_width="@dimen/common0dp"
+                android:paddingTop="@dimen/common12dp"
+                android:paddingBottom="@dimen/common12dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="课题解析"
+                    android:background="@drawable/normal_tag_shape"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/common_left_right_margin"
+                    android:paddingRight="@dimen/common_left_right_margin"
+                    android:textSize="@dimen/text_size_12sp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lixiang_bt"
+                android:layout_width="@dimen/common0dp"
+                android:paddingTop="@dimen/common12dp"
+                android:paddingBottom="@dimen/common12dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="立项解析"
+                    android:background="@drawable/normal_tag_shape"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/common_left_right_margin"
+                    android:paddingRight="@dimen/common_left_right_margin"
+                    android:textSize="@dimen/text_size_12sp"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/liucheng_bt"
+                android:layout_width="@dimen/common0dp"
+                android:paddingTop="@dimen/common12dp"
+                android:paddingBottom="@dimen/common12dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="申报流程图"
+                    android:background="@drawable/normal_tag_shape"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/common_left_right_margin"
+                    android:paddingRight="@dimen/common_left_right_margin"
+                    android:textSize="@dimen/text_size_12sp"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_above="@id/bottom_container"
+        android:layout_below="@id/header"
+        android:orientation="vertical"
+        android:id="@id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+
+
+
+
+</RelativeLayout>
