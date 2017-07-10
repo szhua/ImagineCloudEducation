@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\SocialSDK_Sina_Simplify.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4e73c488269d66edb7dc7989ee459d5dadcc9a7d">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\SocialSDK_Sina_Simplify_a633ce7676561c4c88ca2117d98dab92bc282fb0.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_shareboard_widget.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bbf940eb41c869970b3ddcf0117e9718f687af71">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\umeng_shareboard_widget_b8924d4a55c8bf8e2192b066cd4167d99bf8ca9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\7bb55cf4998099968f1b4e36ac338ca4d48c25dd\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c757e38a18b13aed9923208e8d66abaef8c03635\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\fc117bd46eca9ee1e8136fcf1a59ca3cf189e4c6\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_375d07bd5d34b5ad92dcc1f2516e4bf58c5cbcb2.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\fadc9288a86096cf7b7fdedde251a42c7e7416a1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_03986f08dd6d0d445230799b6074dbc414c8e88e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.3.2_129daf79aac2b89d04477dd06772606059eeedd9\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\475ea104171762c0eddc95553b693f58c6a2e4f5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="541a2ad68dc68aa49795821f8280b7624e6a0c9b">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_195e1b6f8d0819310fc6e535ea2c39321d41767a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\cd1cc38f2bccbb3da7cc07bba06c8f41726c8f47\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c166620649ad49541ee64b27e19f84b8c5bc79cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\97692d71acac32f26f4cf1dd5bfe2d0bad7a4f7f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="64c631e55b76db4c5c2fcfa7b4b0b4f344d50787">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_0d56693b7b139ebef1243e2fe4a7d2e35431ecca.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\libs\jackson-databind-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="098c62f0956d1db2b335d271b28b65cec446cb99">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\jackson-databind-2.5.0_4910070f2b5f1058c7c76d7c26e1347efb5429eb.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\97692d71acac32f26f4cf1dd5bfe2d0bad7a4f7f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="64c631e55b76db4c5c2fcfa7b4b0b4f344d50787">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d56693b7b139ebef1243e2fe4a7d2e35431ecca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\f8983e083a21414c851dc407bef7187c297e7295\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c5260802195b5a098046a1319edf1a69ad482e8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\5.1.1\b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8\butterknife-5.1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-5.1.1_4e4ce574f3d72998b594448756183a3048e0c38d\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_api.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2e9dcc2745944ef881e3d4c7975afdb0c35b5280">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\umeng_social_api_f6497f41f3b4167b0628d7af7218504c3176691a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\httpclient-4.3.6_8bf35ee2bba818564cbd6641d936c584519fade0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_tool.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8b17b7c71ac912fb54ad4df2c5d1f3b36ec95837">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\umeng_social_tool_e24ee9c8284e9af448d42a64369345590a941d1d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\add2d14772a1ee72f7e5eac43ab44dadfb216100\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_df1850f464716bbb7894f06f217211ba1227378c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\3863f831c1ee96a556a9f37a05fcb9953c48b7fe\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cac804377a3a9ff05ab8eaf902c8165792d3b3e1">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_eaeff0d5eb7da2edb2d00d0ff74b4322f9e8007e\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\jpush-android_v3.0.6.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aca8cc2d77d7cfd6ac0b0bd0c5a41ffc6646e6b6">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\jpush-android_v3.0.6_ea553665ec42902b2624a6551c8c16266d2b6e74.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\0501ffd0211dfb36be43e509fd4b7168ddbdcca7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1947cbbe489451ac97469462711d002eee227522\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\a846b100580405fef3ebbc51f8873294bdac7a5a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_881a9166096476a7abdd4e24768c5ddb44e69060\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\0501ffd0211dfb36be43e509fd4b7168ddbdcca7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_1947cbbe489451ac97469462711d002eee227522.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\b5bfa9c44e7e76fd3c0c2399e860575047c25e16\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="11a65cf2b30c192b38a881d626fa771a78a2293d">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_4c04f0761f50d5014cddc5afa5b7f664930b48da.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidSdk_studio\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha7\constraint-layout-solver-1.0.0-alpha7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.0-alpha7_02bfc644998e4efef79b2f62bc693080542d6e10\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.9\386a4339ffe52d5d63e80f9bed8d2b1d1a418249\android-async-http-1.4.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\android-async-http-1.4.9_84d4bd66f8cad624bcdcc86f55ed20f5517877c2.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\libs\jackson-annotations-2.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f83b9c70902294e6bdee8c9050d876a4d0546365">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\jackson-annotations-2.5.0_b19a76c4b7d569c59f7af9fc4763d780dd2e88b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\06770b0f36b8ada5a58e5f5ba7fc4a4d18645ceb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b7219f056e3abdba2d60d235b2593dff1928c3ae">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_18a0418ed7664f37732b65a0f6242c1db493ae6a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\7bb55cf4998099968f1b4e36ac338ca4d48c25dd\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_c757e38a18b13aed9923208e8d66abaef8c03635.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\liabary\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a925b83874311b0a1a53b9374dc8cb9560458335">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_f894906117ffabe3e017cf0666bfae7407db050a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\e4c5c1ad78c2d17886227dcd44dcd015abd4f161\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_f6a3efbf61b4172c6c19bc3dd74333d7a760b8bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\libs\jackson-core-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0f2278ba3470f4b84e44e0780d9e05d92d8ca403">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\jackson-core-2.5.0_7077c586eb1f4ade0190180120d25c40bdb17abf.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\259a3a2cacfaed687c4285558e945848a486a885\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c099ecc11c3ffafb4d85d9e88339abc8613d4f94">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_01cf481459564394531296fc1fced2bb29b3a1bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\b18becb3348b4d9e36750ddcb1620b074349472a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7c27aea45fb254d37cb280bdd770a358d9b0fd2e">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_a8a2713747ae59e2727df8fb2d1d259e42939c5a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_shareboard.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d0d7e8da180e46f56a5a90244973f89925dcb3f9">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\umeng_social_shareboard_458dc74ee1ab5cca758b0453766579d0de6c5749\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife\5.1.1\b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8\butterknife-5.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b3652dfd65ca0bcf18790ff1a1f7624af4cb2bb8">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\butterknife-5.1.1_4e4ce574f3d72998b594448756183a3048e0c38d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\4585a5b39b0998abd5f9db26f8d10d2c8bb0c649\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_d626581a9b7e2befa86cea6abea22875e5a8befe.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\httpclient-4.3.6_8bf35ee2bba818564cbd6641d936c584519fade0\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_net.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ea5249d150b4bd4e5f1a7cd80a9fb311414bb2dd">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\umeng_social_net_bb63a1f551e6fc9812a5187c1c8f4c81835c6e32.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\c7522743433e1eaa0ef59d20fdee43c1ab7ac565\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_851068cf4b549dfd6bf6a56819ff6df6272233d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9f3c3b8aaa7b8d53d27f58ce2a49c0c6d55b222c">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_524e522921dbc2bea9cb324b41877a3e2298649b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="91390da5020e547738bac269ca70ed5c59328d61">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_5f71ac1b99a0b76c232d2ce747aac02559513b23\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\f8983e083a21414c851dc407bef7187c297e7295\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_c5260802195b5a098046a1319edf1a69ad482e8e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.reactivestreams\reactive-streams\1.0.0\14b8c877d98005ba3941c9257cfe09f6ed0e0d74\reactive-streams-1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\reactive-streams-1.0.0_5ea215fafe26757b3eaa9e791da078c680959e41.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\jcore-android_v1.1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ee334519daa13abede937cbde9241095deea7d69">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\jcore-android_v1.1.3_e6ebece18650421282a631ee7ccbea9bce05011d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\jpush-android_v3.0.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="aca8cc2d77d7cfd6ac0b0bd0c5a41ffc6646e6b6">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\jpush-android_v3.0.6_ea553665ec42902b2624a6551c8c16266d2b6e74\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\06770b0f36b8ada5a58e5f5ba7fc4a4d18645ceb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b7219f056e3abdba2d60d235b2593dff1928c3ae">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_18a0418ed7664f37732b65a0f6242c1db493ae6a\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidSdk_studio\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha7\constraint-layout-solver-1.0.0-alpha7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\constraint-layout-solver-1.0.0-alpha7_02bfc644998e4efef79b2f62bc693080542d6e10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\9dd2e1591f10e85afa6ba877a4229e5421cb8285\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ec9ec7eb6df92ae8ffe622562e0e4fbb97386a4d">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_3426351e6d0b5679cb1ea867fea370d18465236e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\8a419b8a9be175f7bbf3533fd9055d44b62aab93\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_9386c0bdc935c521cae3302f6dc32531978e68d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\a846b100580405fef3ebbc51f8873294bdac7a5a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_881a9166096476a7abdd4e24768c5ddb44e69060.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex.rxjava2\rxjava\2.0.1\57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb\rxjava-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\rxjava-2.0.1_88fc17d5d72694fd01b893bb935156af845d463f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\4a1a09136c0ec8bb364cb7a33d54e82a942e77a0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="341322ec86e793439e0b5f224ad9a84ad3ee564f">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_af6d00321e6717b5ecb292c392760f0c956bbd81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2197f5906b47ddb6a697315abdc5b94a786dd181">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_0184b0dacd42cefe10435c52f54518c46f8cc326.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\b18becb3348b4d9e36750ddcb1620b074349472a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7c27aea45fb254d37cb280bdd770a358d9b0fd2e">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a8a2713747ae59e2727df8fb2d1d259e42939c5a\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\libs\jackson-annotations-2.5.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f83b9c70902294e6bdee8c9050d876a4d0546365">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\jackson-annotations-2.5.0_b19a76c4b7d569c59f7af9fc4763d780dd2e88b6.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\e4c5c1ad78c2d17886227dcd44dcd015abd4f161\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f6a3efbf61b4172c6c19bc3dd74333d7a760b8bc\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_shareboard.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d0d7e8da180e46f56a5a90244973f89925dcb3f9">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\umeng_social_shareboard_458dc74ee1ab5cca758b0453766579d0de6c5749.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_shareview.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f017913de221e61244d03e270b456f72c9f8e9ed">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\umeng_social_shareview_bede14e26a0e174960d8a7c059d7db683f66309d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\b5bfa9c44e7e76fd3c0c2399e860575047c25e16\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="11a65cf2b30c192b38a881d626fa771a78a2293d">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4c04f0761f50d5014cddc5afa5b7f664930b48da\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidSdk_studio\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\support-annotations-25.3.1_9b8e0d1f6320579123cc3a3658e2610e3053ac34.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\SocialSDK_QQ_Simplify.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="84f73f51493983d9d7a256baac9aa604117cbcf6">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\SocialSDK_QQ_Simplify_3bcd1f2bff2f867542ed1c457f0256a11ed3df2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_net.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ea5249d150b4bd4e5f1a7cd80a9fb311414bb2dd">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\umeng_social_net_bb63a1f551e6fc9812a5187c1c8f4c81835c6e32\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\94b898ddfcaa7405b8cf98a7d5e9ffa423787093\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f3da801940221b852f3a3ee82bfe2a10d39e4ffa">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_a7dedbc8597f5eea51aaae454f29e7511455a35c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\SocialSDK_WeChat_Simplify.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c727be95e02285fb638b3d832f4473bdab53b0e0">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\SocialSDK_WeChat_Simplify_d52a766072e9b7bb6aaa1107f08add3c19c23c48.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\c7522743433e1eaa0ef59d20fdee43c1ab7ac565\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_851068cf4b549dfd6bf6a56819ff6df6272233d2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.reactivestreams\reactive-streams\1.0.0\14b8c877d98005ba3941c9257cfe09f6ed0e0d74\reactive-streams-1.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\reactive-streams-1.0.0_5ea215fafe26757b3eaa9e791da078c680959e41\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.reactivex.rxjava2\rxjava\2.0.1\57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb\rxjava-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="57f850a6b317e5582f1dbaff10a9e7d7e1fcdcfb">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\rxjava-2.0.1_88fc17d5d72694fd01b893bb935156af845d463f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\53da565110494978421b39ac0ebcfc7c0241f0e2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c8278852d408fb34c68af301e0bf244fa7720542\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\ea12bad32467ee2627298e51c8418a2cd0fc6cd8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ec9c4b73831e2b9f7f40a09ddbd357108458754a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_1855f4320279fee1054c26bf89db20f424e47313\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\4585a5b39b0998abd5f9db26f8d10d2c8bb0c649\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d626581a9b7e2befa86cea6abea22875e5a8befe\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\757978b65c2594f5efa6d0fac05e4ad42071de2f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_37a026d26e771d2b4b47a0f91085d5d6710147c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\jcore-android_v1.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ee334519daa13abede937cbde9241095deea7d69">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\jcore-android_v1.1.3_e6ebece18650421282a631ee7ccbea9bce05011d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\fadc9288a86096cf7b7fdedde251a42c7e7416a1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_03986f08dd6d0d445230799b6074dbc414c8e88e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_shareboard_widget.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bbf940eb41c869970b3ddcf0117e9718f687af71">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\umeng_shareboard_widget_b8924d4a55c8bf8e2192b066cd4167d99bf8ca9d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\8a419b8a9be175f7bbf3533fd9055d44b62aab93\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9386c0bdc935c521cae3302f6dc32531978e68d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\4a1a09136c0ec8bb364cb7a33d54e82a942e77a0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="341322ec86e793439e0b5f224ad9a84ad3ee564f">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_af6d00321e6717b5ecb292c392760f0c956bbd81\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\9dd2e1591f10e85afa6ba877a4229e5421cb8285\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ec9ec7eb6df92ae8ffe622562e0e4fbb97386a4d">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3426351e6d0b5679cb1ea867fea370d18465236e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\SocialSDK_Sina_Simplify.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4e73c488269d66edb7dc7989ee459d5dadcc9a7d">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\SocialSDK_Sina_Simplify_a633ce7676561c4c88ca2117d98dab92bc282fb0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\fc117bd46eca9ee1e8136fcf1a59ca3cf189e4c6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_375d07bd5d34b5ad92dcc1f2516e4bf58c5cbcb2\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_shareview.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f017913de221e61244d03e270b456f72c9f8e9ed">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\umeng_social_shareview_bede14e26a0e174960d8a7c059d7db683f66309d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\cd1cc38f2bccbb3da7cc07bba06c8f41726c8f47\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_c166620649ad49541ee64b27e19f84b8c5bc79cc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.3.2\d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27\picasso-2.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d6b7f0093cec6c9faf65dbfd6a6a345d0ed25e27">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\picasso-2.3.2_129daf79aac2b89d04477dd06772606059eeedd9.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\475ea104171762c0eddc95553b693f58c6a2e4f5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="541a2ad68dc68aa49795821f8280b7624e6a0c9b">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_195e1b6f8d0819310fc6e535ea2c39321d41767a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidSdk_studio\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_9b8e0d1f6320579123cc3a3658e2610e3053ac34\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\259a3a2cacfaed687c4285558e945848a486a885\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c099ecc11c3ffafb4d85d9e88339abc8613d4f94">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_01cf481459564394531296fc1fced2bb29b3a1bf.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\libs\jackson-databind-2.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="098c62f0956d1db2b335d271b28b65cec446cb99">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\jackson-databind-2.5.0_4910070f2b5f1058c7c76d7c26e1347efb5429eb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\757978b65c2594f5efa6d0fac05e4ad42071de2f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_37a026d26e771d2b4b47a0f91085d5d6710147c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\runer_net\build\intermediates\bundles\default\libs\jackson-core-2.5.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0f2278ba3470f4b84e44e0780d9e05d92d8ca403">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\jackson-core-2.5.0_7077c586eb1f4ade0190180120d25c40bdb17abf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_api.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2e9dcc2745944ef881e3d4c7975afdb0c35b5280">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\umeng_social_api_f6497f41f3b4167b0628d7af7218504c3176691a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.android\build-cache\94b898ddfcaa7405b8cf98a7d5e9ffa423787093\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f3da801940221b852f3a3ee82bfe2a10d39e4ffa">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a7dedbc8597f5eea51aaae454f29e7511455a35c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\ea12bad32467ee2627298e51c8418a2cd0fc6cd8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_ec9c4b73831e2b9f7f40a09ddbd357108458754a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\53da565110494978421b39ac0ebcfc7c0241f0e2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_c8278852d408fb34c68af301e0bf244fa7720542.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\umeng_social_tool.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8b17b7c71ac912fb54ad4df2c5d1f3b36ec95837">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\umeng_social_tool_e24ee9c8284e9af448d42a64369345590a941d1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.9\386a4339ffe52d5d63e80f9bed8d2b1d1a418249\android-async-http-1.4.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10\android-async-http-1.4.9_84d4bd66f8cad624bcdcc86f55ed20f5517877c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\add2d14772a1ee72f7e5eac43ab44dadfb216100\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4119ea97a7191ff9b8f33b534ea220448f62f491">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_df1850f464716bbb7894f06f217211ba1227378c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\SocialSDK_WeChat_Simplify.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c727be95e02285fb638b3d832f4473bdab53b0e0">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\8\SocialSDK_WeChat_Simplify_d52a766072e9b7bb6aaa1107f08add3c19c23c48\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidWorkSpace\ImagineCloudEducation\um\build\intermediates\bundles\default\libs\SocialSDK_QQ_Simplify.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="84f73f51493983d9d7a256baac9aa604117cbcf6">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\SocialSDK_QQ_Simplify_3bcd1f2bff2f867542ed1c457f0256a11ed3df2d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\3863f831c1ee96a556a9f37a05fcb9953c48b7fe\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cac804377a3a9ff05ab8eaf902c8165792d3b3e1">
+        <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_eaeff0d5eb7da2edb2d00d0ff74b4322f9e8007e.jar" />
+    </item>
+
+</items>
