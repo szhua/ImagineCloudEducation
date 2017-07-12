@@ -34,6 +34,16 @@ public class MeetingDetailBean {
     private String like_num;
     private String fav_num;
     private String subtitle;
+    private String url ;
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public int getIslike() {
         return islike;

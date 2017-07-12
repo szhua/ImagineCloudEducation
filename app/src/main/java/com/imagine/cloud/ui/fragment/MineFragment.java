@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.imagine.cloud.adapter.UserCenterItemAdapter;
 import com.imagine.cloud.base.BaseFragment;
 import com.imagine.cloud.base.BaseWebAcitivity;
 import com.imagine.cloud.bean.MineListItemBean;
+import com.imagine.cloud.bean.UserInfo;
+import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.ui.activity.ChangePassActivity;
 import com.imagine.cloud.ui.activity.CollectActivity;
 import com.imagine.cloud.ui.activity.FeedBackActivity;
@@ -24,11 +27,13 @@ import com.imagine.cloud.ui.activity.LoginActivity;
 import com.imagine.cloud.ui.activity.MessageActivity;
 import com.imagine.cloud.ui.activity.MyMeetingActivity;
 import com.imagine.cloud.ui.activity.UserInfoActivity;
+import com.imagine.cloud.util.AppUtil;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
 import com.runer.liabary.util.DataCleanManager;
 import com.runer.liabary.util.UiUtil;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -78,6 +83,17 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         super.onResume();
 
 
+        //设置个人信息
+        UserInfo userInfo = AppUtil.getUserInfo(getContext()) ;
+        if(userInfo!=null){
+            if(headerImag!=null)
+            Picasso.with(getContext()).load(Requst.BASE_IMG_URL+ userInfo.getHead()).placeholder(R.drawable.loading_1_1).into(headerImag);
+            if(userNameTv!=null)
+            if(!TextUtils.isEmpty(userInfo.getUser_name()))
+            userNameTv.setText(userInfo.getUser_name());
+            else
+             userNameTv.setText("暂无昵称");
+        }
         //设置缓存大小
         if(userCenterItemAdapter!=null){
             try {
@@ -87,8 +103,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     @Override

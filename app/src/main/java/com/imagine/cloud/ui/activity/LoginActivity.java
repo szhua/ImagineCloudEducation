@@ -94,7 +94,7 @@ public class LoginActivity extends BaseActivity {
         if(requestCode== RequestCode.LOGIN){
          userInfo =loginDao.getUserInfo() ;
          if(userInfo!=null){
-             AppUtil.setUserId(this,userInfo.getId());
+             AppUtil.setUserInfo(this,userInfo);
              UiUtil.showLongToast(this,"登录成功");
          }
         }

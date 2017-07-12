@@ -42,7 +42,6 @@
         android:layout_height="@dimen/common30dp"
         android:layout_toLeftOf="@id/indicator"
         android:singleLine="true"
-        android:text="就是这个title特别的好"
         android:textSize="@dimen/text_size_14sp"
         android:textColor="@color/white"
         android:gravity="center_vertical"

@@ -68,10 +68,11 @@
 
 
            <ImageView
+               android:id="@+id/play_bt"
                android:layout_marginLeft="@dimen/common_left_right_margin"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:src="@drawable/player_play"
+               android:src="@drawable/player_pause"
                />
 
            <LinearLayout
@@ -83,7 +84,7 @@
                <TextView
                    android:id="@+id/course_name"
                    style="@style/normal_text_view_title"
-                   android:text="哈佛大学公开课"
+                   android:text="因为刚好遇到你-demons-李玉刚"
                    />
 
               <LinearLayout
@@ -94,7 +95,7 @@
                   <TextView
                       android:id="@+id/course_time"
                       style="@style/normal_text_view_content"
-                      android:text="04:24"
+                      android:text="00:00"
                       android:layout_alignParentBottom="true"
                       />
                   <TextView

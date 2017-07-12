@@ -2,7 +2,6 @@ package com.imagine.cloud.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +15,9 @@ import com.imagine.cloud.ui.activity.MeetingDetailActivity;
 import com.imagine.cloud.ui.activity.ProjectDetailActivity;
 import com.imagine.cloud.util.AppUtil;
 import com.imagine.cloud.widget.LoamoreView;
-import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
+import com.runer.liabary.util.RunerLinearManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,12 +32,13 @@ import io.reactivex.functions.Consumer;
  * github:https://github.com/szhua
  * ImagineCloudEducation
  * InfoMeetingFragment
+ 会议资讯列表
  */
-
 public class InfoMeetingFragment extends BaseFragment {
 
     @InjectView(R.id.recycler_view)
     RecyclerView recyclerView;
+
 
     @Nullable
     @Override
@@ -51,16 +51,16 @@ public class InfoMeetingFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        RunerLinearManager linearLayoutManager = new RunerLinearManager(getContext());
         final HomeListAdapter homeListAdapter = new HomeListAdapter(AppUtil.getTestData());
         homeListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-               if(position%2==0){
-                   transUi(MeetingDetailActivity.class,null);
-               }else{
-                   transUi(ProjectDetailActivity.class,null);
-               }
+                if (position % 2 == 0) {
+                    transUi(MeetingDetailActivity.class, null);
+                } else {
+                    transUi(ProjectDetailActivity.class, null);
+                }
             }
         });
         homeListAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
@@ -86,6 +86,7 @@ public class InfoMeetingFragment extends BaseFragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(homeListAdapter);
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

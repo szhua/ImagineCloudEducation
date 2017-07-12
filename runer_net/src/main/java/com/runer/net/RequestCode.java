@@ -24,5 +24,7 @@ public class RequestCode {
     public static  final int CHANGE_PASS =17 ;
     public static  final int ADD_ZAN =18 ;
     public static  final int ADD_FAV =19 ;
+    public static  final int DEL_FAV =20 ;
+    public static  final int GET_BANNER =21 ;
 
 }

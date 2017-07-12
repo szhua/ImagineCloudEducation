@@ -21,6 +21,7 @@ import com.imagine.cloud.widget.LoamoreView;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
+import com.runer.liabary.util.RunerLinearManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,7 +57,7 @@ public class CourseFragment extends BaseFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        RunerLinearManager linearLayoutManager = new RunerLinearManager(getContext());
         courseAdapter = new CourseAdapter(AppUtil.getTestData());
         courseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

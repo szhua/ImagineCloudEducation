@@ -25,33 +25,32 @@ import java.io.IOException;
  */
 
 public class UploadHeaderDao extends BaseRequest {
+    String headerPath ;
 
+    public String getHeaderPath() {
+        return headerPath;
+    }
     public UploadHeaderDao(Context context, INetResult iNetResult) {
         super(context, iNetResult);
     }
-
     @Override
     public void onRequestSuccess(JsonNode result, int requestCode) throws IOException {
-
+        headerPath =result.asText() ;
     }
 
     public void upLoadUserHeader(String userId ,File headerImg){
-
         try {
             IRequestParam param =new IRequestParam() ;
             param.put("user_id",userId) ;
             RequestParams params =new RequestParams() ;
             params.put("param",param.toString());
-
             //设置头像：
             try {
                 params.put("head",headerImg);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-
             originalPostRequest(Requst.BASE_URL+getReqestUrl(NetInter.UpHeader),params, RequestCode.UPDATE_HEADER);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -101,8 +101,16 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
               schoolInput.setRightText(userInfo.getSchool());
           }
         }else if(requestCode==RequestCode.UPDATE_USER_UINFO){
+
             UiUtil.showLongToast(this,"修改信息成功");
+            UserInfo userInfo =getUserInfoDao.getUserInfo();
+            AppUtil.setUserInfo(this,userInfo);
+
             finish();
+        }else if(requestCode==RequestCode.UPDATE_HEADER){
+            UiUtil.showLongToast(this,"上传头像成功");
+            AppUtil.setUserHeader(this,uploadHeaderDao.getHeaderPath());
+
         }
     }
     //选择图片
@@ -133,7 +141,6 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
             }
         }
     }
-
     //图像处理
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -170,7 +177,6 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
             UiUtil.showLongToast(getApplicationContext(), "裁剪失败!");
         }
     }
-
 
     String name ;
     String email;

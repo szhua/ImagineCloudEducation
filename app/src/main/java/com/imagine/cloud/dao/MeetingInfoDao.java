@@ -44,13 +44,11 @@ public class MeetingInfoDao extends BaseRequest {
 user_id	否	string	用户id
 id	是	string	会议或项目的id
 */
-    public static  final String  MEETING_TYPE = "0" ;
-    public static final String PROJECT_TYPE ="1" ;
-    public void getInfo(String user_id ,String type ,String id ){
+
+    public void getInfo(String user_id ,String id ){
         IRequestParam param =new IRequestParam();
         try {
             param.put("user_id",user_id);
-            param.put("type",type) ;
             param.put("id",id);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -58,13 +56,12 @@ id	是	string	会议或项目的id
         basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.MeetingInfo),param, RequestCode.CODE_0);
     }
 
-
     /*user_id	是	string	用户id
 meeting_id	是	string	会议id*/
     public void addLike(String user_id ,String meeting_id ){
         IRequestParam param =new IRequestParam() ;
         try {
-            param.put("meeting_id",meeting_id);
+            param.put("id",meeting_id);
             param.put("user_id",user_id) ;
         } catch (JSONException e) {
             e.printStackTrace();
@@ -76,7 +73,7 @@ meeting_id	是	string	会议id*/
     public void addFav(String user_id ,String meeting_id){
         IRequestParam param =new IRequestParam() ;
         try {
-            param.put("meeting_id",meeting_id);
+            param.put("id",meeting_id);
             param.put("user_id",user_id);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -84,7 +81,15 @@ meeting_id	是	string	会议id*/
         basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.MeetingAddFav),param,RequestCode.ADD_FAV);
     }
 
-
-
+    //取消收藏
+    public void delFav(String fav_id){
+        IRequestParam  param =new IRequestParam() ;
+        try {
+            param.put("fav_id",fav_id) ;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.MeetingDeleFav),param,RequestCode.DEL_FAV);
+    }
 
 }

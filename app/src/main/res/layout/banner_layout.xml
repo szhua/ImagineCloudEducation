@@ -2,10 +2,7 @@
 <com.imagine.cloud.widget.RatioImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/img"
-    android:src="@color/albumColorPrimary"
+    android:src="@drawable/loading"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
-
-    
 </com.imagine.cloud.widget.RatioImageView>

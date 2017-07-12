@@ -116,7 +116,6 @@ public class CompleteUserInfoActivity extends BaseActivity {
                         return;
                     }
                 }
-
                 if(TextUtils.isEmpty(email)||TextUtils.isEmpty(schoolAddress)){
                     UiUtil.showLongToast(getApplicationContext(),"信息填写不完善");
                 }
@@ -158,6 +157,7 @@ public class CompleteUserInfoActivity extends BaseActivity {
                         public void accept(File file) throws Exception {
                             uploadHeaderDao.upLoadUserHeader(AppUtil.getUserId(getApplicationContext()),file);
                             showProgressWithMsg(true,"正在上传头像");
+                            AppUtil.setUserHeader(CompleteUserInfoActivity.this,uploadHeaderDao.getHeaderPath());
                             Picasso.with(CompleteUserInfoActivity.this).load(file).into(headerBt);
                         }
                     });

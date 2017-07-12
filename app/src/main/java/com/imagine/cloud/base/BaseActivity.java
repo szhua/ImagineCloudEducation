@@ -262,4 +262,8 @@ public void showProgress(boolean show){
 
     public void onCompeleteRefresh(){
     }
+
+    public View getEmptyView(){
+        return  View.inflate(this,R.layout.nor_empty_layout,null) ;
+    }
 }

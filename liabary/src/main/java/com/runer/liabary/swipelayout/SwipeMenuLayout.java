@@ -1,7 +1,6 @@
 package com.runer.liabary.swipelayout;
 
 
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -16,7 +15,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
-
 import com.runer.liabary.R;
 
 /**

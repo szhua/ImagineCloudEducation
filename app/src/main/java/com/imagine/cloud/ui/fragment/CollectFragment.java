@@ -13,13 +13,20 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.imagine.cloud.R;
 import com.imagine.cloud.adapter.CollectAdapter;
 import com.imagine.cloud.base.BaseFragment;
+import com.imagine.cloud.bean.MeetingBean;
 import com.imagine.cloud.dao.FavListDao;
+import com.imagine.cloud.dao.MeetingInfoDao;
+import com.imagine.cloud.ui.activity.MeetingDetailActivity;
 import com.imagine.cloud.util.AppUtil;
 import com.imagine.cloud.widget.LoamoreView;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
+import com.runer.liabary.util.RunerLinearManager;
+import com.runer.liabary.util.UiUtil;
+import com.runer.net.RequestCode;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
@@ -35,15 +42,20 @@ import io.reactivex.functions.Consumer;
  * CollectFragment
  * 收藏列表
  */
-
 public class CollectFragment extends BaseFragment {
 
     @InjectView(R.id.recycler_view)
     RecyclerView recyclerView;
     @InjectView(R.id.swiperefresh)
     SwipeRefreshLayout swiperefresh;
+
     private CollectAdapter collectAdapter;
-private FavListDao favListDao ;
+    private FavListDao favListDao;
+    private List<MeetingBean> data;
+
+    private MeetingInfoDao meetingInfoDao ;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,56 +64,94 @@ private FavListDao favListDao ;
         return view;
     }
 
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        collectAdapter = new CollectAdapter(AppUtil.getTestData());
-        collectAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+        meetingInfoDao =new MeetingInfoDao(getContext(),this) ;
+        collectAdapter = new CollectAdapter(data);
 
+        //点击item和侧滑删除；
+        collectAdapter.setOnItemDeleteClickListener(new CollectAdapter.OnItemDeleteClickListener() {
+            @Override
+            public void onItemDelete(MeetingBean item) {
+                meetingInfoDao.delFav(item.getFav_id());
+                showProgress(true);
+            }
+            @Override
+            public void onItemClick(MeetingBean item) {
+                try{Bundle bundle =new Bundle() ;bundle.putString("id",item.getId());transUi(MeetingDetailActivity.class,bundle);}
+                catch (Exception e){e.printStackTrace();}
             }
         });
 
         collectAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         collectAdapter.setLoadMoreView(new LoamoreView());
-        collectAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-            @Override
-            public void onLoadMoreRequested() {
-                Observable.timer(2, TimeUnit.SECONDS)
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Consumer<Long>() {
-                            @Override
-                            public void accept(Long aLong) throws Exception {
-                                collectAdapter.loadMoreEnd();
-                                Logger.d(aLong);
-                            }
-                        });
-            }
-        });
+        collectAdapter.setOnLoadMoreListener(this);
         VerticalItemDecoration decoration = ItemDecorations.vertical(getContext())
                 .first(R.drawable.decoration_divider_6dp)
                 .type(0, R.drawable.decoration_divider_6dp).create();
         swiperefresh.setColorSchemeColors(getColor(android.R.color.holo_orange_dark), getColor(R.color.albumColorPrimary), getColor(android.R.color.holo_red_light));
-        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(getContext()) ;
+        swiperefresh.setOnRefreshListener(this);
+        RunerLinearManager linearLayoutManager =new RunerLinearManager(getContext()) ;
         recyclerView.setLayoutManager(linearLayoutManager);
-
         recyclerView.addItemDecoration(decoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(collectAdapter);
+        favListDao =new FavListDao(getContext(),this) ;
+        favListDao.refresh(AppUtil.getUserId(getContext()));
+        showProgress(true);
 
-         favListDao =new FavListDao(getContext(),this) ;
-         favListDao.getFavList("0",AppUtil.getUserId(getContext()));
 
+    }
 
+    @Override
+    public void onRequestSuccess(int requestCode) {
+        super.onRequestSuccess(requestCode);
+      if(requestCode== RequestCode.CODE_0){
+          data = favListDao.getDatas();
+          collectAdapter.setNewData(data);
 
+          if(data==null||data.isEmpty()){
+              collectAdapter.setEmptyView(getEmptyView("暂无收藏"));
+          }
+
+      }else if(requestCode==RequestCode.DEL_FAV){
+          favListDao.refresh(AppUtil.getUserId(getContext()));
+      }
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.reset(this);
+    }
+
+    @Override
+    public void onCompeleteRefresh() {
+        super.onCompeleteRefresh();
+        swiperefresh.setRefreshing(false);
+        collectAdapter.loadMoreComplete();
+    }
+
+    @Override
+    public void onLoadMoreRequested() {
+        super.onLoadMoreRequested();
+        if(favListDao.hasMore()){
+            favListDao.nextPage(AppUtil.getUserId(getContext()));
+        }else{
+            recyclerView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    collectAdapter.loadMoreEnd();
+                }
+            },1500);
+        }
+    }
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+        favListDao.refresh(AppUtil.getUserId(getContext()));
     }
 }

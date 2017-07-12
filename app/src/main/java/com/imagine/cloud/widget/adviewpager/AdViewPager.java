@@ -110,6 +110,9 @@ public class AdViewPager extends LinearLayout {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
+	public void setBannerFirstTitlte(String title){
+		adTitle.setText(title);
+	}
 	//设置数据开始轮播
 	public void setBannerEntities(List<BannerBean> data) {
 		if(bannerAdapter!=null){

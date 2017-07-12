@@ -28,7 +28,7 @@ public class MeetingAdapter extends BaseQuickAdapter<MeetingBean,BaseViewHolder>
     @Override
     protected void convert(BaseViewHolder helper, MeetingBean item) {
         //设置图片
-        Picasso.with(mContext).load(Requst.BASE_IMG_URL+item.getImg()).placeholder(R.drawable.test).into((ImageView) helper.getView(R.id.image));
+        Picasso.with(mContext).load(Requst.BASE_IMG_URL+item.getImg()).placeholder(R.drawable.loading_1_1).into((ImageView) helper.getView(R.id.image));
         //设置文字
         helper.setText(R.id.title,item.getTitle())
               .setText(R.id.content,item.getSubtitle())

@@ -1,6 +1,7 @@
 package com.imagine.cloud.ui.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,18 +58,16 @@ public class MeetingDetailActivity extends BaseActivity {
 
         setContentView(R.layout.activity_meeting_detail);
         ButterKnife.inject(this);
-
-        addFragmentList(R.id.container, BaseWebFragment.getInstance("https://github.com/szhua"));
         id = getStringExtras("id", "");
         meetingInfoDao = new MeetingInfoDao(this, this);
-        meetingInfoDao.getInfo(AppUtil.getUserId(this), MeetingInfoDao.MEETING_TYPE, id);
+        meetingInfoDao.getInfo(AppUtil.getUserId(this), id);
+
         baomingContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 transUi(SignUpActivity.class, null);
             }
         });
-
     }
     @Override
     public void onRequestSuccess(int requestCode) {
@@ -99,6 +98,8 @@ public class MeetingDetailActivity extends BaseActivity {
             collectIcon.setSelected(true);
             collectIcon.setText(String.valueOf(Integer.parseInt(meetingDetailBean.getFav_num())+1));
         }
+        if(!TextUtils.isEmpty(meetingDetailBean.getUrl()))
+        addFragmentList(R.id.container, BaseWebFragment.getInstance(meetingDetailBean.getUrl()));
     }
 
     @Override

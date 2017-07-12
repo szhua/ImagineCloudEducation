@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.runer.liabary.swipelayout.SwipeMenuLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    app:ios="true"
+    app:swipeEnable="true"
+    app:leftSwipe="true"
+    android:clickable="true"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/item_container"
+        android:background="@color/item_color_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_marginBottom="@dimen/common_top_bottom_margin"
+            android:layout_marginTop="@dimen/common_top_bottom_margin"
+            android:layout_marginLeft="@dimen/common_left_right_margin"
+            android:id="@+id/image"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/common90dp"
+            android:layout_height="@dimen/common90dp"
+            android:src="@drawable/test"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common90dp"
+            android:layout_marginLeft="@dimen/common6dp"
+            android:layout_marginRight="@dimen/common_left_right_margin"
+            android:layout_marginTop="@dimen/common_top_bottom_margin"
+            android:orientation="vertical"
+            android:weightSum="6">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:text="高校人文社会科学研究项目类"
+                android:textColor="@color/text_color_normal"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="2"
+                android:text="高校人文社会科学研究项目类别与等级认定问题研讨会定于2017年6月23日-6月25日在南京..."
+                android:textColor="@color/text_color_gray"
+                android:textSize="@dimen/text_size_14sp" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:singleLine="true"
+                android:text="2017/06/30 08:49"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_size_12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/delete_bt"
+        android:layout_width="@dimen/common70dp"
+        android:background="@color/text_color_orange"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_16sp"
+            android:text="删除"
+            android:gravity="center"
+            />
+
+
+    </LinearLayout>
+
+</com.runer.liabary.swipelayout.SwipeMenuLayout>

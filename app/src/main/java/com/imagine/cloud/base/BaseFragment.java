@@ -6,6 +6,8 @@ import android.support.annotation.ColorRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.imagine.cloud.R;
@@ -114,5 +116,16 @@ public class BaseFragment extends Fragment implements INetResult ,SwipeRefreshLa
     @Override
     public void onLoadMoreRequested() {
 
+    }
+
+
+    public View getEmptyView(String notice){
+        View view = View.inflate(getContext(),R.layout.nor_empty_layout,null) ;
+        TextView noticeView = (TextView) view.findViewById(R.id.text);
+        noticeView.setText(notice);
+        return  view ;
+    }
+    public View getEmptyView(){
+        return  View.inflate(getContext(),R.layout.nor_empty_layout,null) ;
     }
 }

@@ -63,10 +63,11 @@ public class MeetingListDao extends BaseRequest {
     /*num	是	string	每页数量
       page	是	string	当前页数*/
 
-    public void getMeetingList(){
+    public void getMeetingList(String key){
         IRequestParam param =new IRequestParam();
         try {
             param.put("type","0");
+            param.put("search",key) ;
             param.put("page",currentPage) ;
             param.put("num",perPageCount);
         } catch (JSONException e) {
@@ -75,16 +76,17 @@ public class MeetingListDao extends BaseRequest {
         basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.MeetingList),param, RequestCode.CODE_1);
     }
 
-    public void refresh(){
-        datas.clear();
+    public void refresh(String key){
+        datas=new ArrayList<>();
         currentPage =1 ;
-        getMeetingList();
+        getMeetingList(key);
     }
 
-    public void nextPage(){
+
+    public void nextPage(String key){
         if(hasMore()){
             currentPage++ ;
-            getMeetingList();
+            getMeetingList(key);
         }
     }
 }

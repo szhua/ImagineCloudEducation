@@ -3,7 +3,10 @@ package com.imagine.cloud.widget.adviewpager;
 import java.util.List;
 
 import com.imagine.cloud.R;
+import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.widget.RatioImageView;
+import com.squareup.picasso.Picasso;
+
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -60,6 +63,8 @@ public void setData(List<BannerBean> data){
 
  			}
 		});
+		Picasso.with(context).load(Requst.BASE_IMG_URL+data.get(position).getImg()).placeholder(R.drawable.loading).into(imageView);
+
 
 		return view;
 	}

@@ -197,10 +197,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         if (tabEntitys == null || tabEntitys.size() == 0) {
             throw new IllegalStateException("TabEntitys can not be NULL or EMPTY !");
         }
-
         this.mTabEntitys.clear();
         this.mTabEntitys.addAll(tabEntitys);
-
         notifyDataSetChanged();
     }
 
@@ -925,6 +923,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         }
         super.onRestoreInstanceState(state);
     }
+
+
 
     class IndicatorPoint {
         public float left;

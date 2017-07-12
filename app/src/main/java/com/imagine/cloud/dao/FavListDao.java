@@ -15,6 +15,7 @@ import com.runer.net.interf.INetResult;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,8 +28,11 @@ import java.util.List;
 public class FavListDao extends BaseRequest {
 
 
-    private List<MeetingBean> meetingBeanList ;
-
+    private int totalPage ;
+    private List<MeetingBean> datas  =new ArrayList<>();
+    public List<MeetingBean> getDatas() {
+        return datas;
+    }
 
     public FavListDao(Context context, INetResult iNetResult) {
         super(context, iNetResult);
@@ -36,7 +40,8 @@ public class FavListDao extends BaseRequest {
 
     @Override
     public void onRequestSuccess(JsonNode result, int requestCode) throws IOException {
-        if(requestCode==RequestCode.CODE_1){
+
+        if(requestCode==RequestCode.CODE_0){
             totalPage =result.findValue("total_page").asInt();
             List<MeetingBean> resultList = JsonUtil.node2pojoList(result.findValue("list"),MeetingBean.class);
             if(resultList!=null&&!resultList.isEmpty()){
@@ -47,19 +52,46 @@ public class FavListDao extends BaseRequest {
                     isMore =false;
                 }
             }
-        }
+            }
     }
 
 
     /*type	是	string	0 会议 1 项目
 user_id	是	string	用户id*/
-    public void getFavList(String type ,String user_id){
+    public void getFavList(String user_id){
         IRequestParam param =new IRequestParam() ;
         try {
+
             param.put("user_id",user_id) ;
+            param.put("page",currentPage) ;
+            param.put("num",perPageCount);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
         basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.FavList),param, RequestCode.CODE_0);
+    }
+
+
+    public  boolean hasMore(){
+        return  isMore ;
+    }
+
+    private boolean isMore ;
+    private int currentPage =1 ;
+
+
+
+    public void refresh(String user_id){
+        datas=new ArrayList<>() ;
+        currentPage =1 ;
+        getFavList(user_id);
+    }
+
+    public void nextPage(String user_id){
+        if(hasMore()){
+            currentPage++ ;
+            getFavList(user_id);
+        }
     }
 }

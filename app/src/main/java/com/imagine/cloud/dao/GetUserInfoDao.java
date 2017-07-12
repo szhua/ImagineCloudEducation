@@ -39,6 +39,8 @@ public class GetUserInfoDao extends BaseRequest {
     public void onRequestSuccess(JsonNode result, int requestCode) throws IOException {
         if(requestCode==RequestCode.GET_USER_INFO){
             userInfo = JsonUtil.node2pojo(result,UserInfo.class) ;
+        }else if(requestCode==RequestCode.UPDATE_USER_UINFO){
+            userInfo=JsonUtil.node2pojo(result,UserInfo.class) ;
         }
     }
 
@@ -59,6 +61,7 @@ email	否	string	邮箱
 address	否	string	地址
 school	否	string	学校
 post	否	string	职务*/
+
     private String user_name ;
     String mobile ;
     String email ;

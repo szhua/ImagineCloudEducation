@@ -15,6 +15,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.imagine.cloud.R;
 import com.imagine.cloud.adapter.HomeListAdapter;
 import com.imagine.cloud.base.BaseFragment;
+import com.imagine.cloud.dao.GetBannerDao;
 import com.imagine.cloud.ui.activity.ExampleAcitivty;
 import com.imagine.cloud.ui.activity.LoginActivity;
 import com.imagine.cloud.ui.activity.MeetingDetailActivity;
@@ -23,6 +24,7 @@ import com.imagine.cloud.widget.LoamoreView;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
+import com.runer.liabary.util.RunerLinearManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -46,6 +48,8 @@ public class HomeFragment extends BaseFragment {
     @InjectView(R.id.swiperefresh)
     SwipeRefreshLayout swiperefresh;
 
+    private GetBannerDao getBannerDao ;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,7 +62,9 @@ public class HomeFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+
+        RunerLinearManager linearLayoutManager = new RunerLinearManager(getContext());
         final HomeListAdapter homeListAdapter = new HomeListAdapter(AppUtil.getTestData());
         homeListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
@@ -91,6 +97,10 @@ public class HomeFragment extends BaseFragment {
         recyclerView.addItemDecoration(decoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(homeListAdapter);
+
+
+
+
     }
 
 

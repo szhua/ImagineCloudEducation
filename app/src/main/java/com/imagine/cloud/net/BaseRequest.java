@@ -39,7 +39,6 @@ public abstract class BaseRequest extends IDao {
      }
      //post 请求
      public void basePostRequst(String url , IRequestParam  params ,int requestCode ){
-
          Logger.d(params);
          RequestParams pas =new RequestParams() ;
          pas.put("param",params.toString());

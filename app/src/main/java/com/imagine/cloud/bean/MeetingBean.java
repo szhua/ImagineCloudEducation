@@ -13,6 +13,7 @@ public class MeetingBean {
     "title": "测试图片上传",
     "subtitle": ",如果两个数组存在相同的key,后面的一个会覆盖前面的 ",
     "create_time": "2017-07-06",
+
     "img": "14993103291689.jpg"*/
 
 String id ;
@@ -20,6 +21,16 @@ String id ;
     String subtitle ;
     String create_time ;
     String img ;
+    String fav_id ;
+
+
+    public String getFav_id() {
+        return fav_id;
+    }
+
+    public void setFav_id(String fav_id) {
+        this.fav_id = fav_id;
+    }
 
     public String getId() {
         return id;

@@ -17,6 +17,7 @@ import com.imagine.cloud.widget.LoamoreView;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
+import com.runer.liabary.util.RunerLinearManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -41,7 +42,7 @@ public class MessageActivity extends BaseActivity {
         setContentView(R.layout.activity_message);
         ButterKnife.inject(this);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        RunerLinearManager linearLayoutManager = new RunerLinearManager(this);
         messageAdapter = new MyMessageAdapter(AppUtil.getTestData());
         messageAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

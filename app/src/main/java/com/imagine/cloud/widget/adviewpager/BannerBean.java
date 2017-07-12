@@ -1,67 +1,39 @@
 package com.imagine.cloud.widget.adviewpager;
 
-import java.util.List;
-
 /**
  * Created by Administrator on 2017/5/15.
  */
 
 public class BannerBean {
 
-    private boolean isWath ;
-    private String imgDesc,carImg;
-    private String id, title, createTime, views, img ,content ,url ,isFav ,type ;
-    private List<String> label;
+    /**
+     * title : 轮播图测试1
+     * url :  热太热特
+     * img : 14992471492697.jpg
+     * create_time : 2017-07-11
+     */
+
+    private String title;
+    private String url;
+    private String img;
+    private String create_time;
+    String type ;
 
 
-    public boolean isWath() {
-        return isWath;
+    public String getType() {
+        return type;
     }
 
-    public void setWath(boolean wath) {
-        isWath = wath;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getId(){
-        return id;
-    }
-    public String getImgDesc() {
-        return imgDesc;
-    }
-    public void setImgDesc(String imgDesc) {
-        this.imgDesc = imgDesc;
+    public String getTitle() {
+        return title;
     }
 
-    public String getCarImg() {
-        return carImg;
-    }
-
-    public void setCarImg(String carImg) {
-        this.carImg = carImg;
-    }
-
-    public String getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getViews() {
-        return views;
-    }
-
-    public void setViews(String views) {
-        this.views = views;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getUrl() {
@@ -72,53 +44,30 @@ public class BannerBean {
         this.url = url;
     }
 
-    public String getIsFav() {
-        return isFav;
-    }
-
-    public void setIsFav(String isFav) {
-        this.isFav = isFav;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public List<String> getLabel() {
-        return label;
-    }
-
-    public void setLabel(List<String> label) {
-        this.label = label;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
     public String getImg() {
         return img;
     }
+
     public void setImg(String img) {
         this.img = img;
     }
+
+    public String getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
+    }
+
     @Override
     public String toString() {
         return "BannerBean{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
+                ", url='" + url + '\'' +
                 ", img='" + img + '\'' +
+                ", create_time='" + create_time + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
