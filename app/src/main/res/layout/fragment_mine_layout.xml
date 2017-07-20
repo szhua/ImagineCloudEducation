@@ -5,6 +5,35 @@
     android:layout_height="match_parent">
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/item_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+            <TextView
+                android:id="@+id/exist_bt"
+                style="@style/normal_bt_style"
+                android:layout_marginBottom="@dimen/common20dp"
+                android:layout_marginTop="@dimen/common30dp"
+                android:text="安全退出"></TextView>
+        </LinearLayout>
+
+
+    </ScrollView>
+
     <LinearLayout
         android:orientation="vertical"
         android:background="@color/colorPrimary"
@@ -13,7 +42,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/normal_header_height">
-
 
             <TextView
                 android:id="@+id/title"
@@ -30,41 +58,6 @@
 
         <View style="@style/Divider"></View>
     </LinearLayout>
-
-
-    <ScrollView
-        android:scrollbars="none"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/item_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-
-
-            <TextView
-                android:layout_marginTop="@dimen/common30dp"
-                android:layout_marginBottom="@dimen/common20dp"
-                android:id="@+id/exist_bt"
-                style="@style/normal_bt_style"
-                android:text="安全退出"
-                ></TextView>
-
-
-        </LinearLayout>
-
-
-    </ScrollView>
 
 
 </LinearLayout>

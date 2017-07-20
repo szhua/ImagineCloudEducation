@@ -23,3 +23,30 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#蒲公英的混淆
+-libraryjars libs/pgyer_sdk_x.x.jar
+-dontwarn com.pgyersdk.**
+-keep class com.pgyersdk.** { *; }
+
+#支付相关的混淆
+#pay_library
+-dontwarn io.github.mayubao.pay_library.**
+-keep class io.github.mayubao.pay_library.** {*;}
+
+#wechat pay
+-dontwarn com.tencent.**
+-keep class com.tencent.** {*;}
+
+
+#alipay
+-dontwarn com.alipay.**
+-keep class com.alipay.** {*;}
+-dontwarn  com.ta.utdid2.**
+-keep class com.ta.utdid2.** {*;}
+-dontwarn  com.ut.device.**
+-keep class com.ut.device.** {*;}
+-dontwarn  org.json.alipay.**
+-keep class corg.json.alipay.** {*;}
+
+

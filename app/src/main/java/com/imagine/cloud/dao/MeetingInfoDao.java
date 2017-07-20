@@ -16,6 +16,8 @@ import org.json.JSONException;
 
 import java.io.IOException;
 
+import static com.imagine.cloud.net.NetInter.CHECK_MSG_READ;
+
 /**
  * Created by szhua on 2017/7/10/010.
  * github:https://github.com/szhua
@@ -43,7 +45,17 @@ public class MeetingInfoDao extends BaseRequest {
     /*type	是	string	0 会议 1项目
 user_id	否	string	用户id
 id	是	string	会议或项目的id
+
+type
+
+0: 可以报名
+1：不可以报名
+2：过期了
+
 */
+
+
+
 
     public void getInfo(String user_id ,String id ){
         IRequestParam param =new IRequestParam();
@@ -82,14 +94,19 @@ meeting_id	是	string	会议id*/
     }
 
     //取消收藏
-    public void delFav(String fav_id){
+    public void delFav(String user_id ,String id){
         IRequestParam  param =new IRequestParam() ;
         try {
-            param.put("fav_id",fav_id) ;
+
+            param.put("user_id",user_id) ;
+            param.put("id",id);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
         basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.MeetingDeleFav),param,RequestCode.DEL_FAV);
     }
+
+
 
 }

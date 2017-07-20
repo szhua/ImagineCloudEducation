@@ -1,5 +1,6 @@
 package com.imagine.cloud.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -7,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -14,6 +17,8 @@ import com.imagine.cloud.R;
 import com.runer.liabary.dialog.ProgressHUD;
 import com.runer.liabary.util.UiUtil;
 import com.runer.net.interf.INetResult;
+
+import static com.umeng.socialize.utils.DeviceConfig.context;
 
 /**
  * Rcsd
@@ -127,5 +132,39 @@ public class BaseFragment extends Fragment implements INetResult ,SwipeRefreshLa
     }
     public View getEmptyView(){
         return  View.inflate(getContext(),R.layout.nor_empty_layout,null) ;
+    }
+
+    public View getEmptyViewFixSize(String notice){
+        View view = View.inflate(getContext(),R.layout.nor_fix_empty_view,null) ;
+        TextView noticeView = (TextView) view.findViewById(R.id.text);
+        noticeView.setText(notice);
+        return  view ;
+    }
+
+    public int [] getRefreshColor(Context context){
+        int [] colors = new int[3] ;
+        colors[0] =ContextCompat.getColor(context,android.R.color.holo_orange_dark) ;
+        colors[1] =ContextCompat.getColor(context,R.color.albumColorPrimary) ;
+        colors[2] =ContextCompat.getColor(context,android.R.color.holo_red_light) ;
+        return  colors;
+    }
+
+    /**
+     * 隐藏软键
+     */
+    public void hideInputMethod(final EditText v) {
+        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(v.getWindowToken(),0);
+    }
+
+    /**
+     * 显示软键盘
+     * @param v
+     */
+    public void showInputMethod(final EditText v) {
+        v.requestFocus();
+        InputMethodManager imm = (InputMethodManager)getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(v,0);
     }
 }

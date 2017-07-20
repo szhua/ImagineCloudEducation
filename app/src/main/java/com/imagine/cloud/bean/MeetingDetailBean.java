@@ -18,11 +18,13 @@ public class MeetingDetailBean {
      * create_time : 26169196819
      * die_time :
      * img :
+     * type
      * like_num : 0
      * fav_num : 0
      * subtitle : 保存您最喜爱的站点。 视频教程
      */
 
+    String type ;
     private int islike;
     private int isfav;
     private String id;
@@ -35,7 +37,24 @@ public class MeetingDetailBean {
     private String fav_num;
     private String subtitle;
     private String url ;
+    private String buy_num ;
 
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBuy_num() {
+        return buy_num;
+    }
+
+    public void setBuy_num(String buy_num) {
+        this.buy_num = buy_num;
+    }
 
     public String getUrl() {
         return url;

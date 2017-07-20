@@ -18,6 +18,7 @@ import com.imagine.cloud.R;
 import com.imagine.cloud.adapter.SearchAdapter;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.bean.SearchRecordBean;
+import com.imagine.cloud.dao.MeetingProjectSearchDao;
 import com.imagine.cloud.util.search.SearchRecordManager;
 import com.imagine.cloud.widget.LoamoreView;
 import com.orhanobut.logger.Logger;
@@ -43,8 +44,8 @@ public class SearchActivity extends BaseActivity {
     RecyclerView recyclerView;
 
     private SearchAdapter searchAdapter;
-
     private List<SearchRecordBean> searchRecordBeens = new ArrayList<>();
+    private MeetingProjectSearchDao meetingProjectSearchDao ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +54,16 @@ public class SearchActivity extends BaseActivity {
         ButterKnife.inject(this);
 
         searchAdapter = new SearchAdapter(searchRecordBeens);
+        searchAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         searchAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+                Bundle bundle =new Bundle() ;
+                bundle.putString("key",searchRecordBeens.get(position).getSearchKey());
+                transUi(SearResultActivity.class, bundle);
+                finish();
             }
         });
-
-        searchAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         searchAdapter.setLoadMoreView(new LoamoreView());
         searchAdapter.setEnableLoadMore(false);
         VerticalItemDecoration decoration = ItemDecorations.vertical(this)
@@ -80,10 +83,10 @@ public class SearchActivity extends BaseActivity {
                 return false;
             }
         });
+
         searchAdapter.setEmptyView(R.layout.empty_view_search, recyclerView);
 
         getRecordData();
-
 
         //清除数据库数据
         cleanBt.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +96,6 @@ public class SearchActivity extends BaseActivity {
                 cleanHistory();//开始搜索逻辑
             }
         });
-
 
     }
 
@@ -112,6 +114,7 @@ public class SearchActivity extends BaseActivity {
                     @Override
                     public void accept(List<SearchRecordBean> searchRecordBeen) throws Exception {
                         Logger.d(searchRecordBeen);
+                        searchRecordBeens =searchRecordBeen;
                         searchAdapter.setNewData(searchRecordBeen);
                     }
                 });
@@ -193,8 +196,11 @@ public class SearchActivity extends BaseActivity {
                         .subscribe(new Consumer<Object>() {
                             @Override
                             public void accept(Object o) throws Exception {
-                                UiUtil.showLongToast(getApplicationContext(), "查询业务开始");
-                                transUi(SearResultActivity.class, null);
+                            //    UiUtil.showLongToast(getApplicationContext(), "查询业务开始");
+                                Bundle bundle =new Bundle() ;
+                                bundle.putString("key",searchEt.getText().toString());
+                                transUi(SearResultActivity.class, bundle);
+                                finish();
                             }
                         });
             }

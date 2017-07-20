@@ -57,6 +57,7 @@
                 />
 
             <TextView
+                android:id="@+id/time"
                 style="@style/normal_text_view_content"
                 android:text="时长"
                 android:layout_marginRight="@dimen/common0dp"

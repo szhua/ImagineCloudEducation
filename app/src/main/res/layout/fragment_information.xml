@@ -13,12 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="科研讲坛"
+            android:text="@string/keyan"
             android:textColor="@color/white"
             android:textSize="@dimen/text_size_18sp"
             android:layout_alignParentTop="true"
@@ -45,7 +44,7 @@
                 android:id="@+id/msg_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/msg_num"
+                android:src="@drawable/msg"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/common16dp"
@@ -78,7 +77,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:scaleType="centerCrop"
-                    app:layout_collapseMode="parallax"/>
+                    app:layout_collapseMode="parallax" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -106,15 +105,13 @@
                     app:tl_indicator_width="70dp"
                     app:tl_textsize="14sp"
                     app:tl_indicator_corner_radius="@dimen/common2dp"
-                    app:tl_indicator_color="@color/albumColorPrimary"
-                    app:tl_textSelectColor="@color/albumColorPrimary"
+                    app:tl_indicator_color="@color/colorPrimary"
+                    app:tl_textSelectColor="@color/colorPrimary"
                     app:tl_textUnselectColor="#66000000"
                     app:tl_underline_color="@color/divider"
                     app:tl_indicator_width_equal_title="true"
                     app:tl_underline_height="1px"
                     ></com.runer.liabary.tab.SlidingTabLayout>
-
-
             </LinearLayout>
 
             <android.support.v4.view.ViewPager

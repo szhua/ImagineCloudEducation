@@ -56,7 +56,8 @@ public class AdViewPager extends LinearLayout {
 			@Override
 			public void onPageSelected(int arg0) {
 				currentItem =arg0;
-				adTitle.setText("Title"+arg0);
+				if(datas!=null||!datas.isEmpty())
+				adTitle.setText(datas.get(arg0).getTitle());
 			}
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
@@ -66,7 +67,6 @@ public class AdViewPager extends LinearLayout {
 			}
 		});
 	}
-
 	private class ScrollTask extends TimerTask {
 		public void run() {
 			synchronized (viewPager) {
@@ -77,17 +77,14 @@ public class AdViewPager extends LinearLayout {
 			}
 		}
 	}
-
 	public void setIndicatorGone(){
 		if(indicator!=null){
 			indicator.setVisibility(View.GONE);
 		}
 	}
-
 	public View getViewPager(){
 		return viewPager ;
 	}
-
 	double ratio ;
 	public void setViewPagerHeight(final double ratio){
 		this.ratio =ratio ;

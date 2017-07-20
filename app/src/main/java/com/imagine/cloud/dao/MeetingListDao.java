@@ -51,18 +51,16 @@ public class MeetingListDao extends BaseRequest {
            }
        }
     }
-
-
     public  boolean hasMore(){
         return  isMore ;
     }
 
-    private boolean isMore ;
-    private int currentPage =1 ;
+
+    private boolean isMore;
+    private int currentPage =1;
 
     /*num	是	string	每页数量
       page	是	string	当前页数*/
-
     public void getMeetingList(String key){
         IRequestParam param =new IRequestParam();
         try {

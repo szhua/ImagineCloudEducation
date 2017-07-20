@@ -9,6 +9,7 @@ import java.util.List;
  */
 
 public class PlayEvent {
+
     public enum Action {
         PLAY, PAUSE, RESUME, NEXT, PREVIOES, SEEK
     }
@@ -18,9 +19,6 @@ public class PlayEvent {
     private List<MusicInfoDetail> mQueue;
     private int seekTo;
     private int position;
-
-
-
 
     public MusicInfoDetail getSong() {
         return mDetail;

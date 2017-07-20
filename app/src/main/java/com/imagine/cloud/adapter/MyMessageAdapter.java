@@ -1,9 +1,13 @@
 package com.imagine.cloud.adapter;
 
+import android.view.View;
+
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.imagine.cloud.R;
+import com.imagine.cloud.bean.MeetingBean;
+import com.imagine.cloud.bean.MessageBean;
 
 import java.util.List;
 
@@ -15,14 +19,40 @@ import java.util.List;
  * 我的信息adapter；
  */
 
-public class MyMessageAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
-
-    public MyMessageAdapter(List<String> data) {
+public class MyMessageAdapter extends BaseQuickAdapter<MessageBean,BaseViewHolder> {
+    public MyMessageAdapter(List<MessageBean> data) {
         super(R.layout.item_message_layout,data);
     }
-
     @Override
-    protected void convert(BaseViewHolder helper, String item) {
+    protected void convert(BaseViewHolder helper,final MessageBean item) {
+        helper.setText(R.id.msg_type,item.getMessage_type())
+                .setText(R.id.time,item.getCreate_tiem())
+                .setText(R.id.title,item.getTitle())
+                .setText(R.id.theme,item.getSubtitle());
 
+        helper.getView(R.id.item_container).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemDeleteClickListener!=null){
+                    onItemDeleteClickListener.onItemClick(item);
+                }
+            }
+        });
+        helper.getView(R.id.delete_bt).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(onItemDeleteClickListener!=null){
+                    onItemDeleteClickListener.onItemDelete(item);
+                }
+            }
+        });
+    }
+    private OnItemDeleteClickListener onItemDeleteClickListener ;
+    public void setOnItemDeleteClickListener(OnItemDeleteClickListener onItemDeleteClickListener) {
+        this.onItemDeleteClickListener = onItemDeleteClickListener;
+    }
+    public interface  OnItemDeleteClickListener{
+        void onItemDelete(MessageBean item );
+        void onItemClick(MessageBean item);
     }
 }

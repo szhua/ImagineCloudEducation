@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.imagine.cloud.R;
 import com.runer.liabary.dialog.ProgressHUD;
 import com.runer.liabary.util.UiUtil;
@@ -36,7 +37,7 @@ import static com.umeng.socialize.utils.DeviceConfig.context;
  *基础Activity
  * @author sz.hua
  */
-public class BaseActivity extends AppCompatActivity implements INetResult ,SwipeRefreshLayout.OnRefreshListener {
+public class BaseActivity extends AppCompatActivity implements INetResult ,SwipeRefreshLayout.OnRefreshListener,BaseQuickAdapter.RequestLoadMoreListener {
 
    private TextView title ;
    private ImageView leftImage ;
@@ -78,7 +79,7 @@ public class BaseActivity extends AppCompatActivity implements INetResult ,Swipe
     @Override
     public void onRequestSuccess(int requestCode) {
         onCompeleteRefresh();
-showProgress(false);
+        showProgress(false);
     }
 
     @Override
@@ -179,32 +180,22 @@ public void showProgress(boolean show){
         fragmentTransaction.commit();
     }
     /**
-     * 隐藏软键盘
-     *
-     * @param v
+     * 隐藏软键
      */
     public void hideInputMethod(final EditText v) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(v.getWindowToken(),0);
-
     }
 
     /**
      * 显示软键盘
-     *
      * @param v
      */
     public void showInputMethod(final EditText v) {
         v.requestFocus();
-        InputMethodManager imm = (InputMethodManager)context
-                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(v,0);
     }
-
-//    public int getColor(@ColorRes int color){
-//        return ContextCompat.getColor(this, color) ;
-//    }
-
 
     //跳转界面
     public void transUi(Class activity ,Bundle bundle){
@@ -245,7 +236,6 @@ public void showProgress(boolean show){
     }
 
 
-
     public int [] getRefreshColor(Context context){
        int [] colors = new int[3] ;
         colors[0] =ContextCompat.getColor(context,android.R.color.holo_orange_dark) ;
@@ -255,15 +245,30 @@ public void showProgress(boolean show){
     }
 
 
+    /*定义刷新*/
     @Override
     public void onRefresh() {
 
     }
 
+    //定义完成刷新
     public void onCompeleteRefresh(){
-    }
 
+    }
+    //获得空的View；
     public View getEmptyView(){
         return  View.inflate(this,R.layout.nor_empty_layout,null) ;
+    }
+    //设置自定义文本;
+    public View getEmptyView(String notice){
+        View view = View.inflate(this,R.layout.nor_empty_layout,null) ;
+        TextView noticeView = (TextView) view.findViewById(R.id.text);
+        noticeView.setText(notice);
+        return  view ;
+    }
+    //加载完成;
+    @Override
+    public void onLoadMoreRequested() {
+
     }
 }

@@ -2,16 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.imagine.cloud.widget.OrderView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.imagine.cloud.widget.OrderView>
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/radios"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="36dp">
+
+            <com.runer.liabary.widget.CenterRadioButton
+                android:id="@+id/time"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:layout_marginLeft="@dimen/common16dp"
+                android:layout_marginRight="@dimen/common8dp"
+                android:text="按时间排序"
+                android:textSize="@dimen/text_size_14sp"
+                android:gravity="center"
+                android:drawablePadding="@dimen/common6dp"
+                android:drawableRight="@drawable/radio_drable_right_selector"
+                android:textColor="@drawable/radio_text_color_selector"
+                android:layout_height="match_parent" />
+
+            <com.runer.liabary.widget.CenterRadioButton
+                android:layout_marginLeft="@dimen/common8dp"
+                android:layout_marginRight="@dimen/common16dp"
+                android:id="@+id/hot"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/common6dp"
+                android:button="@null"
+                android:text="按热度排序"
+                android:textSize="@dimen/text_size_14sp"
+                android:gravity="center"
+                android:drawableRight="@drawable/radio_drable_right_selector"
+                android:textColor="@drawable/radio_text_color_selector"
+                android:layout_height="match_parent" />
+        </RadioGroup>
+    </LinearLayout>
     <View style="@style/Divider"></View>
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.imagine.cloud.ui.activity.MessageDetailActivity">
+
+
+    <include layout="@layout/header_layout"></include>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/message_title"
+                style="@style/normal_text_view_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:layout_marginTop="@dimen/common16dp"
+                android:paddingLeft="@dimen/common_left_right_margin"
+               />
+
+
+            <TextView
+                android:id="@+id/message_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:layout_marginTop="@dimen/common4dp"
+                android:textColor="@color/text_color_light"
+                android:textSize="@dimen/text_size_12sp" />
+
+
+            <TextView
+                android:id="@+id/theme"
+                style="@style/normal_text_view_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:layout_marginTop="@dimen/common10dp"
+                 />
+
+
+            <TextView
+                android:id="@+id/msg_content"
+                style="@style/normal_text_view_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:paddingLeft="@dimen/common_left_right_margin"
+                android:paddingTop="@dimen/common6dp"
+                android:text="" />
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

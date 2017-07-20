@@ -50,6 +50,7 @@ import butterknife.InjectView;
 
 public class MeetingFragment extends BaseFragment  {
 
+
     @InjectView(R.id.recycler_view)
     RecyclerView recyclerView;
     @InjectView(R.id.swiperefresh)
@@ -72,8 +73,8 @@ public class MeetingFragment extends BaseFragment  {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         getActivity().startService(new Intent(getContext(),PlayerService.class));
+
 
         RunerLinearManager linearLayoutManager = new RunerLinearManager(getContext());
         meetingAdapter = new MeetingAdapter(meetingBeanList);
@@ -89,7 +90,7 @@ public class MeetingFragment extends BaseFragment  {
         meetingAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
         meetingAdapter.setLoadMoreView(new LoamoreView());
         meetingAdapter.setOnLoadMoreListener(this);
-        
+
         VerticalItemDecoration decoration = ItemDecorations.vertical(getContext())
                 .first(R.drawable.decoration_divider_6dp)
                 .type(0, R.drawable.decoration_divider_6dp).create();
@@ -105,6 +106,7 @@ public class MeetingFragment extends BaseFragment  {
         meetingListDao.refresh(key);
         showProgress(true);
 
+
         editSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
@@ -114,18 +116,19 @@ public class MeetingFragment extends BaseFragment  {
                 return false;
             }
         });
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
     }
+    //搜索查询
     private void editSearch() {
+        hideInputMethod(editSearch);
     key =editSearch.getText().toString() ;
     meetingListDao.refresh(key);
+        showProgress(true);
     }
-
 
     private List<MeetingBean> meetingBeanList ;
     @Override
@@ -157,10 +160,8 @@ public class MeetingFragment extends BaseFragment  {
     @Override
     public void onCompeleteRefresh() {
         super.onCompeleteRefresh();
-
         swiperefresh.setRefreshing(false);
         meetingAdapter.loadMoreComplete();
-
     }
 
     @Override

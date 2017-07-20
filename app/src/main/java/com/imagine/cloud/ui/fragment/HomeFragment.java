@@ -1,33 +1,24 @@
 package com.imagine.cloud.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.imagine.cloud.R;
 import com.imagine.cloud.adapter.HomeListAdapter;
 import com.imagine.cloud.base.BaseFragment;
 import com.imagine.cloud.dao.GetBannerDao;
-import com.imagine.cloud.ui.activity.ExampleAcitivty;
-import com.imagine.cloud.ui.activity.LoginActivity;
+import com.imagine.cloud.dao.MessageDao;
 import com.imagine.cloud.ui.activity.MeetingDetailActivity;
-import com.imagine.cloud.util.AppUtil;
 import com.imagine.cloud.widget.LoamoreView;
-import com.orhanobut.logger.Logger;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
 import com.runer.liabary.util.RunerLinearManager;
-
 import java.util.concurrent.TimeUnit;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import io.reactivex.Observable;
@@ -62,10 +53,9 @@ public class HomeFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
         RunerLinearManager linearLayoutManager = new RunerLinearManager(getContext());
-        final HomeListAdapter homeListAdapter = new HomeListAdapter(AppUtil.getTestData());
+        final HomeListAdapter homeListAdapter = new HomeListAdapter(null);
+
         homeListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -98,12 +88,14 @@ public class HomeFragment extends BaseFragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(homeListAdapter);
 
-
-
-
     }
 
-
+    //查看是否有
+    private MessageDao messageDao ;
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void onDestroyView() {

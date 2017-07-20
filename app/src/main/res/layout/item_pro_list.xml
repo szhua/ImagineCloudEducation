@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_marginTop="@dimen/common_top_bottom_margin"
+        android:id="@+id/tag"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="课题遴选"
+        android:textColor="@color/white"
+        android:paddingTop="@dimen/common6dp"
+        android:paddingBottom="@dimen/common6dp"
+        android:gravity="center"
+        android:background="@drawable/pro_bg"
+        />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_marginTop="@dimen/common4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:src="@drawable/arrow_pro"
+        />
+
+</LinearLayout>

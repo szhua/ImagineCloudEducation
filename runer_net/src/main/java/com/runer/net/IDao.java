@@ -173,7 +173,6 @@ public abstract class IDao {
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseBody) {
                 Log.i(TAG, responseBody);
-
                 try {
                     JsonNode node = ResultUtil.handleResult(responseBody);
                      int  code = 0;
@@ -196,6 +195,7 @@ public abstract class IDao {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.d("szhua",e.toString());
                     mResult.onRequestFaild(requestCode,"error",e.toString());
                 }
             }

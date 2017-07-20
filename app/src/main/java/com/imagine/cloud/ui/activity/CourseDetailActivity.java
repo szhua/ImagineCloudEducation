@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.base.BaseWebFragment;
+import com.imagine.cloud.bean.CourseDetailBean;
+import com.imagine.cloud.dao.CourseDao;
 import com.imagine.cloud.service.MusicInfoDetail;
 import com.imagine.cloud.service.MusicPlayer;
 import com.imagine.cloud.service.PlayEvent;
@@ -17,6 +19,7 @@ import com.imagine.cloud.service.PlayerService;
 import com.imagine.cloud.util.AppUtil;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.util.UiUtil;
+import com.runer.net.RequestCode;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -54,25 +57,47 @@ public class CourseDetailActivity extends BaseActivity {
     LinearLayout container;
     @InjectView(R.id.play_bt)
     ImageView playBt;
-
-
-    int playSate ;
     private Disposable flowable;
+
+
+
+
+
+    private String id ;
+    private CourseDao courseDao ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
         ButterKnife.inject(this);
-        addFragmentList(R.id.container, BaseWebFragment.getInstance("https://www.python.org/"));
         //开启音乐播放service;
         startService(new Intent(this, PlayerService.class));
+        id =getStringExtras("id","") ;
+        courseDao =new CourseDao(this,this) ;
+        courseDao.getAudioCourseInfo(id);
+        showProgress(true);
     }
 
     private boolean fisrtPlay=true;
     @OnClick(R.id.play_bt)
     public void onViewClicked() {
         playMusic();
+    }
+
+    private CourseDetailBean courseDetailBean ;
+    @Override
+    public void onRequestSuccess(int requestCode) {
+        super.onRequestSuccess(requestCode);
+        if(requestCode== RequestCode.CODE_0){
+            courseDetailBean =courseDao.getCourseDetailBean() ;
+            if(courseDetailBean!=null){
+                addFragmentList(R.id.container, BaseWebFragment.getInstance(courseDetailBean.getUrl()));
+                courseName.setText(courseDetailBean.getTitle());
+                courseTime.setText(courseDetailBean.getTime());
+                courseNum.setText(courseDetailBean.getNumb()+"人正在收听");
+            }
+        }
     }
 
     @Override
@@ -94,7 +119,7 @@ public class CourseDetailActivity extends BaseActivity {
             showProgressWithMsg(true,"正在解析音频资源...");
             PlayEvent playEvent = new PlayEvent();
             MusicInfoDetail musicInfoDetail = new MusicInfoDetail();
-            musicInfoDetail.setUri("http://www.170mv.com/kw/other.web.ri01.sycdn.kuwo.cn/resource/n1/20/85/173933130.mp3");
+            musicInfoDetail.setUri(courseDetailBean.getVoice());
             playEvent.setAction(PlayEvent.Action.PLAY);
             playEvent.setSong(musicInfoDetail);
             EventBus.getDefault().post(playEvent);
@@ -136,6 +161,8 @@ public class CourseDetailActivity extends BaseActivity {
                 playBt.setImageResource(R.drawable.player_play);
             }
         });
+
+
         //更新显示的时间
         flowable = Flowable.interval(0,1, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())

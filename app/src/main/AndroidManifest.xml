@@ -9,8 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
-    <!--极光推送相关-->
+    <!-- 极光推送相关 -->
     <!-- jpush permission -->
     <permission
         android:name="com.imagine.cloud.permission.JPUSH_MESSAGE"
@@ -29,8 +28,12 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
 
+    <!-- 蒲公英相关 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 获取设备信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取MAC地址 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-
+    <!-- 允许程序录制音频 -->
     <application
         android:name=".base.ImagineApplication"
         android:allowBackup="true"
@@ -39,48 +42,85 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.HomeActivity"
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.StartActivity"
             android:screenOrientation="portrait"
-            />
-        <activity android:name=".ui.activity.StartActivity"
-            android:theme="@style/FullScreenTheme"
-            android:screenOrientation="portrait"
-            >
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.activity.ExampleAcitivty"
             android:label="@string/title_activity_example_acitivty"
-            android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
-            />
-        <activity android:name=".ui.activity.LoginActivity"  android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.RegisterActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.CompleteUserInfoActivity"  android:screenOrientation="portrait"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.CompleteUserInfoActivity"
+            android:screenOrientation="portrait" />
         <!-- 图片选择 -->
-        <activity android:name="com.yanzhenjie.album.AlbumActivity"  android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.yanzhenjie.album.AlbumActivity"
+            android:screenOrientation="portrait" />
         <!-- 图片裁剪 -->
-        <activity android:name="com.soundcloud.android.crop.CropImageActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.ChangePassActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.UserInfoActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".base.BaseWebAcitivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.MeetingDetailActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.CourseDetailActivity" android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.MessageActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.MyMeetingActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.CollectActivity" android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.FeedBackActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.SearchActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.SearResultActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.ProjectDetailActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.SignUpActivity"  android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.SelectPayTypeActivity" android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.soundcloud.android.crop.CropImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ChangePassActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.UserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".base.BaseWebAcitivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MeetingDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.CourseDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MyMeetingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.CollectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FeedBackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SearResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ProjectDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SelectPayTypeActivity"
+            android:screenOrientation="portrait" />
 
-
-        <!--极光推送相关-->
+        <!-- 极光推送相关 -->
         <!-- Rich push 核心功能 since 2.0.6 -->
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
@@ -117,7 +157,6 @@
                 <action android:name="cn.jpush.android.intent.PUSH_TIME" />
             </intent-filter>
         </service>
-
         <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
         <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
         <service
@@ -130,7 +169,6 @@
                 <category android:name="com.imagine.cloud" />
             </intent-filter>
         </service>
-
         <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
@@ -182,13 +220,65 @@
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="developer-default" />
-
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="dce1983d5f360711f7caa3ef" />
-        <service android:name=".service.PlayerService">
-        </service>
 
+        <service android:name=".service.PlayerService" />
+
+        <!-- 友盟相关 -->
+        <!-- 微信 -->
+        <activity android:name=".wxapi.WXPayEntryActivity" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- qq -->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106042376" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="595dbef376661312fd000c53" />
+
+        <!-- 蒲公英 -->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="1bdf726f98ede9bafabf5c5d3e17aee7" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="runner_update_path"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.activity.DeclarationProcessActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.MessageDetailActivity" />
+        <activity android:name=".ui.activity.OrderBuyActivity"></activity>
     </application>
 
 </manifest>

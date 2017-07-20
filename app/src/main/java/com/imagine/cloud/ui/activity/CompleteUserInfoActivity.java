@@ -9,24 +9,21 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.base.BaseWebAcitivity;
 import com.imagine.cloud.dao.RegisterDao;
 import com.imagine.cloud.dao.UploadHeaderDao;
+import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.util.AppUtil;
 import com.imagine.cloud.widget.NormalInputEditText;
-import com.orhanobut.logger.Logger;
 import com.runer.liabary.util.UiUtil;
 import com.runer.net.RequestCode;
 import com.soundcloud.android.crop.Crop;
 import com.squareup.picasso.Picasso;
 import com.yanzhenjie.album.Album;
-
 import java.io.File;
 import java.util.ArrayList;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -40,7 +37,6 @@ import top.zibin.luban.Luban;
 
 
 public class CompleteUserInfoActivity extends BaseActivity {
-
 
     @InjectView(R.id.left_back)
     ImageView leftBack;
@@ -60,12 +56,8 @@ public class CompleteUserInfoActivity extends BaseActivity {
     TextView registerCode;
     @InjectView(R.id.finish_bt)
     TextView finishBt;
-
     private UploadHeaderDao uploadHeaderDao ;
-
     private RegisterDao registerDao ;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,9 +93,12 @@ public class CompleteUserInfoActivity extends BaseActivity {
                         .start(); // 999是请求码，返回时onActivityResult()的第一个参数。
                 break;
             case R.id.register_code:
+
                 Bundle bundle =new Bundle() ;
                 bundle.putString(BaseWebAcitivity.WEB_TITLE,"用户协议");
+                bundle.putString(BaseWebAcitivity.WEB_URL, Requst.REGISTER_ARGUMENT_URL);
                 transUi(BaseWebAcitivity.class,bundle);
+
                 break;
             case R.id.finish_bt:
 
@@ -134,12 +129,13 @@ public class CompleteUserInfoActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PHOTO_SELECT_CODE) {
+
             if (resultCode == RESULT_OK) {
                 ArrayList<String> pathList = Album.parseResult(data);
                 Crop.of(Uri.fromFile(new File(pathList.get(0))), Uri.fromFile(new File(getCacheDir(), CROPO_CACHE_PAHT))).start(CompleteUserInfoActivity.this);
             } else if (resultCode == RESULT_CANCELED) { //User canceled;
-
             }
+
             //裁剪以后的操作
         } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK){
             //进行压缩;
@@ -157,7 +153,6 @@ public class CompleteUserInfoActivity extends BaseActivity {
                         public void accept(File file) throws Exception {
                             uploadHeaderDao.upLoadUserHeader(AppUtil.getUserId(getApplicationContext()),file);
                             showProgressWithMsg(true,"正在上传头像");
-                            AppUtil.setUserHeader(CompleteUserInfoActivity.this,uploadHeaderDao.getHeaderPath());
                             Picasso.with(CompleteUserInfoActivity.this).load(file).into(headerBt);
                         }
                     });
@@ -165,12 +160,15 @@ public class CompleteUserInfoActivity extends BaseActivity {
             UiUtil.showLongToast(getApplicationContext(), "裁剪失败!");
         }
     }
-
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
         if(requestCode== RequestCode.UPDATE_HEADER){
-            UiUtil.showLongToast(this,"上传头像成功");
+            UiUtil.showLongToast(this,getString(R.string.update_header_success));
+            AppUtil.setUserHeader(CompleteUserInfoActivity.this,uploadHeaderDao.getHeaderPath());
+        }else if(requestCode==RequestCode.CODE_1){
+            UiUtil.showLongToast(this,getString(R.string.update_user_info_success));
+            finish();
         }
     }
 }

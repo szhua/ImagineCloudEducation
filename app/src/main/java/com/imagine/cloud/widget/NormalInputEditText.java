@@ -106,7 +106,7 @@ public class NormalInputEditText extends LinearLayout {
 
     //获取输入的内容
     public String  getInputContent(){
-        return  rightEdit.getText().toString() ;
+        return  rightEdit.getText().toString();
     }
 
     public void setRightHint(String rihtHint){

@@ -12,25 +12,22 @@
         ></include>
 
 
-
     <ScrollView
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <View style="@style/Divider" android:layout_marginTop="@dimen/common_top_bottom_margin"> </View>
             <LinearLayout
                 android:paddingLeft="@dimen/common_left_right_margin"
                 android:paddingRight="@dimen/common_left_right_margin"
-                android:paddingTop="@dimen/common_top_bottom_margin"
-                android:paddingBottom="@dimen/common_top_bottom_margin"
+                android:paddingTop="@dimen/common_left_right_margin"
+                android:paddingBottom="@dimen/common_left_right_margin"
                 android:background="@color/white"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -44,7 +41,6 @@
                     android:layout_height="wrap_content"
                     android:text="关于举办国际宏观金融论坛的通知"
                     />
-
 
                <LinearLayout
                    android:layout_marginTop="@dimen/common_top_bottom_margin"
@@ -64,32 +60,21 @@
                        android:textColor="@color/text_color_orange"
                        android:text="￥9090"
                        />
-
-
-
                </LinearLayout>
-
-
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/normal_text_view_content"
+                    android:layout_marginTop="@dimen/common_top_bottom_margin"
                     android:text="订单日期：2017-09-09 10:07"
                     />
 
-
-
             </LinearLayout>
 
-
-
             <View style="@style/Divider"></View>
-
-
-
-
             <View style="@style/Divider" android:layout_marginTop="@dimen/common_top_bottom_margin"></View>
+
             <RadioGroup
                 android:id="@+id/types"
                 android:background="@color/white"
@@ -97,13 +82,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
                 <RadioButton
                     android:id="@+id/bank_pay"
                     android:paddingLeft="@dimen/common_left_right_margin"
                     android:paddingRight="@dimen/common_left_right_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/common40dp"
+                    android:layout_height="@dimen/common46dp"
                     android:drawableLeft="@drawable/pay_easy"
                     android:button="@null"
                     android:text="银行卡支付"
@@ -118,7 +102,7 @@
                     android:paddingLeft="@dimen/common_left_right_margin"
                     android:paddingRight="@dimen/common_left_right_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/common40dp"
+                    android:layout_height="@dimen/common46dp"
                     android:drawableLeft="@drawable/pay_ali"
                     android:button="@null"
                     android:text="支付宝支付"
@@ -133,7 +117,7 @@
                     android:paddingLeft="@dimen/common_left_right_margin"
                     android:paddingRight="@dimen/common_left_right_margin"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/common40dp"
+                    android:layout_height="@dimen/common46dp"
                     android:drawableLeft="@drawable/pay_wechat"
                     android:button="@null"
                     android:text="微信支付"
@@ -142,7 +126,6 @@
                     android:drawablePadding="@dimen/common20dp"
                     android:drawableRight="@drawable/pay_selector"
                     />
-
             </RadioGroup>
 
 <View style="@style/Divider" android:layout_marginBottom="@dimen/common_top_bottom_margin"></View>

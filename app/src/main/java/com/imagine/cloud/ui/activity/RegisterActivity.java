@@ -87,14 +87,14 @@ public class RegisterActivity extends BaseActivity {
             UiUtil.showLongToast(this, "密码长度必须小于15个字符");
             return false;
         }
-        String passcon =editPassConfirm.getText().toString();
-        if(TextUtils.isEmpty(passcon)){
-            UiUtil.showLongToast(this,"请输入确认您的密码");
-            return  false ;
+        String passcon = editPassConfirm.getText().toString();
+        if (TextUtils.isEmpty(passcon)) {
+            UiUtil.showLongToast(this, "请输入确认您的密码");
+            return false;
         }
-        if(!passcon.equals(pass)){
-            UiUtil.showLongToast(this,"两次输入的密码不一致");
-            return  false ;
+        if (!passcon.equals(pass)) {
+            UiUtil.showLongToast(this, "两次输入的密码不一致");
+            return false;
         }
         return true;
     }
@@ -107,24 +107,22 @@ public class RegisterActivity extends BaseActivity {
     }
 
 
-
-
     @OnClick({R.id.get_code_bt, R.id.next_bt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.get_code_bt:
-                if(checkInputFirst()){
-                 sendCodeDao.sendCode(phone,SendCodeDao.REGIST_TYPE);
+                if (checkInputFirst()) {
+                    sendCodeDao.sendCode(phone, SendCodeDao.REGIST_TYPE);
                     showProgress(true);
                 }
                 break;
             case R.id.next_bt:
 
-                if(checkInputFirst()){
-                    if(TextUtils.isEmpty(eidtCode.getText().toString())){
-                        UiUtil.showLongToast(getApplicationContext(),"请填写验证码");
-                    }else{
-                        registerDao.register(phone,pass,eidtCode.getText().toString(),userName);
+                if (checkInputFirst()) {
+                    if (TextUtils.isEmpty(eidtCode.getText().toString())) {
+                        UiUtil.showLongToast(getApplicationContext(), "请填写验证码");
+                    } else {
+                        registerDao.register(phone, pass, eidtCode.getText().toString(), userName);
                         showProgress(true);
                     }
                 }
@@ -136,17 +134,18 @@ public class RegisterActivity extends BaseActivity {
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
-if(requestCode== RequestCode.SEND_CODE){
-    getCodeBt.startNumCode();
-    UiUtil.showLongToast(this,"获取验证码成功");
-}else if(requestCode==RequestCode.REGISTER){
-   UserInfo userInfo = registerDao.getUserInfo() ;
-    if(userInfo!=null){
-        AppUtil.setUserId(this,userInfo.getId());
-        UiUtil.showLongToast(this,"注册成功");
-        transUi(CompleteUserInfoActivity.class,null);
-    }
-}
+        if (requestCode == RequestCode.SEND_CODE) {
+            getCodeBt.startNumCode();
+            UiUtil.showLongToast(this, "获取验证码成功");
+        } else if (requestCode == RequestCode.REGISTER) {
+            UserInfo userInfo = registerDao.getUserInfo();
+            if (userInfo != null) {
+                AppUtil.setUserId(this, userInfo.getId());
+                UiUtil.showLongToast(this, "注册成功");
+                transUi(CompleteUserInfoActivity.class, null);
+                finish();
+            }
+        }
 
     }
 }

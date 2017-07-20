@@ -93,4 +93,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="keyan">云科金谷</string>
+    <string name="update_user_info_success">信息完善成功</string>
+    <string name="update_header_success">上传头像成功</string>
 </resources>

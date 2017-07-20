@@ -52,9 +52,7 @@ public class CollectFragment extends BaseFragment {
     private CollectAdapter collectAdapter;
     private FavListDao favListDao;
     private List<MeetingBean> data;
-
     private MeetingInfoDao meetingInfoDao ;
-
 
     @Nullable
     @Override
@@ -62,6 +60,16 @@ public class CollectFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_list_layout, container, false);
         ButterKnife.inject(this, view);
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(favListDao==null){
+            favListDao =new FavListDao(getContext(),this) ;
+        }
+        favListDao.refresh(AppUtil.getUserId(getContext()));
+        showProgress(true);
     }
 
     @Override
@@ -75,7 +83,7 @@ public class CollectFragment extends BaseFragment {
         collectAdapter.setOnItemDeleteClickListener(new CollectAdapter.OnItemDeleteClickListener() {
             @Override
             public void onItemDelete(MeetingBean item) {
-                meetingInfoDao.delFav(item.getFav_id());
+                meetingInfoDao.delFav(AppUtil.getUserId(getContext()),item.getId());
                 showProgress(true);
             }
             @Override
@@ -99,8 +107,7 @@ public class CollectFragment extends BaseFragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(collectAdapter);
         favListDao =new FavListDao(getContext(),this) ;
-        favListDao.refresh(AppUtil.getUserId(getContext()));
-        showProgress(true);
+
 
 
     }

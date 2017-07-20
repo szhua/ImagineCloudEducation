@@ -14,13 +14,22 @@ import android.widget.ImageView;
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseFragment;
 import com.imagine.cloud.base.BaseFragmentPagerAdapter;
+import com.imagine.cloud.bean.MsgEvent;
 import com.imagine.cloud.dao.GetBannerDao;
+import com.imagine.cloud.dao.MessageDao;
+import com.imagine.cloud.service.MusicPlayer;
+import com.imagine.cloud.service.PlayEvent;
 import com.imagine.cloud.ui.activity.MessageActivity;
 import com.imagine.cloud.ui.activity.SearchActivity;
+import com.imagine.cloud.util.AppUtil;
 import com.imagine.cloud.widget.adviewpager.AdViewPager;
 import com.imagine.cloud.widget.adviewpager.BannerBean;
 import com.runer.liabary.tab.SlidingTabLayout;
 import com.runer.net.RequestCode;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +47,6 @@ import butterknife.InjectView;
 public class InforMationFragment extends BaseFragment {
 
 
-
     @InjectView(R.id.banner)
     AdViewPager banner;
     @InjectView(R.id.app_bar)
@@ -51,12 +59,8 @@ public class InforMationFragment extends BaseFragment {
     ImageView searchBt;
     @InjectView(R.id.msg_bt)
     ImageView msgBt;
-
     private String[] titles = new String[]{"会议资讯", "项目资讯"};
     private GetBannerDao getBannerDao ;
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -69,13 +73,18 @@ public class InforMationFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        EventBus.getDefault().register(this);
+
+
         viewPager.setAdapter(new ViewpagerAdapter(getChildFragmentManager()));
         tabLayout.setViewPager(viewPager);
 
         searchBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transUi(SearchActivity.class, null);
+              if(AppUtil.chckeLogin(v.getContext(),true)){
+                  transUi(SearchActivity.class, null);
+              }
             }
         });
         msgBt.setOnClickListener(new View.OnClickListener() {
@@ -88,19 +97,50 @@ public class InforMationFragment extends BaseFragment {
         getBannerDao.getBannerList();
 
     }
+    //单曲进行播放；
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MsgEvent msgEvent) {
+        if(!msgEvent.isHasMsg()){
+            if(msgBt!=null){
+                msgBt.setImageResource(R.drawable.msg);
+            }
+        }else{
+            if(msgBt!=null){
+                msgBt.setImageResource(R.drawable.msg_num);
+            }
+        }
+    }
+
+
+    private MessageDao messageDao ;
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(messageDao==null){
+            messageDao =new MessageDao(getContext(),this) ;
+        }
+        if(AppUtil.chckeLogin(getContext(),false)){
+            messageDao.checkMsg(AppUtil.getUserId(getContext()));
+        }
+    }
+
 
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
-
         if(requestCode== RequestCode.GET_BANNER){
             List<BannerBean> banners = getBannerDao.getBannerBeens();
             if(banners!=null||!banners.isEmpty()){
                  banner.setBannerFirstTitlte(banners.get(0).getTitle());
             }
           banner.setBannerEntities(getBannerDao.getBannerBeens());
+        }else if(requestCode==RequestCode.CHECK_MSG_READ){
+            if(!messageDao.isHasMsg()){
+                msgBt.setImageResource(R.drawable.msg);
+            }else{
+                msgBt.setImageResource(R.drawable.msg_num);
+            }
         }
-
     }
 
     @Override

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="pay_library-1.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/19a3f7cf1dff1b37f29f5638f0abc41ee2e237ae/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/19a3f7cf1dff1b37f29f5638f0abc41ee2e237ae/output/jars/libs/alipaySDK-20150818.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/19a3f7cf1dff1b37f29f5638f0abc41ee2e237ae/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/19a3f7cf1dff1b37f29f5638f0abc41ee2e237ae/output/jars/libs/libammsdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.mayubao/pay_library/1.0.1/7d56604612d8a514f4901b83fa3ce0ac9a7e1d16/pay_library-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

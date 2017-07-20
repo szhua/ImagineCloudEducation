@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.Constant;
 import com.imagine.cloud.bean.MeetingBean;
+import com.imagine.cloud.bean.MeetingOrderBean;
 import com.imagine.cloud.net.Requst;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Request;

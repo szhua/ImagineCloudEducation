@@ -1,10 +1,14 @@
 package com.imagine.cloud.adapter;
 
 import android.support.annotation.Nullable;
+import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.imagine.cloud.R;
+import com.imagine.cloud.bean.CourseBean;
+import com.imagine.cloud.net.Requst;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -15,13 +19,16 @@ import java.util.List;
  * CourseAdapter
  */
 
-public class CourseAdapter extends BaseQuickAdapter<String ,BaseViewHolder> {
+public class CourseAdapter extends BaseQuickAdapter<CourseBean,BaseViewHolder> {
 
-    public CourseAdapter(@Nullable List<String> data) {
+    public CourseAdapter(@Nullable List<CourseBean> data) {
         super(R.layout.item_course_layout,data);
     }
     @Override
-    protected void convert(BaseViewHolder helper, String item) {
-
+    protected void convert(BaseViewHolder helper, CourseBean item) {
+        Picasso.with(mContext).load(Requst.BASE_IMG_URL+item.getImg()).placeholder(R.drawable.loading_1_1).into((ImageView) helper.getView(R.id.image));
+        helper.setText(R.id.author_name,item.getAuthor())
+               .setText(R.id.play_time,item.getTime())
+                .setText(R.id.people_re_num,item.getNumb()) ;
     }
 }

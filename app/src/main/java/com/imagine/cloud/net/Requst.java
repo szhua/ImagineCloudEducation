@@ -8,8 +8,19 @@ package com.imagine.cloud.net;
  */
 public final class Requst {
 
-    public static final String BASE_URL ="http://192.168.0.85/changxiang/api/index.php";
-    public static final String BASE_IMG_URL ="http://192.168.0.85/changxiang/upload/test/large/";
+    //outSide Net
+    //http://121.42.144.169/changxiang
 
+    //coder's Net
+    //http://192.168.0.85/
+    public static final String IP ="http://121.42.144.169/" ;
+    public static final String BASE_URL =IP+"changxiang/api/index.php";
+    public static final String BASE_IMG_URL =IP+"changxiang/upload/test/large/";
+    public static final  String NORMAL_QUESTION_URL =IP+"changxiang/api/question.php";
+    public static final String ABOUT_US_URL =IP+"changxiang/api/about_us.php";
+    public static final String REGISTER_ARGUMENT_URL =IP+"changxiang/api/agreement.php";
+    public static  final String TONG_JI_URL=IP+"changxiang/api/tongji.php?project_id=";
+    public static final  String YAO_LING_URL =IP+"changxiang/api/yaoling.php?project_id=" ;
+    public static  final String FEN_XI_URL =IP+"changxiang/api/fenxi.php?id=";
 
 }

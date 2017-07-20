@@ -43,8 +43,6 @@ public class ChangePassActivity extends BaseActivity {
 
     private EidtPassDao eidtPassDao ;
     private SendCodeDao sendCodeDao ;
-
-
     private String phone ;
 
     @Override
@@ -62,23 +60,23 @@ public class ChangePassActivity extends BaseActivity {
         setTitle("修改密码");
     }
 
+
+
     private String pass ;
     @OnClick({R.id.get_code_bt, R.id.finish_bt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.get_code_bt:
-               phone =editPhoneNum.getText().toString() ;
 
+               phone =editPhoneNum.getText().toString() ;
                 if(TextUtils.isEmpty(phone)){
                     UiUtil.showLongToast(this,"手机号为空");
                     return;
                 }
-
                 if(!UiUtil.isValidMobileNo(phone)){
                     UiUtil.showLongToast(this,"手机号格式不正确");
                     return;
                 }
-
                 sendCodeDao.sendCode(phone,SendCodeDao.CHANGE_PASS_TYPE);
                 showProgressWithMsg(true,"正在获取验证码");
 

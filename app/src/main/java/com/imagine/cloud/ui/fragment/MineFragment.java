@@ -1,8 +1,10 @@
 package com.imagine.cloud.ui.fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -17,23 +19,30 @@ import com.imagine.cloud.R;
 import com.imagine.cloud.adapter.UserCenterItemAdapter;
 import com.imagine.cloud.base.BaseFragment;
 import com.imagine.cloud.base.BaseWebAcitivity;
+import com.imagine.cloud.bean.HomeMessageEvent;
 import com.imagine.cloud.bean.MineListItemBean;
 import com.imagine.cloud.bean.UserInfo;
 import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.ui.activity.ChangePassActivity;
 import com.imagine.cloud.ui.activity.CollectActivity;
 import com.imagine.cloud.ui.activity.FeedBackActivity;
+import com.imagine.cloud.ui.activity.HomeActivity;
 import com.imagine.cloud.ui.activity.LoginActivity;
 import com.imagine.cloud.ui.activity.MessageActivity;
 import com.imagine.cloud.ui.activity.MyMeetingActivity;
 import com.imagine.cloud.ui.activity.UserInfoActivity;
 import com.imagine.cloud.util.AppUtil;
 import com.orhanobut.logger.Logger;
+import com.pgyersdk.javabean.AppBean;
+import com.pgyersdk.update.PgyUpdateManager;
+import com.pgyersdk.update.UpdateManagerListener;
 import com.runer.liabary.recyclerviewUtil.ItemDecorations;
 import com.runer.liabary.recyclerviewUtil.VerticalItemDecoration;
 import com.runer.liabary.util.DataCleanManager;
 import com.runer.liabary.util.UiUtil;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -60,6 +69,8 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class MineFragment extends BaseFragment implements View.OnClickListener {
+
+
     @InjectView(R.id.item_list)
     RecyclerView itemList;
     @InjectView(R.id.exist_bt)
@@ -82,6 +93,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     public void onResume() {
         super.onResume();
 
+        if(!AppUtil.chckeLogin(getContext(),false)){
+            EventBus.getDefault().post(new HomeMessageEvent());
+            return;
+        }
 
         //设置个人信息
         UserInfo userInfo = AppUtil.getUserInfo(getContext()) ;
@@ -119,7 +134,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         mineListItemBeens.add(new MineListItemBean("关于我们", "", R.drawable.mine_about_us));
         mineListItemBeens.add(new MineListItemBean("常见问题", "", R.drawable.mine_usal_question));
         mineListItemBeens.add(new MineListItemBean("意见建议", "", R.drawable.mine_feed_back));
-        mineListItemBeens.add(new MineListItemBean("版本更新", "当前版本1.0", R.drawable.mine_update_version));
+
+        mineListItemBeens.add(new MineListItemBean("版本更新", "当前版本"+AppUtil.getVersionName(getContext()), R.drawable.mine_update_version));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
          userCenterItemAdapter = new UserCenterItemAdapter(mineListItemBeens);
         //添加点击事件
@@ -154,9 +170,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                                 .subscribe(new Consumer<Object>() {
                                     @Override
                                     public void accept(Object s) throws Exception {
+
                                         UiUtil.showLongToast(getContext(), "清除缓存成功");
                                         userCenterItemAdapter.getItem(position).setRightText(DataCleanManager.getTotalCacheSize(getContext()));
                                         userCenterItemAdapter.notifyDataSetChanged();
+
                                     }
                                 });
 
@@ -164,23 +182,25 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                     case 5:
                         bundle = new Bundle();
                         bundle.putString(BaseWebAcitivity.WEB_TITLE, "关于我们");
+                        bundle.putString(BaseWebAcitivity.WEB_URL,Requst.ABOUT_US_URL);
                         transUi(BaseWebAcitivity.class, bundle);
                         break;
                     case 6:
                         bundle = new Bundle();
                         bundle.putString(BaseWebAcitivity.WEB_TITLE, "常见问题");
+                        bundle.putString(BaseWebAcitivity.WEB_URL,Requst.NORMAL_QUESTION_URL);
                         transUi(BaseWebAcitivity.class, bundle);
                         break;
                     case 7:
                         transUi(FeedBackActivity.class,null);
                         break;
                     case 8:
-                        UiUtil.showLongToast(getContext(),getString(R.string.not_open));
+                        PgyUpdateManager.register(getActivity(),"runner_update_path",updateManagerListener);
+                        showProgressWithMsg(true,"正在检测版本更新");
                         break;
                 }
             }
         });
-
 
         userCenterItemAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         View headView = LayoutInflater.from(getContext()).inflate(R.layout.mine_header_layout, null);
@@ -194,7 +214,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         itemList.addItemDecoration(decoration);
         itemList.setHasFixedSize(true);
         itemList.setAdapter(userCenterItemAdapter);
-
         existBt.setOnClickListener(this);
         headerContainer.setOnClickListener(this);
 
@@ -209,10 +228,45 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 if(v==headerContainer){
+
     transUi(UserInfoActivity.class,null);
+
     //退出登录
 }else if(v==existBt){
-    transUi(LoginActivity.class,null);
+    AppUtil.setUserInfo(getContext(),new UserInfo());
+    UiUtil.showLongToast(getContext(),"退出登录成功");
+    EventBus.getDefault().post(new HomeMessageEvent());
 }
     }
+
+    //关于自动更新；
+    private UpdateManagerListener updateManagerListener =new UpdateManagerListener() {
+        @Override
+        public void onNoUpdateAvailable() {
+            showProgress(false);
+            UiUtil.showLongToast(getContext(),"当前已是最新版本");
+        }
+        @Override
+        public void onUpdateAvailable(String s) {
+            showProgress(false);
+            final AppBean appBean = getAppBeanFromString(s);
+            new AlertDialog.Builder(getContext())
+                    .setTitle("版本更新")
+                    .setCancelable(false)
+                    .setMessage(appBean.getReleaseNote())
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setPositiveButton("确定",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(  DialogInterface dialog,   int which) {
+                                    startDownloadTask(getActivity(),appBean.getDownloadURL());
+                                }
+                            }).show();
+        }
+    };
 }

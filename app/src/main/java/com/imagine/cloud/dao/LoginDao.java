@@ -30,7 +30,6 @@ import java.io.IOException;
 
 public class LoginDao extends BaseRequest {
 
-
     private UserInfo userInfo;
     public UserInfo getUserInfo(){
         return userInfo;
@@ -40,7 +39,8 @@ public class LoginDao extends BaseRequest {
     }
     @Override
     public void onRequestSuccess(JsonNode result, int requestCode) throws IOException {
-        userInfo = JsonUtil.node2pojo(result,UserInfo.class) ;
+        userInfo = JsonUtil.node2pojo(result,UserInfo.class);
+
     }
     public void logIn(String phone ,String pass){
         IRequestParam params =new IRequestParam() ;
@@ -50,8 +50,21 @@ public class LoginDao extends BaseRequest {
         } catch (JSONException e){
             e.printStackTrace();
         }
-        Logger.d(params);
         basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.LogIn),params, RequestCode.LOGIN);
-
     }
+
+
+    /*type	是	string	登录方式名称 qq weibo wechat
+openid	是	string	第三方openid*/
+    public void thirdLogin(String type ,String openid){
+        IRequestParam param =new IRequestParam() ;
+        try {
+            param.put("type",type) ;
+            param.put("openid",openid) ;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.ThirdLogIn),param,RequestCode.THIRD_LOGIN);
+    }
+
 }

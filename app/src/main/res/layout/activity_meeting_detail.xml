@@ -98,10 +98,10 @@
                 android:gravity="center"
                 >
                 <TextView
+                    android:id="@+id/buy_num"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:drawableLeft="@drawable/baoming"
-                    android:text="78"
                     android:textColor="@color/colorPrimary"
                     android:gravity="center"
                     android:textSize="@dimen/text_size_12sp"

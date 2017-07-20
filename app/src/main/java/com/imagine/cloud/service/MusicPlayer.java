@@ -100,11 +100,9 @@ public class MusicPlayer implements OnCompletionListener {
             onOnePlayListener.onCompelete();
         }
     }
-
     private MusicInfoDetail getNowPlaying() {
         return musicInfoDetail;
     }
-
     //获得当前播放信息;
     public int getCurrentPosition() {
         if (getNowPlaying() != null) {
@@ -112,7 +110,6 @@ public class MusicPlayer implements OnCompletionListener {
         }
         return 0;
     }
-
     //获得时长；
     public int getDuration() {
         if (getNowPlaying() != null) {
