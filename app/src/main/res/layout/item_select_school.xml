@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/white_press_bg"
+    android:drawableRight="@drawable/arrow_right_up"
+    android:paddingLeft="@dimen/common_left_right_margin"
+    android:paddingRight="@dimen/common_left_right_margin"
+    android:singleLine="true"
+    android:id="@+id/name"
+    android:gravity="center_vertical"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="40dp">
+
+</TextView>

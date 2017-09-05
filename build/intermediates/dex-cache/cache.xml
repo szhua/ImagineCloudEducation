@@ -277,7 +277,7 @@
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="df2a5bd76e9bd7fb46fe66f9bb3e1ac5c998cfbe">
+        sha1="f00efd08abd95a2cb4cf45880b0cd468873da5a9">
         <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_f894906117ffabe3e017cf0666bfae7407db050a.jar" />
     </item>
     <item
@@ -412,7 +412,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="433dd72d59b680eef5d14dcbe950304a921bfe59">
+        sha1="dd6e766fc8dfd24257ab463f1d1865a97ae9f8aa">
         <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_5f71ac1b99a0b76c232d2ce747aac02559513b23\classes.dex" />
     </item>
     <item
@@ -529,7 +529,7 @@
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
-        sha1="c697d30f2968c75d59454faeef364d3ad79fd428">
+        sha1="0f372907309983f7396c5f9e906d3113c1ff2d32">
         <dex dex="D:\AndroidWorkSpace\ImagineCloudEducation\app\build\intermediates\pre-dexed\release\classes_0184b0dacd42cefe10435c52f54518c46f8cc326.jar" />
     </item>
     <item

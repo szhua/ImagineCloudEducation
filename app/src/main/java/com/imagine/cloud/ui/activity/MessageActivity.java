@@ -58,6 +58,7 @@ public class MessageActivity extends BaseActivity {
                     bundle.putString("id",item.getMp_id());
                     bundle.putString("msg_id",item.getId());
                     bundle.putString("type","msg");
+                    bundle.putSerializable("title",item.getTitle());
                     transUi(ProjectDetailActivity.class,bundle);
                 }else if("3".equals(item.getType())){
                     bundle.putString("id",item.getId());
@@ -78,11 +79,17 @@ public class MessageActivity extends BaseActivity {
         recyclerView.addItemDecoration(decoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(messageAdapter);
-
-        messageDao =new MessageDao(this,this);
-        messageDao.refresh(AppUtil.getUserId(this));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(messageDao==null){
+            messageDao =new MessageDao(this,this) ;
+        }
+        messageDao.refresh(AppUtil.getUserId(this));
+        showProgress(true);
+    }
 
     @Override
     public void onRequestSuccess(int requestCode) {
@@ -90,11 +97,9 @@ public class MessageActivity extends BaseActivity {
         if(requestCode== RequestCode.CODE_1){
             datas = messageDao.getDatas();
             messageAdapter.setNewData(datas);
-
             if(datas==null||datas.isEmpty()){
                 messageAdapter.setEmptyView(getEmptyView("您还没有收到任何消息"));
             }
-
         }else if(requestCode==RequestCode.CODE_3){
             messageDao.refresh(AppUtil.getUserId(this));
             showProgress(true);

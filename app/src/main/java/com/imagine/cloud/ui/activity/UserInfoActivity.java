@@ -53,8 +53,10 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
     NormalInputEditText emailInput;
     @InjectView(R.id.phone)
     NormalInputEditText phoneInput;
+    @InjectView(R.id.select_school_bt)
+    View select_school_bt;
     @InjectView(R.id.school)
-    NormalInputEditText schoolInput;
+    TextView schoolTv;
     @InjectView(R.id.level)
     NormalInputEditText level;
     @InjectView(R.id.save_bt)
@@ -64,7 +66,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
 
 
     private GetUserInfoDao getUserInfoDao;
-    private UploadHeaderDao uploadHeaderDao ;
+    private UploadHeaderDao uploadHeaderDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +75,13 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
         ButterKnife.inject(this);
 
         getUserInfoDao = new GetUserInfoDao(this, this);
-        uploadHeaderDao =new UploadHeaderDao(this,this) ;
+        uploadHeaderDao = new UploadHeaderDao(this, this);
         getUserInfoDao.getUserInfo(AppUtil.getUserId(this));
         showProgress(true);
 
-     saveBt.setOnClickListener(this);
+        saveBt.setOnClickListener(this);
         headerBt.setOnClickListener(this);
+        select_school_bt.setOnClickListener(this);
     }
 
     @Override
@@ -90,36 +93,40 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
-        if(requestCode== RequestCode.GET_USER_INFO){
-          UserInfo userInfo = getUserInfoDao.getUserInfo() ;
-          if(userInfo!=null){
-              Logger.d(userInfo);
-              Picasso.with(this).load(Requst.BASE_IMG_URL+userInfo.getHead()).placeholder(R.mipmap.ic_launcher_round).into(headerBt);
-              usernameInput.setRightText(userInfo.getUser_name());
-              emailInput.setRightText(userInfo.getEmail());
-              phoneInput.setRightText(userInfo.getMobile());
-              schoolInput.setRightText(userInfo.getSchool());
-          }
-        }else if(requestCode==RequestCode.UPDATE_USER_UINFO){
+        if (requestCode == RequestCode.GET_USER_INFO) {
+            UserInfo userInfo = getUserInfoDao.getUserInfo();
+            if (userInfo != null) {
+                Logger.d(userInfo);
+                Picasso.with(this).load(Requst.BASE_IMG_URL + userInfo.getHead()).placeholder(R.mipmap.ic_launcher_round).into(headerBt);
+                usernameInput.setRightText(userInfo.getUser_name());
+                emailInput.setRightText(userInfo.getEmail());
+                phoneInput.setRightText(userInfo.getMobile());
+                schoolTv.setText(userInfo.getSchool());
+            }
+        } else if (requestCode == RequestCode.UPDATE_USER_UINFO) {
 
-            UiUtil.showLongToast(this,"修改信息成功");
-            UserInfo userInfo =getUserInfoDao.getUserInfo();
-            AppUtil.setUserInfo(this,userInfo);
+            UiUtil.showLongToast(this, "修改信息成功");
+            UserInfo userInfo = getUserInfoDao.getUserInfo();
+            AppUtil.setUserInfo(this, userInfo);
 
             finish();
-        }else if(requestCode==RequestCode.UPDATE_HEADER){
-            UiUtil.showLongToast(this,"上传头像成功");
-            AppUtil.setUserHeader(this,uploadHeaderDao.getHeaderPath());
+        } else if (requestCode == RequestCode.UPDATE_HEADER) {
+            UiUtil.showLongToast(this, "上传头像成功");
+            AppUtil.setUserHeader(this, uploadHeaderDao.getHeaderPath());
 
         }
     }
+
+    //选择学校
+    public static final int GET_SCHOOL = 1000;
     //选择图片
     public static final int PHOTO_SELECT_CODE = 999;
     //裁剪头像的缓存地址
     public static final String CROPO_CACHE_PAHT = "imgine_cloud_crop";
+
     @Override
     public void onClick(View v) {
-        if (v ==headerBt){
+        if (v == headerBt) {
             Album.album(this)
                     .toolBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)) // Toolbar 颜色，默认蓝色。
                     .statusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary)) // StatusBar 颜色，默认蓝色。
@@ -130,8 +137,8 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                     .camera(true)
                     .requestCode(PHOTO_SELECT_CODE)
                     .start(); // 999是请求码，返回时onActivityResult()的第一个参数。
-        }else if(v==saveBt){
-            if(checkInput()){
+        } else if (v == saveBt) {
+            if (checkInput()) {
                 getUserInfoDao.setEmail(email);
                 getUserInfoDao.setMobile(phone);
                 getUserInfoDao.setUser_name(name);
@@ -139,8 +146,12 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                 getUserInfoDao.upDateUserInfo(AppUtil.getUserId(this));
                 showProgress(true);
             }
+        } else if (v == select_school_bt) {
+            Intent intent = new Intent(this, SelectSchoolActivity.class);
+            startActivityForResult(intent, GET_SCHOOL);
         }
     }
+
     //图像处理
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -150,11 +161,9 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
             if (resultCode == RESULT_OK) {
                 ArrayList<String> pathList = Album.parseResult(data);
                 Crop.of(Uri.fromFile(new File(pathList.get(0))), Uri.fromFile(new File(getCacheDir(), CROPO_CACHE_PAHT))).start(this);
-            } else if (resultCode == RESULT_CANCELED) { //User canceled;
-
             }
             //裁剪以后的操作
-        } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK){
+        } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             //进行压缩;
             Flowable.just(new File(getCacheDir(), CROPO_CACHE_PAHT))
                     .observeOn(Schedulers.io())
@@ -168,40 +177,45 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                     .subscribe(new Consumer<File>() {
                         @Override
                         public void accept(File file) throws Exception {
-                            uploadHeaderDao.upLoadUserHeader(AppUtil.getUserId(getApplicationContext()),file);
+                            uploadHeaderDao.upLoadUserHeader(AppUtil.getUserId(getApplicationContext()), file);
                             Picasso.with(UserInfoActivity.this).load(file).into(headerBt);
-                            showProgressWithMsg(true,"正在上传头像");
+                            showProgressWithMsg(true, "正在上传头像");
                         }
                     });
         } else if (resultCode == Crop.RESULT_ERROR) {
             UiUtil.showLongToast(getApplicationContext(), "裁剪失败!");
+        } else if (requestCode == GET_SCHOOL && resultCode == RESULT_OK) {
+            //处理学校信息；
+            String school = data.getStringExtra("school");
+            schoolTv.setText(school);
         }
     }
 
-    String name ;
+    String name;
     String email;
     String phone;
     String school;
-    private boolean checkInput(){
 
-        name =usernameInput.getInputContent() ;
-        email =emailInput.getInputContent();
-        phone =phoneInput.getInputContent() ;
-        school =schoolInput.getInputContent();
+    private boolean checkInput() {
 
-        if(!TextUtils.isEmpty(email)){
-                if(!UiUtil.checkEmail(email)){
-                    UiUtil.showLongToast(this,"邮箱格式不正确");
-                    return  false ;
-                }
+        name = usernameInput.getInputContent();
+        email = emailInput.getInputContent();
+        phone = phoneInput.getInputContent();
+        school = schoolTv.getText().toString();
+
+        if (!TextUtils.isEmpty(email)) {
+            if (!UiUtil.checkEmail(email)) {
+                UiUtil.showLongToast(this, "邮箱格式不正确");
+                return false;
             }
-        if(!TextUtils.isEmpty(phone)){
-            if(!UiUtil.isValidMobileNo(phone)){
-                UiUtil.showLongToast(this,"手机格式不正确");
-                return  false ;
+        }
+        if (!TextUtils.isEmpty(phone)) {
+            if (!UiUtil.isValidMobileNo(phone)) {
+                UiUtil.showLongToast(this, "手机格式不正确");
+                return false;
             }
         }
 
-        return  true ;
+        return true;
     }
 }

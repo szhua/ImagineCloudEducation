@@ -1,5 +1,6 @@
 package com.imagine.cloud.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.bean.AddOrderBean;
+import com.imagine.cloud.bean.AddOrderResultBean;
 import com.imagine.cloud.dao.AddOrderDao;
 import com.imagine.cloud.util.AppUtil;
 import com.imagine.cloud.widget.NormalInputEditText;
@@ -42,8 +44,8 @@ public class SignUpActivity extends BaseActivity {
     RadioGroup sexRadios;
     @InjectView(R.id.nation_name)
     NormalInputEditText nationNameInput;
-    @InjectView(R.id.school_name)
-    NormalInputEditText schoolNameInput;
+    @InjectView(R.id.select_school_bt)
+    View selectSchoolBt;
     @InjectView(R.id.single_stay_radio)
     RadioButton singleStayRadio;
     @InjectView(R.id.multi_stay_radio)
@@ -62,9 +64,16 @@ public class SignUpActivity extends BaseActivity {
     NormalInputEditText bankAccountInput;
     @InjectView(R.id.others)
     EditText othersInput;
+    @InjectView(R.id.school)
+    TextView schoolTv ;
 
-    String id ;
     private AddOrderDao addOrderDao ;
+    //选择学校
+    public static final int GET_SCHOOL = 1000;
+
+    private String  title;
+    private String price ;
+    private String id ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,15 +83,13 @@ public class SignUpActivity extends BaseActivity {
 
         addOrderDao =new AddOrderDao(this,this) ;
 
-
         id =getStringExtras("id","") ;
+        title =getStringExtras("title","");
+        price =getStringExtras("price","");
 
-        Logger.d(id);
-
-
+        meetingTitle.setText(title);
         maleRadio.setChecked(true);
         singleStayRadio.setChecked(true);
-
 
         nextBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +97,7 @@ public class SignUpActivity extends BaseActivity {
                 if(checkInput()){
                     AddOrderBean addOrderBean =new AddOrderBean() ;
                     addOrderBean.setId(id);
+                    addOrderBean.setTitle(title);
                     addOrderBean.setAddress(schollAddress);
                     addOrderBean.setBank(bankName);
                     addOrderBean.setBank_num(bankAccount);
@@ -98,6 +106,7 @@ public class SignUpActivity extends BaseActivity {
                     addOrderBean.setHeader(invoceTitle);
                     addOrderBean.setOther(othersInfo);
                     addOrderBean.setNation(nationName);
+                    addOrderBean.setPrice(price);
                     addOrderBean.setUser_id(AppUtil.getUserId(SignUpActivity.this));
                     addOrderBean.setNum(regNum);
                     if(femaleRadio.isChecked()){
@@ -115,10 +124,26 @@ public class SignUpActivity extends BaseActivity {
                 }
             }
         });
-
+        //选择学校；
+        selectSchoolBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this, SelectSchoolActivity.class);
+                startActivityForResult(intent, GET_SCHOOL);
+            }
+        });
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GET_SCHOOL && resultCode == RESULT_OK) {
+            //处理学校信息；
+            String school = data.getStringExtra("school");
+            schoolTv.setText(school);
+        }
+    }
 
     //用户名
     String userName ;
@@ -150,7 +175,7 @@ public class SignUpActivity extends BaseActivity {
         userPhone=userPhoneInput.getInputContent() ;
         userEmail=userEmailInput.getInputContent() ;
         nationName=nationNameInput.getInputContent();
-        schoolName=schoolNameInput.getInputContent() ;
+        schoolName=schoolTv.getText().toString();
         invoceTitle =invoiceTitleInput.getInputContent() ;
         regNum =regNumberInput.getInputContent() ;
         schollAddress =schoolAdressInput.getInputContent() ;
@@ -182,7 +207,7 @@ public class SignUpActivity extends BaseActivity {
             UiUtil.showLongToast(this,"名族为空");
             return false ;
         }
-        if(TextUtils.isEmpty(schoolName)){
+        if("选择学校".equals(schoolName)){
             UiUtil.showLongToast(this,"学校名称为空");
             return false ;
         }
@@ -213,11 +238,12 @@ public class SignUpActivity extends BaseActivity {
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
         if(requestCode== RequestCode.CODE_0){
-            String orderId =addOrderDao.getOrderId() ;
-            if(!TextUtils.isEmpty(orderId)){
-                UiUtil.showLongToast(this,"下订单成功！");
-                finish();
-            }
+        AddOrderResultBean addOrderResultBean = addOrderDao.getAddOrderResultBean() ;
+        UiUtil.showLongToast(this,"报名下单成功，请进行支付");
+        Bundle bundle =new Bundle() ;
+        bundle.putSerializable("data",addOrderResultBean);
+        transUi(SelectPayTypeActivity.class,bundle);
+        finish();
         }
     }
 

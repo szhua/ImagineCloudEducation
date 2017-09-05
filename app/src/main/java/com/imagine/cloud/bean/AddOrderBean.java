@@ -10,6 +10,7 @@ package com.imagine.cloud.bean;
 public class AddOrderBean {
 
     /*    /*title	是	string	会议名称
+price 订单的价格
 name	是	string	姓名
 mobile	否	string	手机号
 email	是	string	邮箱
@@ -39,7 +40,25 @@ other	否	string	其他要求*/
     String bank_num ;
     String other ;
     String user_id ;
+    String title ;
+    String price ;
 
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getUser_id() {
         return user_id;

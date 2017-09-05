@@ -25,6 +25,7 @@ public class ImagineApplication extends Application {
                 return true;
             }
         });
+
         Logger.t(Constant.TAG);
         //集成极光推送
         JPushInterface.setDebugMode(true);
@@ -33,12 +34,11 @@ public class ImagineApplication extends Application {
         UMShareAPI.get(this);
         Config.DEBUG = true;
         UMShareAPI.init(this, "PDLCflQT5V9N2BDS");
-
     }
 
     {
         PlatformConfig.setWeixin("wx5c0a77ba63b92ae5", "834612b771d0fed1a3a05e5d01f330bd");
         PlatformConfig.setSinaWeibo("1725265599", "1489dbc235e9c333b8f941ee687c8823","http://sns.whalecloud.com");
-        PlatformConfig.setQQZone("1106112746", "mwCuRc8H32giOoDK");
+        PlatformConfig.setQQZone("1106042376", "PDLCflQT5V9N2BDS");
     }
 }

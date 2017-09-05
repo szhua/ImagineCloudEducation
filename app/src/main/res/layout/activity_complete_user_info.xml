@@ -21,9 +21,9 @@
 
 
             <RelativeLayout
-                android:layout_marginTop="@dimen/common20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common20dp"
                 android:background="@color/white"
                 android:paddingBottom="@dimen/common_top_bottom_margin"
                 android:paddingLeft="@dimen/common_left_right_margin"
@@ -56,24 +56,46 @@
                 app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
 
 
-            <com.imagine.cloud.widget.NormalInputEditText
-                android:id="@+id/school_input"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/select_school_bt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:input_type="text"
-                app:left_text="学校"
-                app:left_text_color="@color/text_color_normal"
-                app:right_hint="请输入学校"
-                app:right_hint_color="@color/text_color_light"></com.imagine.cloud.widget.NormalInputEditText>
+                android:background="@drawable/white_press_bg"
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/common46dp"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/common_left_right_margin"
+                    android:paddingRight="@dimen/common_left_right_margin">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:paddingRight="@dimen/common16dp"
+                        android:text="学校"
+                        android:textColor="@color/text_color_normal"
+                        android:textSize="@dimen/text_size_16sp" />
 
+                    <TextView
+                        android:id="@+id/school"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/white"
+                        android:gravity="right|center_vertical"
+                        android:text="选择学校"
+                        android:textColor="@color/text_color_gray"
+                        android:textColorHint="@color/text_color_light"
+                        android:textSize="@dimen/text_size_14sp" />
 
+                </LinearLayout>
 
-
-
-
-
+                <View style="@style/Divider"></View>
+            </LinearLayout>
 
 
             <LinearLayout

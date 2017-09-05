@@ -30,7 +30,6 @@ public class MeetingProDetailDao extends BaseRequest{
     public MeetingDetailBean getDetail() {
         return detail;
     }
-
     public MeetingProDetailDao(Context context, INetResult iNetResult) {
         super(context, iNetResult);
     }
@@ -45,11 +44,11 @@ public class MeetingProDetailDao extends BaseRequest{
     public static  final String PRO_INFO_TYPE ="1";
 
     public void getInfo(String type ,String user_id ,String id ){
-        IRequestParam param =new IRequestParam() ;
+        IRequestParam param =new IRequestParam();
         try {
             param.put("type",type);
             param.put("user_id",user_id) ;
-            param.put("id",id) ;
+            param.put("id",id);
         } catch (JSONException e) {
             e.printStackTrace();
         }

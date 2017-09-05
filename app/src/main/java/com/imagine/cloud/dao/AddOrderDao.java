@@ -4,11 +4,13 @@ import android.content.Context;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.imagine.cloud.bean.AddOrderBean;
+import com.imagine.cloud.bean.AddOrderResultBean;
 import com.imagine.cloud.net.BaseRequest;
 import com.imagine.cloud.net.IRequestParam;
 import com.imagine.cloud.net.NetInter;
 import com.imagine.cloud.net.Requst;
 import com.orhanobut.logger.Logger;
+import com.runer.net.JsonUtil;
 import com.runer.net.RequestCode;
 import com.runer.net.interf.INetResult;
 
@@ -24,11 +26,12 @@ import java.io.IOException;
  */
 
 public class AddOrderDao extends BaseRequest {
-    String orderId ;
+
+   private AddOrderResultBean addOrderResultBean ;
 
 
-    public String getOrderId() {
-        return orderId;
+    public AddOrderResultBean getAddOrderResultBean() {
+        return addOrderResultBean;
     }
 
     public AddOrderDao(Context context, INetResult iNetResult) {
@@ -37,10 +40,9 @@ public class AddOrderDao extends BaseRequest {
     @Override
     public void onRequestSuccess(JsonNode result, int requestCode) throws IOException {
         if(requestCode==RequestCode.CODE_0){
-         orderId =result.asText();
+         addOrderResultBean = JsonUtil.node2pojo(result,AddOrderResultBean.class);
         }
     }
-
 
     /*id	是	string	会议会议id;
 name	是	string	姓名
@@ -57,12 +59,11 @@ bank	否	string	开户行
 bank_num	否	string	银行账户
 other	否	string	其他要求*/
 
-
     public void addOrder(AddOrderBean addOrderBean){
-
         IRequestParam param =new IRequestParam();
         try {
             param.put("id",addOrderBean.getId());
+            param.put("title",addOrderBean.getTitle());
             param.put("name",addOrderBean.getName());
             param.put("email",addOrderBean.getEmail());
             param.put("sex",addOrderBean.getSex());
@@ -71,17 +72,17 @@ other	否	string	其他要求*/
             param.put("living",addOrderBean.getLiving()) ;
             param.put("header",addOrderBean.getHeader()) ;
             param.put("num",addOrderBean.getNum());
-            param.put("address",addOrderBean.getAddress()) ;
-            param.put("bank",addOrderBean.getAddress()) ;
+            param.put("address",addOrderBean.getAddress());
+            param.put("mobile",addOrderBean.getMobile());
+            param.put("bank",addOrderBean.getAddress());
             param.put("bank_num",addOrderBean.getBank_num());
-            param.put("other",addOrderBean.getOther()) ;
+            param.put("other",addOrderBean.getOther());
             param.put("user_id",addOrderBean.getUser_id());
+            param.put("price",addOrderBean.getPrice());
             Logger.d(param);
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
-basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.ADD_ORDER),param, RequestCode.CODE_0);
-
+        basePostRequst(Requst.BASE_URL+getReqestUrl(NetInter.ADD_ORDER),param, RequestCode.CODE_0);
     }
 }

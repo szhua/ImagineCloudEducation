@@ -21,7 +21,11 @@ public class MeetingDetailBean {
      * type
      * like_num : 0
      * fav_num : 0
+     *
      * subtitle : 保存您最喜爱的站点。 视频教程
+     *
+     *
+     *
      */
 
     String type ;
@@ -38,7 +42,25 @@ public class MeetingDetailBean {
     private String subtitle;
     private String url ;
     private String buy_num ;
+    private String price ;
+    private String share ;
 
+
+    public String getShare() {
+        return share;
+    }
+
+    public void setShare(String share) {
+        this.share = share;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
     public String getType() {
         return type;

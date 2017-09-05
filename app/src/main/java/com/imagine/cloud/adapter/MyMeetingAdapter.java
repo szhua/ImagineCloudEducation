@@ -1,6 +1,7 @@
 package com.imagine.cloud.adapter;
 
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -20,13 +21,22 @@ import java.util.List;
  */
 
 public class MyMeetingAdapter extends BaseQuickAdapter<MeetingOrderBean,BaseViewHolder> {
+
+
     public MyMeetingAdapter(@Nullable List<MeetingOrderBean> data) {
         super(R.layout.item_home_layout,data);
     }
+
     @Override
     protected void convert(BaseViewHolder helper, MeetingOrderBean item) {
+        if(TextUtils.isEmpty(item.getImg())){
+            helper.setVisible(R.id.image,false);
+        }else{
+            helper.setVisible(R.id.image,true);
+        }
+
         //设置图片
-        Picasso.with(mContext).load(Requst.BASE_IMG_URL).placeholder(R.drawable.loading_1_1).into((ImageView) helper.getView(R.id.image));
+        Picasso.with(mContext).load(Requst.BASE_IMG_URL+item.getImg()).placeholder(R.drawable.loading_1_1).into((ImageView) helper.getView(R.id.image));
         //设置文字
         helper.setText(R.id.title,item.getTitle())
                 .setText(R.id.content,item.getSubtitle())

@@ -52,12 +52,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/normal_text_view_title"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:text="关于人才的一席话是非常总要的"
         android:layout_marginTop="@dimen/common_top_bottom_margin"
         />
 
     <TextView
         android:id="@+id/theme"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/common20dp"

@@ -2,29 +2,30 @@ package com.imagine.cloud.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.base.BaseWebFragment;
 import com.imagine.cloud.bean.CourseDetailBean;
+import com.imagine.cloud.bean.MeetingDetailBean;
+import com.imagine.cloud.bean.ShareBean;
 import com.imagine.cloud.dao.CourseDao;
+import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.service.MusicInfoDetail;
 import com.imagine.cloud.service.MusicPlayer;
 import com.imagine.cloud.service.PlayEvent;
 import com.imagine.cloud.service.PlayerService;
 import com.imagine.cloud.util.AppUtil;
+import com.imagine.cloud.util.ShareUtil;
 import com.orhanobut.logger.Logger;
 import com.runer.liabary.util.UiUtil;
 import com.runer.net.RequestCode;
-
 import org.greenrobot.eventbus.EventBus;
-
 import java.util.concurrent.TimeUnit;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -33,8 +34,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
+/*音频课程详情页面*/
 public class CourseDetailActivity extends BaseActivity {
-
     @InjectView(R.id.left_back)
     ImageView leftBack;
     @InjectView(R.id.title)
@@ -58,11 +59,6 @@ public class CourseDetailActivity extends BaseActivity {
     @InjectView(R.id.play_bt)
     ImageView playBt;
     private Disposable flowable;
-
-
-
-
-
     private String id ;
     private CourseDao courseDao ;
 
@@ -77,25 +73,68 @@ public class CourseDetailActivity extends BaseActivity {
         courseDao =new CourseDao(this,this) ;
         courseDao.getAudioCourseInfo(id);
         showProgress(true);
-    }
 
+        //*********************************从外部进来的时候
+        //当正在播放的情况下；
+        if(MusicPlayer.getPlayer().isNowPlaying()&&MusicPlayer.getPlayer().getNowPlaying().getId().equals(id)){
+            fisrtPlay =false;
+            playBt.setImageResource(R.drawable.player_play);
+            //更新显示的时间
+            flowable = Flowable.interval(0,1, TimeUnit.SECONDS)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Consumer<Long>() {
+                        @Override
+                        public void accept(Long aLong) throws Exception {
+                            //若是正在播放
+                            if(MusicPlayer.getPlayer().isNowPlaying()){
+                                showProgress(false);
+                                courseTime.setText(AppUtil.timeParse(MusicPlayer.getPlayer().getCurrentPosition()));
+                            }
+                        }
+                    });
+            //*****************************************************************************************************************************
+        }
+    }
     private boolean fisrtPlay=true;
     @OnClick(R.id.play_bt)
     public void onViewClicked() {
-        playMusic();
-    }
+        if(courseDetailBean!=null){
+            playMusic();
+        }
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //分享
+        setRightImageClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    if(courseDetailBean!=null) {
+                        ShareBean bean = new ShareBean();
+                        bean.setTitle(courseDetailBean.getTitle());
+                        bean.setUrl(courseDetailBean.getShare());
+                        bean.setImgUrl(Requst.BASE_IMG_URL+courseDetailBean.getImg());
+                        bean.setDes(courseDetailBean.getSubtitle());
+                        ShareUtil.getInstance(CourseDetailActivity.this).share(bean, CourseDetailActivity.this);
+                }
+            }
+        });
+
+    }
     private CourseDetailBean courseDetailBean ;
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
+        //设置可课程详情
         if(requestCode== RequestCode.CODE_0){
             courseDetailBean =courseDao.getCourseDetailBean() ;
             if(courseDetailBean!=null){
                 addFragmentList(R.id.container, BaseWebFragment.getInstance(courseDetailBean.getUrl()));
                 courseName.setText(courseDetailBean.getTitle());
+                if(MusicPlayer.getPlayer().getNowPlaying()==null||!id.equals(MusicPlayer.getPlayer().getNowPlaying().getId()))
                 courseTime.setText(courseDetailBean.getTime());
-                courseNum.setText(courseDetailBean.getNumb()+"人正在收听");
+                courseNum.setText(courseDetailBean.getNumb()+"人已收听");
             }
         }
     }
@@ -103,14 +142,9 @@ public class CourseDetailActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
-        //释放资源,停止播放；
+        //释放资源,停止计时
         if(flowable!=null)
         flowable.dispose();
-        MusicPlayer.getPlayer().release();
-        stopService(new Intent(this, PlayerService.class));
-
-
     }
 
     public void playMusic(){
@@ -120,6 +154,8 @@ public class CourseDetailActivity extends BaseActivity {
             PlayEvent playEvent = new PlayEvent();
             MusicInfoDetail musicInfoDetail = new MusicInfoDetail();
             musicInfoDetail.setUri(courseDetailBean.getVoice());
+            musicInfoDetail.setTitle(courseDetailBean.getTitle());
+            musicInfoDetail.setId(id);
             playEvent.setAction(PlayEvent.Action.PLAY);
             playEvent.setSong(musicInfoDetail);
             EventBus.getDefault().post(playEvent);
@@ -161,7 +197,6 @@ public class CourseDetailActivity extends BaseActivity {
                 playBt.setImageResource(R.drawable.player_play);
             }
         });
-
 
         //更新显示的时间
         flowable = Flowable.interval(0,1, TimeUnit.SECONDS)

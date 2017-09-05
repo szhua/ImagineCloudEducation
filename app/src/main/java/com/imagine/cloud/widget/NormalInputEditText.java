@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -38,7 +40,7 @@ public class NormalInputEditText extends LinearLayout {
     public static  final String PASS_INPUT_TYPE ="pass" ;
 
     private boolean isEditable  =true;
-
+    private String rightText ;
 
     public NormalInputEditText(Context context) {
         this(context,null,0);
@@ -72,6 +74,8 @@ public class NormalInputEditText extends LinearLayout {
                 rightHintTextColor =ta.getColor(attr,ContextCompat.getColor(getContext(),R.color.text_color_light));
             }else if(attr==R.styleable.NormalInputEditText_editable){
                 isEditable =ta.getBoolean(attr,true) ;
+            }else if(attr==R.styleable.NormalInputEditText_right_text){
+                rightText =ta.getString(attr);
             }
         }
         ta.recycle();
@@ -84,7 +88,13 @@ public class NormalInputEditText extends LinearLayout {
         }
 
         //设置可否编辑
-        rightEdit.setEnabled(isEditable);
+       rightEdit.setEnabled(isEditable);
+
+
+        if(!TextUtils.isEmpty(rightText)){
+            rightEdit.setText(rightText);
+        }
+
 
         switch (inputType){
             case DEFAULT_INPUT_TYPE:

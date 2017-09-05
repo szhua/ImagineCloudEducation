@@ -54,7 +54,7 @@ public class InfoMeetingFragment extends BaseFragment {
     private MeetingProjectListDao meetingProjectListDao;
     private List<MeetingProjectListBean> datas;
     private HomeListAdapter homeListAdapter;
-    private String hotTag;
+    private String hotTag="1";
 
     @Nullable
     @Override
@@ -110,7 +110,7 @@ public class InfoMeetingFragment extends BaseFragment {
         });
 
         meetingProjectListDao = new MeetingProjectListDao(getContext(), this);
-        meetingProjectListDao.refresh(MeetingProjectListDao.MEETING_SEARCH_TYPE, "");
+        meetingProjectListDao.refresh(MeetingProjectListDao.MEETING_SEARCH_TYPE, hotTag);
     }
 
     @Override

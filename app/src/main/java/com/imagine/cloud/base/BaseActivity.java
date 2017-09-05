@@ -45,11 +45,6 @@ public class BaseActivity extends AppCompatActivity implements INetResult ,Swipe
    private TextView rightTv ;
    private ProgressHUD mProgressHUD;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-    }
-
     public void  setTitle(@NonNull String title){
         if(this.title!=null&& !TextUtils.isEmpty(title)){
             this.title.setText(title);
@@ -63,7 +58,6 @@ public class BaseActivity extends AppCompatActivity implements INetResult ,Swipe
         leftImage = (ImageView) findViewById(R.id.left_back);
         rightImage = (ImageView) findViewById(R.id.right_img);
         rightTv = (TextView) findViewById(R.id.right_text);
-
 
         if(leftImage!=null) {
             leftImage.setOnClickListener(new View.OnClickListener() {
@@ -237,7 +231,7 @@ public void showProgress(boolean show){
 
 
     public int [] getRefreshColor(Context context){
-       int [] colors = new int[3] ;
+        int [] colors = new int[3] ;
         colors[0] =ContextCompat.getColor(context,android.R.color.holo_orange_dark) ;
         colors[1] =ContextCompat.getColor(context,R.color.albumColorPrimary) ;
         colors[2] =ContextCompat.getColor(context,android.R.color.holo_red_light) ;

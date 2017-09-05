@@ -21,14 +21,15 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class MyMeetingActivity extends BaseActivity {
+
     @InjectView(R.id.recycler_view)
     RecyclerView recyclerView;
     @InjectView(R.id.swiperefresh)
     SwipeRefreshLayout swiperefresh;
     private MyMeetingAdapter meetingAdapter;
     private MyMeetingDao myMeetingDao ;
-
     private List<MeetingOrderBean>  meetingOrderBeanList ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,11 @@ public class MyMeetingActivity extends BaseActivity {
         meetingAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Bundle bundle =new Bundle() ;
+                bundle.putString("id",meetingAdapter.getItem(position).getId());
+                bundle.putString("order_id",meetingAdapter.getItem(position).getOrder_id());
+                bundle.putSerializable("data",meetingAdapter.getItem(position));
+                transUi(AboutMeetingActivity.class,bundle);
             }
         });
         meetingAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_BOTTOM);
@@ -59,22 +65,26 @@ public class MyMeetingActivity extends BaseActivity {
         recyclerView.addItemDecoration(decoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(meetingAdapter);
-    }
 
+    }
     @Override
     public void onCompeleteRefresh() {
         super.onCompeleteRefresh();
+
         if(swiperefresh!=null){
             swiperefresh.setRefreshing(false);
         }
         if(meetingAdapter!=null||recyclerView!=null){
             meetingAdapter.loadMoreComplete();
         }
+
     }
+
 
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
+
         if(requestCode== RequestCode.CODE_1){
             meetingOrderBeanList=myMeetingDao.getDatas();
             meetingAdapter.setNewData(meetingOrderBeanList);
@@ -82,10 +92,8 @@ public class MyMeetingActivity extends BaseActivity {
             if(meetingOrderBeanList==null||meetingOrderBeanList.isEmpty()){
                 meetingAdapter.setEmptyView(getEmptyView("您尚未购买会议"));
             }
-
         }
     }
-
     @Override
     public void onLoadMoreRequested() {
         super.onLoadMoreRequested();
@@ -100,7 +108,6 @@ public class MyMeetingActivity extends BaseActivity {
             },1500);
         }
     }
-
     @Override
     public void onRefresh() {
         super.onRefresh();

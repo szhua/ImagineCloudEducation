@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <!-- 极光推送相关 -->
     <!-- jpush permission -->
     <permission
@@ -33,13 +32,12 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取MAC地址 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-    <!-- 允许程序录制音频 -->
     <application
         android:name=".base.ImagineApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/photo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -222,13 +220,16 @@
             android:value="developer-default" />
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="dce1983d5f360711f7caa3ef" />
+            android:value="0115f75737a330e794df4d89" />
 
         <service android:name=".service.PlayerService" />
 
         <!-- 友盟相关 -->
         <!-- 微信 -->
-        <activity android:name=".wxapi.WXPayEntryActivity" />
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -236,10 +237,12 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- qq -->
+
         <activity
             android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -260,6 +263,10 @@
             android:value="595dbef376661312fd000c53" />
 
         <!-- 蒲公英 -->
+
+        <!--蒲公英
+账号：ceo@qkarma.com
+密码：jiubugaosuni0822-->
         <meta-data
             android:name="PGYER_APPID"
             android:value="1bdf726f98ede9bafabf5c5d3e17aee7" />
@@ -277,8 +284,28 @@
         <activity
             android:name=".ui.activity.DeclarationProcessActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.MessageDetailActivity" />
-        <activity android:name=".ui.activity.OrderBuyActivity"></activity>
+        <activity
+            android:name=".ui.activity.MessageDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderBuyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SelectSchoolActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.BankPayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.PaySuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AboutMeetingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.RefundActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.GroupMessageActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.imagine.cloud.adapter;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -8,6 +9,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.imagine.cloud.R;
 import com.imagine.cloud.bean.MeetingBean;
 import com.imagine.cloud.bean.MessageBean;
+import com.imagine.cloud.util.AppUtil;
+import com.runer.liabary.util.UiUtil;
 
 import java.util.List;
 
@@ -18,7 +21,6 @@ import java.util.List;
  * MyMessageAdapter
  * 我的信息adapter；
  */
-
 public class MyMessageAdapter extends BaseQuickAdapter<MessageBean,BaseViewHolder> {
     public MyMessageAdapter(List<MessageBean> data) {
         super(R.layout.item_message_layout,data);
@@ -46,6 +48,13 @@ public class MyMessageAdapter extends BaseQuickAdapter<MessageBean,BaseViewHolde
                 }
             }
         });
+        TextView msg =helper.getView(R.id.msg_type);
+        //是否已读
+        if("0".equals(item.getStatus())){
+            UiUtil.setTextRLeftImage(msg,R.drawable.message_red);
+        }else{
+            UiUtil.setTextRLeftImage(msg,R.drawable.msg_icon);
+        }
     }
     private OnItemDeleteClickListener onItemDeleteClickListener ;
     public void setOnItemDeleteClickListener(OnItemDeleteClickListener onItemDeleteClickListener) {

@@ -61,6 +61,7 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
         loginDao =new LoginDao(this,this) ;
+        Logger.d("fsdfdsfdfs");
         //loginDao.thirdLogin("wechat","oc4Mz1LxiUmUCFTW-g-0x44ULxtc");
     }
     @Override
@@ -68,8 +69,6 @@ public class LoginActivity extends BaseActivity {
         super.onStart();
         setTitle("登录");
     }
-
-
    private  String userName ;
    private  String password ;
     private boolean chckInput(){
@@ -110,9 +109,14 @@ public class LoginActivity extends BaseActivity {
             }
         }else if(requestCode==RequestCode.THIRD_LOGIN){
             userInfo =loginDao.getUserInfo();
+            Logger.d(userInfo);
             AppUtil.setUserInfo(this,userInfo);
             UiUtil.showLongToast(this,"登录成功");
             setTagAlias();
+            //若是需要完善信息;
+            if("1".equals(userInfo.getType())){
+                  transUi(CompleteUserInfoActivity.class,null);
+            }
             finish();
         }
     }
@@ -136,7 +140,7 @@ public class LoginActivity extends BaseActivity {
                 break;
             case R.id.qq_login:
                 if (UMShareAPI.get(this).isAuthorize(
-                        this, SHARE_MEDIA.QQ)) {
+                        this, SHARE_MEDIA.QQ)){
                     UMShareAPI.get(getApplicationContext()).deleteOauth(
                             this, SHARE_MEDIA.QQ, umAuthListener);
                 }
@@ -144,6 +148,8 @@ public class LoginActivity extends BaseActivity {
                         this, SHARE_MEDIA.QQ, umAuthListener);
                 break;
             case R.id.sina_login:
+              //  UiUtil.showLongToast(this,"暂未开通");
+              transUi(SelectPayTypeActivity.class,null);
                 break;
             case R.id.register_bt:
                 transUi(RegisterActivity.class,null);
@@ -153,7 +159,6 @@ public class LoginActivity extends BaseActivity {
                 break;
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -180,6 +185,7 @@ public class LoginActivity extends BaseActivity {
                 case QQ:
                     if (data != null) {
                         String openid = data.get("openid");
+                        loginDao.thirdLogin("qq",openid);
                         showProgressWithMsg(true,"授权成功，正在登录");
                     }
                     break;

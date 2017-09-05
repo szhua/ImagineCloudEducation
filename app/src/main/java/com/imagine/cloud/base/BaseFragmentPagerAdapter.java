@@ -3,6 +3,7 @@ package com.imagine.cloud.base;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.view.ViewGroup;
 
@@ -21,12 +22,10 @@ public abstract class BaseFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         this.fm =fm ;
     }
-
     @Override
     public int getItemPosition(Object object) {
         return POSITION_NONE;
     }
-
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         if (position == 0)

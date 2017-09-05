@@ -19,7 +19,34 @@ public class CourseDetailBean {
     String url ;
     String voice ;
     String numb ;
+    String subtitle;
+    String img ;
+    String share ;
 
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getShare() {
+        return share;
+    }
+
+    public void setShare(String share) {
+        this.share = share;
+    }
 
     public String getNumb() {
         return numb;

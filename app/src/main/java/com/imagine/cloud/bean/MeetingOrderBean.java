@@ -1,5 +1,7 @@
 package com.imagine.cloud.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by szhua on 2017/7/20/020.
  * github:https://github.com/szhua
@@ -7,7 +9,7 @@ package com.imagine.cloud.bean;
  * MeetingOrderBean
  */
 
-public class MeetingOrderBean {
+public class MeetingOrderBean implements Serializable{
     /**
      * id : 51
      * create_time :
@@ -16,10 +18,38 @@ public class MeetingOrderBean {
      * status : 0
      */
     private String id;
+    private String order_id ;
     private String create_time;
     private String title;
     private String subtitle;
     private String status;
+    private String img  ;
+    /**
+     * pay_status : 0
+     * pay_type : 0
+     * refund_time : 0000-00-00 00:00:00
+     */
+
+    private String pay_status;
+    private String pay_type;
+    private String refund_time;
+
+
+    public String getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public String getId() {
         return id;
@@ -70,5 +100,29 @@ public class MeetingOrderBean {
                 ", subtitle='" + subtitle + '\'' +
                 ", status='" + status + '\'' +
                 '}';
+    }
+
+    public String getPay_status() {
+        return pay_status;
+    }
+
+    public void setPay_status(String pay_status) {
+        this.pay_status = pay_status;
+    }
+
+    public String getPay_type() {
+        return pay_type;
+    }
+
+    public void setPay_type(String pay_type) {
+        this.pay_type = pay_type;
+    }
+
+    public String getRefund_time() {
+        return refund_time;
+    }
+
+    public void setRefund_time(String refund_time) {
+        this.refund_time = refund_time;
     }
 }

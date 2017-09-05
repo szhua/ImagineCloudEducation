@@ -18,10 +18,26 @@ public class WechatPayBean {
                 .setTimeStamp(timestamp)//时间戳
                 .setSign(sign)//签名*/
     String partnerid ;
-    String noncestr ;
+    String noncestr;
     String timestamp ;
     String sign ;
-   String prepayid ;
+    String prepayid ;
+    String appid;
+    /*   /**
+     * appid : wx5c0a77ba63b92ae5
+     * partnerid : 1486197972
+     * prepayid : wx201707271122111f077b3d890976396903
+     * noncestr : snn73peq8czn99p61c21op0gjandoti6
+     * timestamp : 1501125551
+     * sign : 4EA83FB740BAD8F267CAD48FE749D873
+     */
+    public String getAppid() {
+        return appid;
+    }
+
+    public void setAppid(String appid) {
+        this.appid = appid;
+    }
 
     public String getPrepayid() {
         return prepayid;
@@ -61,5 +77,17 @@ public class WechatPayBean {
 
     public void setSign(String sign) {
         this.sign = sign;
+    }
+
+    @Override
+    public String toString() {
+        return "WechatPayBean{" +
+                "partnerid='" + partnerid + '\'' +
+                ", noncestr='" + noncestr + '\'' +
+                ", timestamp='" + timestamp + '\'' +
+                ", sign='" + sign + '\'' +
+                ", prepayid='" + prepayid + '\'' +
+                ", appid='" + appid + '\'' +
+                '}';
     }
 }

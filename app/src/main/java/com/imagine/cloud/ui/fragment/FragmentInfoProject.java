@@ -47,13 +47,12 @@ public class FragmentInfoProject extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragmentProListList =new ArrayList<>() ;
-
         fragmentProListList.add(FragmentProList.getInstance(MeetingProjectListDao.EDU_SEARCH_TYPE));
         fragmentProListList.add(FragmentProList.getInstance(MeetingProjectListDao.SCO_SEARCH_TYPE));
         fragmentProListList.add(FragmentProList.getInstance(MeetingProjectListDao.NATURE_SEARCH_TYPE));
         fragmentProListList.add(FragmentProList.getInstance(MeetingProjectListDao.OTHER_SEARCH_TYPE));
-
         viewpager.setAdapter(new CacheFragmentAdapter(getChildFragmentManager()));
+        viewpager.setOffscreenPageLimit(4);
         tabLayout.setViewPager(viewpager);
     }
 

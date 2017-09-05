@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.base.BaseWebAcitivity;
@@ -22,8 +23,10 @@ import com.runer.net.RequestCode;
 import com.soundcloud.android.crop.Crop;
 import com.squareup.picasso.Picasso;
 import com.yanzhenjie.album.Album;
+
 import java.io.File;
 import java.util.ArrayList;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -50,21 +53,24 @@ public class CompleteUserInfoActivity extends BaseActivity {
     CircleImageView headerBt;
     @InjectView(R.id.email_input)
     NormalInputEditText emailInput;
-    @InjectView(R.id.school_input)
-    NormalInputEditText schoolInput;
+    @InjectView(R.id.select_school_bt)
+    View selectSchool;
     @InjectView(R.id.register_code)
     TextView registerCode;
     @InjectView(R.id.finish_bt)
     TextView finishBt;
-    private UploadHeaderDao uploadHeaderDao ;
-    private RegisterDao registerDao ;
+    @InjectView(R.id.school)
+    TextView schoolTv;
+    private UploadHeaderDao uploadHeaderDao;
+    private RegisterDao registerDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete_user_info);
         ButterKnife.inject(this);
-        uploadHeaderDao =new UploadHeaderDao(this,this) ;
-        registerDao =new RegisterDao(this,this) ;
+        uploadHeaderDao = new UploadHeaderDao(this, this);
+        registerDao = new RegisterDao(this, this);
     }
 
     @Override
@@ -75,8 +81,9 @@ public class CompleteUserInfoActivity extends BaseActivity {
 
     public static final int PHOTO_SELECT_CODE = 999;
     public static final int CAMERA_TAKE_CODE = 1000;
-
-    @OnClick({R.id.header_bt, R.id.register_code, R.id.finish_bt})
+    //选择学校
+    public static final int GET_SCHOOL = 1000;
+    @OnClick({R.id.header_bt, R.id.register_code, R.id.finish_bt,R.id.select_school_bt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             //选择头像
@@ -92,32 +99,37 @@ public class CompleteUserInfoActivity extends BaseActivity {
                         .requestCode(PHOTO_SELECT_CODE)
                         .start(); // 999是请求码，返回时onActivityResult()的第一个参数。
                 break;
+            case R.id.select_school_bt:
+                Intent intent = new Intent(this, SelectSchoolActivity.class);
+                startActivityForResult(intent, GET_SCHOOL);
+                break;
             case R.id.register_code:
 
-                Bundle bundle =new Bundle() ;
-                bundle.putString(BaseWebAcitivity.WEB_TITLE,"用户协议");
+                Bundle bundle = new Bundle();
+                bundle.putString(BaseWebAcitivity.WEB_TITLE, "用户协议");
                 bundle.putString(BaseWebAcitivity.WEB_URL, Requst.REGISTER_ARGUMENT_URL);
-                transUi(BaseWebAcitivity.class,bundle);
+                transUi(BaseWebAcitivity.class, bundle);
 
                 break;
             case R.id.finish_bt:
 
-                String email =emailInput.getInputContent();
-                String schoolAddress =schoolInput.getInputContent();
-
-                if(!TextUtils.isEmpty(email)){
-                    if(!UiUtil.checkEmail(email)){
-                        UiUtil.showLongToast(getApplicationContext(),"邮箱格式不正确");
-                        return;
-                    }
+                String email = emailInput.getInputContent();
+                String schoolAddress = schoolTv.getText().toString();
+                if (TextUtils.isEmpty(email)) {
+                    UiUtil.showLongToast(this, "请填写邮箱");
+                    return;
                 }
-                if(TextUtils.isEmpty(email)||TextUtils.isEmpty(schoolAddress)){
-                    UiUtil.showLongToast(getApplicationContext(),"信息填写不完善");
+                if (!UiUtil.checkEmail(email)) {
+                    UiUtil.showLongToast(this, "邮箱格式不正确");
+                    return;
                 }
-                registerDao.registerImproceInfo(email,schoolAddress,AppUtil.getUserId(this));
+                if("选择学校".equals(schoolAddress)){
+                    UiUtil.showLongToast(this,"请选择学校");
+                    return;
+                }
+                registerDao.registerImproceInfo(email, schoolAddress, AppUtil.getUserId(this));
                 showProgress(true);
                 break;
-
         }
     }
 
@@ -133,11 +145,10 @@ public class CompleteUserInfoActivity extends BaseActivity {
             if (resultCode == RESULT_OK) {
                 ArrayList<String> pathList = Album.parseResult(data);
                 Crop.of(Uri.fromFile(new File(pathList.get(0))), Uri.fromFile(new File(getCacheDir(), CROPO_CACHE_PAHT))).start(CompleteUserInfoActivity.this);
-            } else if (resultCode == RESULT_CANCELED) { //User canceled;
+            } else if (resultCode == RESULT_CANCELED) {//User canceled;
             }
-
             //裁剪以后的操作
-        } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK){
+        } else if (requestCode == Crop.REQUEST_CROP && resultCode == RESULT_OK) {
             //进行压缩;
             Flowable.just(new File(getCacheDir(), CROPO_CACHE_PAHT))
                     .observeOn(Schedulers.io())
@@ -151,23 +162,28 @@ public class CompleteUserInfoActivity extends BaseActivity {
                     .subscribe(new Consumer<File>() {
                         @Override
                         public void accept(File file) throws Exception {
-                            uploadHeaderDao.upLoadUserHeader(AppUtil.getUserId(getApplicationContext()),file);
-                            showProgressWithMsg(true,"正在上传头像");
+                            uploadHeaderDao.upLoadUserHeader(AppUtil.getUserId(getApplicationContext()), file);
+                            showProgressWithMsg(true, "正在上传头像");
                             Picasso.with(CompleteUserInfoActivity.this).load(file).into(headerBt);
                         }
                     });
         } else if (resultCode == Crop.RESULT_ERROR) {
             UiUtil.showLongToast(getApplicationContext(), "裁剪失败!");
+        }else if (requestCode == GET_SCHOOL && resultCode == RESULT_OK) {
+            //处理学校信息；
+            String school = data.getStringExtra("school");
+            schoolTv.setText(school);
         }
     }
+
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
-        if(requestCode== RequestCode.UPDATE_HEADER){
-            UiUtil.showLongToast(this,getString(R.string.update_header_success));
-            AppUtil.setUserHeader(CompleteUserInfoActivity.this,uploadHeaderDao.getHeaderPath());
-        }else if(requestCode==RequestCode.CODE_1){
-            UiUtil.showLongToast(this,getString(R.string.update_user_info_success));
+        if (requestCode == RequestCode.UPDATE_HEADER) {
+            UiUtil.showLongToast(this, getString(R.string.update_header_success));
+            AppUtil.setUserHeader(CompleteUserInfoActivity.this, uploadHeaderDao.getHeaderPath());
+        } else if (requestCode == RequestCode.CODE_1) {
+            UiUtil.showLongToast(this, getString(R.string.update_user_info_success));
             finish();
         }
     }

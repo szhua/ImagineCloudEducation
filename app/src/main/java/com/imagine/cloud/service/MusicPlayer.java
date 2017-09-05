@@ -1,6 +1,11 @@
 package com.imagine.cloud.service;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+
+import com.imagine.cloud.bean.CoursePlayEvent;
+
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.IOException;
 
 
@@ -99,8 +104,14 @@ public class MusicPlayer implements OnCompletionListener {
         if (onOnePlayListener != null) {
             onOnePlayListener.onCompelete();
         }
+
+        CoursePlayEvent coursePlayEvent =new CoursePlayEvent() ;
+        coursePlayEvent.setType(1);
+        EventBus.getDefault().post(coursePlayEvent);
+
+
     }
-    private MusicInfoDetail getNowPlaying() {
+    public  MusicInfoDetail getNowPlaying() {
         return musicInfoDetail;
     }
     //获得当前播放信息;

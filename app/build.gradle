@@ -27,7 +27,6 @@ dependencies {
     compile project(':liabary')
     compile project(':runer_net')
     compile project(':um')
-    //添加支付库----支付宝和微信支付；
     compile 'io.github.mayubao:pay_library:1.0.1'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'

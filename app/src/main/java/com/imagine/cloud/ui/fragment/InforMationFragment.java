@@ -46,7 +46,6 @@ import butterknife.InjectView;
 //首页资讯
 public class InforMationFragment extends BaseFragment {
 
-
     @InjectView(R.id.banner)
     AdViewPager banner;
     @InjectView(R.id.app_bar)
@@ -59,7 +58,7 @@ public class InforMationFragment extends BaseFragment {
     ImageView searchBt;
     @InjectView(R.id.msg_bt)
     ImageView msgBt;
-    private String[] titles = new String[]{"会议资讯", "项目资讯"};
+    private String[] titles = new String[]{"项目资讯", "会议资讯"};
     private GetBannerDao getBannerDao ;
     @Nullable
     @Override
@@ -68,7 +67,6 @@ public class InforMationFragment extends BaseFragment {
         ButterKnife.inject(this, view);
         return view;
     }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -90,14 +88,17 @@ public class InforMationFragment extends BaseFragment {
         msgBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transUi(MessageActivity.class,null);
+                if(AppUtil.chckeLogin(getContext(),true)){
+                    transUi(MessageActivity.class,null);
+                }
             }
         });
         getBannerDao =new GetBannerDao(getContext(),this) ;
         getBannerDao.getBannerList();
 
     }
-    //单曲进行播放；
+
+    //接收消息，
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(MsgEvent msgEvent) {
         if(!msgEvent.isHasMsg()){
@@ -110,8 +111,6 @@ public class InforMationFragment extends BaseFragment {
             }
         }
     }
-
-
     private MessageDao messageDao ;
     @Override
     public void onResume() {
@@ -156,17 +155,15 @@ public class InforMationFragment extends BaseFragment {
         @Override
         public Fragment getItem(int position) {
             if(position==0){
-                return new InfoMeetingFragment();
-            }else{
                 return new FragmentInfoProject();
+            }else{
+                return new InfoMeetingFragment();
             }
         }
-
         @Override
         public int getCount() {
             return 2;
         }
-
         @Override
         public CharSequence getPageTitle(int position) {
             return titles[position];

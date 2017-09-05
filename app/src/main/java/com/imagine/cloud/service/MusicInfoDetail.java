@@ -10,7 +10,7 @@ public class MusicInfoDetail  {
     // 歌曲类型 本地/网络
     private Type type;
     // [本地歌曲]歌曲id
-    private long id;
+    private String id="";
     // 音乐标题
     private String title;
     // 艺术家
@@ -50,11 +50,11 @@ public class MusicInfoDetail  {
         this.type = type;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -33,10 +33,18 @@ public enum  NetInter {
     MESSAGE_LIST("message","message_list","消息列表"),
     MESSAGE_INFO("message","info","消息详情"),
     MESSAGE_DELE("message","del","删除消息"),
-    ADD_ORDER("buy","add","添加订单"),
+    ADD_ORDER("pay","add","添加订单"),
     CHECK_MSG_READ("message","unread","检测未读消息"),
     SET_MSG_READ("message","read","设为已读"),
     MY_MEETING_LIST("buy","my_buy","我的会议"),
+    GET_SCHOOL("reg_perfect","school","查询学校"),
+    WECHAT_PAY("pay","wechat_sign","微信支付"),
+    BANK_PAY_GET_CODE("buy","pay","银联支付获取验证码"),
+    BANK_TO_PAY("buy","go_pay","银联支付"),
+    CHECK_BOUGHT("buy","buyed","时候购买了会议"),
+    GET_ORDER_INFO("buy","order_info","我的会议详情"),
+    PAY_REFUND("buy","refund","申请退款"),
+    GET_USER_BANK("buy","bank",""),
     EditUserInfo("user","user_update","完善用户信息");
 
     private String a;
@@ -61,8 +69,6 @@ public enum  NetInter {
     public void setDes(String des) {
         this.des = des;
     }
-
-
 
     NetInter(String c , String a , String des){
      this.c =c ;

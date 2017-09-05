@@ -4,8 +4,6 @@
     <color name="colorPrimaryDark">#0f8baf</color>
     <color name="colorAccent">#0f8baf</color>
 
-
-
     <color name="divider">#dddfdf</color>
     <color name="divider_1dp">#a1a1a1</color>
     <color name="background">#ebebeb</color>
@@ -23,6 +21,6 @@
     <color name="text_color_tab">#989898</color>
     <color name="tab_color_selected">#0f8baf</color>
     <color name="text_color_theme">#00a3e8</color>
-
     <color name="text_color_orange">#ea633d</color>
+    <color name="text_color_green">#0aa344</color>
 </resources>

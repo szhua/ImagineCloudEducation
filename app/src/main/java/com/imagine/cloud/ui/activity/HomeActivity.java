@@ -58,7 +58,6 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
         EventBus.getDefault().register(this);
     }
 
-    //单曲进行播放；
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent( HomeMessageEvent action) {
         Logger.d(action);
@@ -82,6 +81,7 @@ public class HomeActivity extends BaseActivity implements TabHost.OnTabChangeLis
         }
        // return;
     }
+
     /*create tabLayout from drawable and title*/
     private View getTabItemView(int id, String title) {
         View view = getLayoutInflater().inflate(R.layout.tab_item, null);

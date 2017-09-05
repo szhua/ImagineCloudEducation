@@ -6,13 +6,15 @@
     android:orientation="vertical"
     tools:context="com.imagine.cloud.ui.activity.ProjectDetailActivity">
 
-
-
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:background="@color/colorPrimary"
-        android:layout_height="@dimen/normal_header_height">
+        android:layout_height="@dimen/normal_header_height"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
         <ImageView
             android:id="@+id/left_back"
             android:paddingLeft="@dimen/header_img_padding"
@@ -21,22 +23,40 @@
             android:paddingRight="@dimen/header_img_padding"
             android:layout_height="match_parent"/>
 
-        <TextView
+        <ImageView
+            android:visibility="visible"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_share_black_24dp"
+            android:id="@+id/right_img"
+            android:paddingLeft="@dimen/header_img_padding"
+            android:layout_width="wrap_content"
+            android:paddingRight="@dimen/header_img_padding"
+            android:layout_height="match_parent"/>
+
+        <com.imagine.cloud.widget.MarqueeTextView
             android:id="@+id/title"
             android:gravity="center"
-            android:text="title"
             android:textStyle="bold"
             android:textSize="@dimen/text_size_18sp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:layout_marginLeft="14dp"
+            android:marqueeRepeatLimit="marquee_forever"
             android:textColor="@color/white"
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/left_back"
+            android:layout_toLeftOf="@id/right_img"
+            android:layout_marginStart="14dp" />
 
         <TextView
             android:visibility="gone"
             android:id="@+id/right_text"
             android:textColor="@color/text_color_normal"
             android:text="保存"
+            android:layout_marginLeft="@dimen/common30dp"
+            android:layout_marginRight="@dimen/common30dp"
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:textSize="@dimen/text_size_16sp"
@@ -44,16 +64,11 @@
             android:paddingRight="@dimen/header_img_padding"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"/>
-        <ImageView
-            android:visibility="gone"
-            android:id="@+id/right_img"
-            android:paddingLeft="@dimen/header_img_padding"
-            android:layout_width="wrap_content"
-            android:paddingRight="@dimen/header_img_padding"
-            android:layout_height="match_parent"/>
+
     </RelativeLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:id="@+id/bottom_container"

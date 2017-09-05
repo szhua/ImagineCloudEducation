@@ -96,4 +96,6 @@
     <string name="keyan">云科金谷</string>
     <string name="update_user_info_success">信息完善成功</string>
     <string name="update_header_success">上传头像成功</string>
+    <string name="pay_success">恭喜你,支付成功</string>
+    <string name="notice_string">输入您的其他需求，例如：饮食为清真食品，需要纸质发票，以方便我们更好的为您安排相关事宜。</string>
 </resources>

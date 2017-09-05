@@ -69,6 +69,7 @@ public class FragmentProList extends BaseFragment {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Bundle bundle =new Bundle() ;
+                bundle.putString("title",((MeetingProjectListBean)adapter.getItem(position)).getTitle());
                 bundle.putString("id",((MeetingProjectListBean)adapter.getItem(position)).getId());
                 transUi(ProjectDetailActivity.class,bundle);
             }
@@ -109,7 +110,10 @@ public class FragmentProList extends BaseFragment {
     @Override
     public void onCompeleteRefresh() {
         super.onCompeleteRefresh();
+
+        if(swiperefresh!=null)
         swiperefresh.setRefreshing(false);
+        if(homeListAdapter!=null&&recyclerView!=null)
         homeListAdapter.loadMoreComplete();
     }
     @Override
@@ -120,12 +124,15 @@ public class FragmentProList extends BaseFragment {
     @Override
     public void onLoadMoreRequested() {
         super.onLoadMoreRequested();
+        if(meetingProjectListDao!=null)
         if (meetingProjectListDao.hasMore()) {
             meetingProjectListDao.nextPage(type,"");
         } else {
+            if(recyclerView!=null)
             recyclerView.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    if(homeListAdapter!=null)
                     homeListAdapter.loadMoreEnd();
                 }
             }, 1500);

@@ -15,7 +15,6 @@ import java.util.List;
  * UserCenterItemAdapter
  */
 public class UserCenterItemAdapter extends BaseQuickAdapter<MineListItemBean ,BaseViewHolder> {
-
     public UserCenterItemAdapter(@Nullable List<MineListItemBean> data) {
         super(R.layout.item_mine_layout, data);
     }
@@ -24,7 +23,5 @@ public class UserCenterItemAdapter extends BaseQuickAdapter<MineListItemBean ,Ba
         helper.setText(R.id.title,item.getTitle())
                 .setText(R.id.right_text,item.getRightText())
                 .setImageResource(R.id.icon,item.getImg());
-
     }
-
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.imagine.cloud.ui.activity.PaySuccessActivity">
+
+    <include
+        layout="@layout/header_layout"
+        ></include>
+
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_marginTop="@dimen/common40dp"
+            android:layout_marginBottom="@dimen/common40dp"
+            android:drawableTop="@drawable/pay_success"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pay_success"
+            android:textColor="@color/text_color_normal"
+            android:drawablePadding="@dimen/common6dp"
+            android:textSize="@dimen/text_size_20sp"
+            />
+
+        <View style="@style/Divider"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="支付方式"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/text_size_16sp"
+                android:textColor="@color/text_color_normal"
+                android:layout_height="@dimen/common46dp" />
+
+
+            <TextView
+                android:id="@+id/pay_type"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_size_14sp"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_color_gray"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:layout_height="@dimen/common46dp" />
+        </RelativeLayout>
+
+        <View style="@style/Divider"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="支付金额"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                android:layout_centerVertical="true"
+                android:textSize="@dimen/text_size_16sp"
+                android:textColor="@color/text_color_normal"
+                android:layout_height="@dimen/common46dp" />
+
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/text_size_14sp"
+                android:layout_marginLeft="@dimen/common_left_right_margin"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_color_orange"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="@dimen/common_left_right_margin"
+                android:layout_height="@dimen/common46dp" />
+        </RelativeLayout>
+        <View style="@style/Divider"></View>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/check_my_meeting"
+        style="@style/normal_bt_style"
+        android:layout_marginTop="@dimen/common_left_right_margin"
+        android:layout_marginBottom="@dimen/common_left_right_margin"
+        android:text="查看我的会议"
+        ></TextView>
+
+
+
+
+
+
+</LinearLayout>

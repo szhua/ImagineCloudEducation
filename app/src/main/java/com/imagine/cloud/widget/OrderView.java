@@ -14,19 +14,17 @@ import com.imagine.cloud.R;
  * ImagineCloudEducation
  * OrderView
  */
-
 public class OrderView extends LinearLayout {
 
     public OrderView(Context context) {
         this(context,null,0);
     }
-
     public OrderView(Context context, @Nullable AttributeSet attrs) {
         this(context,attrs,0);
     }
-
     public OrderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         LayoutInflater.from(context).inflate(R.layout.information_order_layout,this);
     }
+
 }

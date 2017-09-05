@@ -23,17 +23,13 @@ import java.util.List;
 
 public class AppUtil {
 
-
-
     public  static  String getVersionName(Context context){
         return  getPackageInfo(context).versionName;
     }
-
     //版本号
     public static int getVersionCode(Context context) {
         return getPackageInfo(context).versionCode;
     }
-
     //获得本app的而一些信息
     private static PackageInfo getPackageInfo(Context context) {
         PackageInfo pi = null;
@@ -47,7 +43,6 @@ public class AppUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return pi;
     }
 
@@ -62,16 +57,14 @@ public class AppUtil {
     public static void setUserHeader(Context context ,String userHeader){
         Prefs.with(context).write("user_head",userHeader);
     }
-
     public static void setUserInfo(Context context ,UserInfo userInfo){
-       // if(TextUtils.isEmpty(userInfo.getId()))
+        //if(TextUtils.isEmpty(userInfo.getId()))
         Prefs.with(context).write("user_id",userInfo.getId());
-      //  if(TextUtils.isEmpty(userInfo.getUser_name()))
-            Prefs.with(context).write("user_name",userInfo.getUser_name());
-       // if(TextUtils.isEmpty(userInfo.getHead()))
-            Prefs.with(context).write("user_head",userInfo.getHead());
+        //if(TextUtils.isEmpty(userInfo.getUser_name()))
+        Prefs.with(context).write("user_name",userInfo.getUser_name());
+        //if(TextUtils.isEmpty(userInfo.getHead()))
+        Prefs.with(context).write("user_head",userInfo.getHead());
     }
-
     //获取用户id
     public static  String getUserId(Context context){
         return Prefs.with(context).read("user_id");
@@ -80,7 +73,6 @@ public class AppUtil {
     public static  void setUserId(Context context,String user_id){
         Prefs.with(context).write("user_id",user_id);
     }
-
     /*是否登录*/
     public static boolean chckeLogin(Context context ,boolean isToLog){
 

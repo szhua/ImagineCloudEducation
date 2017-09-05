@@ -32,7 +32,6 @@ public abstract class IDao {
         mContext = context;
         mResult = iNetResult;
     }
-
     /**
      * 得到结果后，对结果处理逻辑
      *
@@ -143,12 +142,12 @@ public abstract class IDao {
                         if(!TextUtils.isEmpty(message))
                             mResult.onRequestError(requestCode,message,code);
                         else
-                            mResult.onRequestError(requestCode,"error",code);
+                            mResult.onRequestError(requestCode,"网络发生错误",code);
                     }
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                    mResult.onRequestFaild(requestCode,"error",e.toString());
+                    mResult.onRequestFaild(requestCode,"网络发生错误",e.toString());
                 }
             }
             @Override
@@ -191,12 +190,12 @@ public abstract class IDao {
                         if(!TextUtils.isEmpty(message))
                         mResult.onRequestError(requestCode,message,code);
                         else
-                        mResult.onRequestError(requestCode,"error",code);
+                        mResult.onRequestError(requestCode,"网络发生错误",code);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.d("szhua",e.toString());
-                    mResult.onRequestFaild(requestCode,"error",e.toString());
+                    mResult.onRequestFaild(requestCode,"网络发生错误",e.toString());
                 }
             }
             @Override

@@ -11,16 +11,21 @@ import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.base.BaseWebAcitivity;
 import com.imagine.cloud.base.BaseWebFragment;
 import com.imagine.cloud.bean.MeetingDetailBean;
+import com.imagine.cloud.bean.MeetingOrderBean;
+import com.imagine.cloud.bean.ShareBean;
 import com.imagine.cloud.dao.MeetingProDetailDao;
 import com.imagine.cloud.dao.MessageDao;
 import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.util.AppUtil;
+import com.imagine.cloud.util.ShareUtil;
 import com.runer.net.RequestCode;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
 public class ProjectDetailActivity extends BaseActivity {
+
+
     @InjectView(R.id.left_back)
     ImageView leftBack;
     @InjectView(R.id.title)
@@ -43,9 +48,9 @@ public class ProjectDetailActivity extends BaseActivity {
     LinearLayout bottomContainer;
     @InjectView(R.id.container)
     LinearLayout container;
+
     private MeetingProDetailDao meetingProDetailDao;
     private String proId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +60,6 @@ public class ProjectDetailActivity extends BaseActivity {
         proId = getStringExtras("id", "");
         meetingProDetailDao = new MeetingProDetailDao(this, this);
         meetingProDetailDao.getInfo(MeetingProDetailDao.PRO_INFO_TYPE, AppUtil.getUserId(this), proId);
-
-
         //若是从消息中过来的时候
         String type =getStringExtras("type","0");
         if("msg".equals(type)){
@@ -65,11 +68,26 @@ public class ProjectDetailActivity extends BaseActivity {
             messageDao.setMsgRead(msgId);
         }
     }
-
     @Override
     protected void onStart() {
         super.onStart();
-        setTitle("项目详情");
+        setTitle(getStringExtras("title",""));
+        setRightImageClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(meetingProDetailDao!=null&&meetingProDetailDao.getDetail()!=null){
+                    MeetingDetailBean  meetingDetailBean = meetingProDetailDao.getDetail();;
+                    if(meetingDetailBean!=null) {
+                        ShareBean bean = new ShareBean();
+                        bean.setTitle(meetingDetailBean.getTitle());
+                        bean.setUrl(meetingDetailBean.getShare());
+                        bean.setImgUrl(Requst.BASE_IMG_URL+meetingDetailBean.getImg());
+                        bean.setDes(meetingDetailBean.getSubtitle());
+                        ShareUtil.getInstance(ProjectDetailActivity.this).share(bean, ProjectDetailActivity.this);
+                    }
+                }
+            }
+        });
     }
     @Override
     public void onRequestSuccess(int requestCode) {
@@ -77,6 +95,7 @@ public class ProjectDetailActivity extends BaseActivity {
         if (requestCode == RequestCode.CODE_0) {
             MeetingDetailBean detail = meetingProDetailDao.getDetail();
             if (detail != null) {
+                setTitle(detail.getTitle());
                 addFragmentList(R.id.container, BaseWebFragment.getInstance(detail.getUrl()));
             }
         }

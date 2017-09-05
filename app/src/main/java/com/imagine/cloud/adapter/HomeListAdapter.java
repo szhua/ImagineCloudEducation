@@ -2,6 +2,7 @@ package com.imagine.cloud.adapter;
 import android.support.annotation.IntRange;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -24,6 +25,13 @@ public class HomeListAdapter extends BaseQuickAdapter<MeetingProjectListBean,Bas
     }
     @Override
     protected void convert(BaseViewHolder helper, MeetingProjectListBean item) {
+
+        if(TextUtils.isEmpty(item.getImg())){
+            helper.setVisible(R.id.image,false);
+        }else{
+            helper.setVisible(R.id.image,true);
+        }
+
         //设置图片
         Picasso.with(mContext).load(Requst.BASE_IMG_URL+item.getImg()).placeholder(R.drawable.loading_1_1).into((ImageView) helper.getView(R.id.image));
         //设置文字

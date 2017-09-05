@@ -22,6 +22,7 @@ import com.imagine.cloud.base.BaseWebAcitivity;
 import com.imagine.cloud.bean.HomeMessageEvent;
 import com.imagine.cloud.bean.MineListItemBean;
 import com.imagine.cloud.bean.UserInfo;
+import com.imagine.cloud.dao.PayDao;
 import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.ui.activity.ChangePassActivity;
 import com.imagine.cloud.ui.activity.CollectActivity;
@@ -30,6 +31,7 @@ import com.imagine.cloud.ui.activity.HomeActivity;
 import com.imagine.cloud.ui.activity.LoginActivity;
 import com.imagine.cloud.ui.activity.MessageActivity;
 import com.imagine.cloud.ui.activity.MyMeetingActivity;
+import com.imagine.cloud.ui.activity.SelectPayTypeActivity;
 import com.imagine.cloud.ui.activity.UserInfoActivity;
 import com.imagine.cloud.util.AppUtil;
 import com.orhanobut.logger.Logger;
@@ -81,6 +83,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private View headerContainer;
     private UserCenterItemAdapter  userCenterItemAdapter;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -126,6 +129,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
         //动态添加列表项；
         ArrayList<MineListItemBean> mineListItemBeens = new ArrayList<>();
+
         mineListItemBeens.add(new MineListItemBean("我的消息", "", R.drawable.mine_msg));
         mineListItemBeens.add(new MineListItemBean("我的会议", "", R.drawable.mine_meeting));
         mineListItemBeens.add(new MineListItemBean("我的收藏", "", R.drawable.mine_collect));
@@ -134,7 +138,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         mineListItemBeens.add(new MineListItemBean("关于我们", "", R.drawable.mine_about_us));
         mineListItemBeens.add(new MineListItemBean("常见问题", "", R.drawable.mine_usal_question));
         mineListItemBeens.add(new MineListItemBean("意见建议", "", R.drawable.mine_feed_back));
-
         mineListItemBeens.add(new MineListItemBean("版本更新", "当前版本"+AppUtil.getVersionName(getContext()), R.drawable.mine_update_version));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
          userCenterItemAdapter = new UserCenterItemAdapter(mineListItemBeens);
@@ -145,7 +148,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 Bundle bundle;
                 switch (position) {
                     case 0:
-                        transUi(MessageActivity.class, null);
+//                        PayDao payDao =new PayDao(getContext(),MineFragment.this) ;
+//                        payDao.bankPay(AppUtil.getUserId(getContext()));
+                       transUi(MessageActivity.class, null);
                         break;
                     case 1:
                         transUi(MyMeetingActivity.class, null);
@@ -170,11 +175,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                                 .subscribe(new Consumer<Object>() {
                                     @Override
                                     public void accept(Object s) throws Exception {
-
                                         UiUtil.showLongToast(getContext(), "清除缓存成功");
                                         userCenterItemAdapter.getItem(position).setRightText(DataCleanManager.getTotalCacheSize(getContext()));
                                         userCenterItemAdapter.notifyDataSetChanged();
-
                                     }
                                 });
 
@@ -253,7 +256,7 @@ if(v==headerContainer){
             new AlertDialog.Builder(getContext())
                     .setTitle("版本更新")
                     .setCancelable(false)
-                    .setMessage(appBean.getReleaseNote())
+                    .setMessage("当前版本："+ AppUtil.getVersionName(getContext())+"\n"+appBean.getReleaseNote())
                     .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

@@ -21,7 +21,7 @@ public class BaseWebAcitivity extends BaseActivity {
 
     @InjectView(R.id.container)
     LinearLayout container;
-    private String title  ;
+    private String title ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +36,10 @@ public class BaseWebAcitivity extends BaseActivity {
                 .setReceivedTitleCallback(new ChromeClientCallbackManager.ReceivedTitleCallback() {
                     @Override
                     public void onReceivedTitle(WebView view, String title) {
-                        UiUtil.showLongToast(getApplicationContext(),title);
+                      //  UiUtil.showLongToast(getApplicationContext(),title);
                     }
-                }) //设置 Web 页面的 title 回调
+                })
+                //设置 Web 页面的 title 回调
                 .createAgentWeb()//
                 .ready()
                 .go(url);

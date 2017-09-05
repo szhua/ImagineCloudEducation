@@ -17,7 +17,26 @@ public class MessageBean {
     String type ;
     String message_type ;
     String mp_id ;
+    String status ;
 
+
+
+
+    public String getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(String create_time) {
+        this.create_time = create_time;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getMp_id() {
         return mp_id;

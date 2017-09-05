@@ -11,6 +11,6 @@ public final class Constant   {
 
     public static  final int DEFAULT_PERPAGE_COUNT =10 ;
     public static  final String TAG="szhua" ;
-    public static  final String APP_ID_WECHAT ="9b42cad8978413a98bcebf9179a77d66";
+    public static  final String APP_ID_WECHAT ="wx5c0a77ba63b92ae5";
 
 }

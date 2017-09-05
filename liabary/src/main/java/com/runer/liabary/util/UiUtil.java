@@ -1,6 +1,8 @@
 package com.runer.liabary.util;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,16 +26,38 @@ import java.util.regex.Pattern;
  * @author sz.hua
  */
 public class UiUtil {
+
+
+
+    //为textView设置image;
+    public  static  void setTextRightImage(TextView textView ,int drawable){
+        Drawable nav_up= ContextCompat.getDrawable(textView.getContext(),drawable);
+        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, nav_up, null);
+    }
+    public  static  void setTextTopImage(TextView textView ,int drawable){
+        Drawable nav_up= ContextCompat.getDrawable(textView.getContext(),drawable);
+        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
+        textView.setCompoundDrawables(null, nav_up, null, null);
+    }
+    public  static  void setTextBottomImage(TextView textView ,int drawable){
+        Drawable nav_up= ContextCompat.getDrawable(textView.getContext(),drawable);
+        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
+        textView.setCompoundDrawables(null, null, null, nav_up);
+    }
+    public  static  void setTextRLeftImage(TextView textView ,int drawable){
+        Drawable nav_up= ContextCompat.getDrawable(textView.getContext(),drawable);
+        nav_up.setBounds(0, 0, nav_up.getMinimumWidth(), nav_up.getMinimumHeight());
+        textView.setCompoundDrawables(nav_up, null, null, null);
+    }
+
+
     /**
      * 自定义toast样式
      *
      * @param context
      * @param message
      */
-
-
-
-
 
     public static Toast toast;
 
@@ -54,12 +78,8 @@ public class UiUtil {
         toast.show();
     }
 
-
-
-
     /**
-     * 在屏幕中间的toast
-     *
+     * 在屏幕中间的toast*
      * @param context
      * @param message
      */
@@ -133,7 +153,6 @@ public class UiUtil {
 
     /**
      * Scale in ；
-     *
      * @param context
      * @param v
      */

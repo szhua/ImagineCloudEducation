@@ -9,6 +9,7 @@
         <attr name="right_hint_color" format="color"></attr>
         <attr name="input_type" format="string"></attr>
         <attr name="editable" format="boolean"></attr>
+        <attr name="right_text" format="string"></attr>
     </declare-styleable>
 
     <declare-styleable name="StateTextView">

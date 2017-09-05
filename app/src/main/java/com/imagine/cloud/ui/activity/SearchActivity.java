@@ -45,7 +45,7 @@ public class SearchActivity extends BaseActivity {
 
     private SearchAdapter searchAdapter;
     private List<SearchRecordBean> searchRecordBeens = new ArrayList<>();
-    private MeetingProjectSearchDao meetingProjectSearchDao ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,21 +73,17 @@ public class SearchActivity extends BaseActivity {
         recyclerView.addItemDecoration(decoration);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(searchAdapter);
-
         searchEt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView arg0, int arg1, KeyEvent arg2) {
-                if (arg1 == EditorInfo.IME_ACTION_SEARCH) {
+                if (arg1 == EditorInfo.IME_ACTION_SEARCH){
                     editSearch();
                 }
                 return false;
             }
         });
-
         searchAdapter.setEmptyView(R.layout.empty_view_search, recyclerView);
-
         getRecordData();
-
         //清除数据库数据
         cleanBt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,8 +92,9 @@ public class SearchActivity extends BaseActivity {
                 cleanHistory();//开始搜索逻辑
             }
         });
-
     }
+
+
 
     public void getRecordData() {
         //请求数据库信息；

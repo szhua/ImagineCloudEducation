@@ -1,5 +1,6 @@
 package com.imagine.cloud.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
@@ -8,21 +9,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.imagine.cloud.R;
 import com.imagine.cloud.base.BaseActivity;
 import com.imagine.cloud.base.BaseWebFragment;
 import com.imagine.cloud.bean.MeetingDetailBean;
+import com.imagine.cloud.bean.ShareBean;
+import com.imagine.cloud.dao.CheckBoughtDao;
 import com.imagine.cloud.dao.MeetingInfoDao;
 import com.imagine.cloud.dao.MessageDao;
+import com.imagine.cloud.net.Requst;
 import com.imagine.cloud.util.AppUtil;
+import com.imagine.cloud.util.ShareUtil;
 import com.imagine.cloud.widget.StateTextView;
 import com.runer.liabary.util.UiUtil;
 import com.runer.net.RequestCode;
-
+import com.umeng.socialize.UMShareAPI;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+
 
 /*会议详情*/
 public class MeetingDetailActivity extends BaseActivity {
@@ -53,10 +58,15 @@ public class MeetingDetailActivity extends BaseActivity {
     StateTextView collectIcon;
     @InjectView(R.id.buy_num)
     TextView buyNum;
+    @InjectView(R.id.bao_icon)
+    ImageView baoIcon;
+    @InjectView(R.id.share_bt)
+    LinearLayout shareBt;
 
     private MeetingInfoDao meetingInfoDao;
     private MeetingDetailBean meetingDetailBean;
     private String id;
+    private CheckBoughtDao checkBoughtDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +76,7 @@ public class MeetingDetailActivity extends BaseActivity {
         id = getStringExtras("id", "");
         meetingInfoDao = new MeetingInfoDao(this, this);
         meetingInfoDao.getInfo(AppUtil.getUserId(this), id);
+        checkBoughtDao = new CheckBoughtDao(this, this);
         //若是从消息中过来的时候
         String type = getStringExtras("type", "0");
         if ("msg".equals(type)) {
@@ -78,6 +89,7 @@ public class MeetingDetailActivity extends BaseActivity {
     @Override
     public void onRequestSuccess(int requestCode) {
         super.onRequestSuccess(requestCode);
+
         if (requestCode == RequestCode.CODE_0) {
             meetingDetailBean = meetingInfoDao.getMeetingDetailBean();
             if (meetingDetailBean != null) {
@@ -96,16 +108,20 @@ public class MeetingDetailActivity extends BaseActivity {
                 }
                 collectIcon.setText(meetingDetailBean.getFav_num());
             }
-            buyNum.setText(meetingDetailBean.getBuy_num());
+            buyNum.setText("报名");
             //判断报名的类型，是否可以报名
-            if("0".equals(meetingDetailBean.getType())){
+            if ("0".equals(meetingDetailBean.getType())) {
                 baomingContainer.setEnabled(true);
                 baomingContainer.setVisibility(View.VISIBLE);
-            }else if("1".equals(meetingDetailBean.getType())){
+                baoIcon.setImageResource(R.drawable.baoming);
+                //不可以报名
+            } else if ("1".equals(meetingDetailBean.getType())) {
                 baomingContainer.setVisibility(View.GONE);
-            }else if("2".equals(meetingDetailBean.getType())){
+                //已过期
+            } else if ("2".equals(meetingDetailBean.getType())) {
                 buyNum.setText("已过期");
-                buyNum.setTextColor(ContextCompat.getColor(this,R.color.text_color_light));
+                baoIcon.setImageResource(R.drawable.baoming_un);
+                buyNum.setTextColor(ContextCompat.getColor(this, R.color.text_color_light));
                 baomingContainer.setEnabled(false);
             }
             //加载网页
@@ -129,29 +145,33 @@ public class MeetingDetailActivity extends BaseActivity {
             collectIcon.setSelected(false);
             meetingDetailBean.setFav_num(String.valueOf(Integer.parseInt(meetingDetailBean.getFav_num()) - 1));
             collectIcon.setText(meetingDetailBean.getFav_num());
+        } else if (requestCode == RequestCode.CODE_6) {
+            Bundle bundle = new Bundle();
+            bundle.putString("id",id);
+            bundle.putString("title", meetingDetailBean.getTitle());
+            bundle.putString("price", meetingDetailBean.getPrice());
+            transUi(SignUpActivity.class, bundle);
         }
     }
-
     @Override
     protected void onStart() {
         super.onStart();
         setTitle("会议详情");
     }
 
-    @OnClick({R.id.zan_container, R.id.baoming_container, R.id.collect_container})
+    @OnClick({R.id.zan_container, R.id.baoming_container, R.id.collect_container,R.id.share_bt})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.zan_container:
-                if (AppUtil.chckeLogin(this, true)) {
+                if (AppUtil.chckeLogin(this, true)){
                     meetingInfoDao.addLike(AppUtil.getUserId(this), id);
                     showProgress(true);
                 }
                 break;
             case R.id.baoming_container:
-                if(AppUtil.chckeLogin(this,true)){
-                    Bundle bundle = new Bundle();
-                    bundle.putString("id", id);
-                    transUi(SignUpActivity.class, bundle);
+                if (AppUtil.chckeLogin(this, true)) {
+                    checkBoughtDao.checkBought(id, AppUtil.getUserId(this));
+                    showProgress(true);
                 }
                 break;
             case R.id.collect_container:
@@ -165,6 +185,22 @@ public class MeetingDetailActivity extends BaseActivity {
                     }
                 }
                 break;
+            case R.id.share_bt:
+                if(meetingDetailBean!=null) {
+                    ShareBean bean = new ShareBean();
+                    bean.setTitle(meetingDetailBean.getTitle());
+                    bean.setUrl(meetingDetailBean.getShare());
+                    bean.setImgUrl(Requst.BASE_IMG_URL+meetingDetailBean.getImg());
+                    bean.setDes(meetingDetailBean.getSubtitle());
+                    ShareUtil.getInstance(this).share(bean, this);
+                }
+                break;
         }
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode,resultCode,data);//完成回调
+    }
+
 }

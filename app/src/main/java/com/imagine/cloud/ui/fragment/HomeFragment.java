@@ -31,7 +31,6 @@ import io.reactivex.functions.Consumer;
  * ImagineCloudEducation
  * HomeFragment
  */
-
 public class HomeFragment extends BaseFragment {
 
     @InjectView(R.id.recycler_view)

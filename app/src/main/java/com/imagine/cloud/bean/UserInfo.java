@@ -33,6 +33,7 @@ public class UserInfo {
      * auth_apply_time : 0000-00-00 00:00:00
      * auth :
      * auth_fail_reason : 0
+     * type
      */
 
     private String school;
@@ -58,7 +59,15 @@ public class UserInfo {
     private String auth_apply_time;
     private String auth;
     private String auth_fail_reason;
+    private String type ;
 
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
+    }
     public String getSchool() {
         return school;
     }

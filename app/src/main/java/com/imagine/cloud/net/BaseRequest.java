@@ -1,17 +1,10 @@
 package com.imagine.cloud.net;
 
 import android.content.Context;
-
-import com.fasterxml.jackson.databind.JsonNode;
 import com.loopj.android.http.RequestParams;
 import com.orhanobut.logger.Logger;
 import com.runer.net.IDao;
 import com.runer.net.interf.INetResult;
-
-import org.json.JSONObject;
-
-import java.io.IOException;
-
 /**
  * Created by szhua on 2017/7/5/005.
  * github:https://github.com/szhua
@@ -28,12 +21,9 @@ public abstract class BaseRequest extends IDao {
     public void setPerPageCount(int perPageCount) {
         this.perPageCount = perPageCount;
     }
-
     public BaseRequest(Context context, INetResult iNetResult) {
         super(context, iNetResult);
     }
-
-
      public String getReqestUrl(NetInter netInter){
          return  "?c="+netInter.getC()+"&a="+netInter.getA();
      }

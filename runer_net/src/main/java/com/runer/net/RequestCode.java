@@ -32,7 +32,15 @@ public class RequestCode {
     public static  final int SET_MSG_READ =23;
     public static  final int  THIRD_LOGIN =24;
 
+    public static  final int WECHAT_PAY =25 ;
 
+    public static  final int BANK_PAY_GET_CODE =26 ;
+
+    public static  final int BANK_PAY =27 ;
+
+    public static final int RFUND =28 ;
+
+    public static  final int GET_USER_BANK =29 ;
 
 
 }

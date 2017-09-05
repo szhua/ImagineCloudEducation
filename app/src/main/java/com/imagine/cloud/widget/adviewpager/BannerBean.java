@@ -18,6 +18,13 @@ public class BannerBean {
     private String img;
     private String create_time;
     String type ;
+    /**
+     * id : 24
+     * mp_id : 75
+     */
+
+    private String id;
+    private String mp_id;
 
 
     public String getType() {
@@ -69,5 +76,21 @@ public class BannerBean {
                 ", create_time='" + create_time + '\'' +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getMp_id() {
+        return mp_id;
+    }
+
+    public void setMp_id(String mp_id) {
+        this.mp_id = mp_id;
     }
 }

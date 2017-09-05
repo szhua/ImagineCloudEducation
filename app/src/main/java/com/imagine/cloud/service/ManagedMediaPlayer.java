@@ -13,12 +13,9 @@ import java.io.IOException;
  */
 
 public class ManagedMediaPlayer extends MediaPlayer implements MediaPlayer.OnCompletionListener {
-
-
     public enum Status {
         IDLE, INITIALIZED, STARTED, PAUSED, STOPPED, COMPLETED
     }
-
     private Status mState;
 
     private OnCompletionListener mOnCompletionListener;

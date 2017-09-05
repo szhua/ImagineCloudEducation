@@ -9,14 +9,11 @@
 
     <include layout="@layout/header_layout"></include>
 
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-
-
           <LinearLayout
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -51,13 +48,14 @@
                   android:text="123456"
                   android:inputType="textPassword"
                   android:singleLine="true" />
+
+
               <View
                   style="@style/Divider_1dp"
                   android:layout_marginLeft="@dimen/common_left_right_margin"
                   android:layout_marginRight="@dimen/common_left_right_margin"></View>
 
               <TextView
-
                   android:id="@+id/login_bt"
                   style="@style/normal_bt_style"
                   android:layout_marginTop="@dimen/common30dp"
@@ -80,8 +78,6 @@
                       android:text="忘记密码？"
                       android:textColor="@color/text_color_theme"
                       android:textSize="@dimen/text_size_14sp" />
-
-
                   <TextView
                       android:id="@+id/register_bt"
                       android:layout_width="wrap_content"
@@ -107,8 +103,6 @@
                 android:layout_gravity="bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-
                 <TextView
                     style="@style/normal_text_view_content"
                     android:text="使用第三方登录"
@@ -117,14 +111,11 @@
                     android:layout_marginBottom="@dimen/common20dp"
                     android:textSize="@dimen/text_size_16sp"
                     />
-
-
              <LinearLayout
                  android:paddingLeft="@dimen/common_left_right_margin"
                  android:paddingRight="@dimen/common_left_right_margin"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content">
-
 
                  <TextView
                      android:id="@+id/wechat_login"
@@ -149,6 +140,7 @@
                      android:layout_height="wrap_content" />
 
                  <TextView
+                     android:visibility="gone"
                      android:id="@+id/sina_login"
                      style="@style/normal_text_view_content"
                      android:drawableTop="@drawable/reg_sina"
@@ -160,18 +152,7 @@
                      android:layout_height="wrap_content" />
              </LinearLayout>
 
-
-
-
             </LinearLayout>
 
-
-
         </FrameLayout>
-
-
-
-
-
-
 </LinearLayout>
